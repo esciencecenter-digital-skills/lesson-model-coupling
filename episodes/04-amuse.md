@@ -1,5 +1,5 @@
 ---
-title: "Model Coupling"
+title: "AMUSE"
 teaching: 10
 exercises: 2
 ---
