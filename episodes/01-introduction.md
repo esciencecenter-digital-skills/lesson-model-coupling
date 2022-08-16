@@ -32,12 +32,19 @@ These are closely connected concepts - after all, many computational models are 
 In short, "coupling" one computational model to another means that we pass information between the models in order to connect them into one big model. If the output of one model can be used as the input of another, for example, then it may be possible to couple them. The models must of course be compatible - at least one model must calculate something that can be used by the other model.
 
 ### An example: Making a coupled model of a flying aeroplane
-Imagine that we have two computational models: Model A and Model B. Model A simulates how an aeroplane moves in response to forces on its body. Model B simulates airflow around objects and calculates the forces generatedby that airflow. We could pass the shape, speed and rotation of the airplane as input to Model B, allowing it to calculate the forces on the plane. In turn, we could then pass the calculated forces back to Model A, allowing it to calculate the effect of the forces on the plane's speed, position and rotation. In this way we have _coupled_ the two models together, making a new, more complex computational model.
+Imagine that we have two computational models: Model A and Model B.
+Model A simulates how an aeroplane moves in response to forces on its body.
+Model B simulates airflow around objects and calculates the forces generatedby that airflow.
+We could pass the shape, speed and rotation of the airplane as input to Model B, allowing it to calculate the forces on the plane.
+In turn, we could then pass the calculated forces back to Model A, allowing it to calculate the effect of the forces on the plane's speed, position and rotation.
+In this way we have _coupled_ the two models together, making a new, more complex computational model. The two original models are _submodels_ of the coupled model.
+
+![Computational fluid dynamics solver applied to A380 aircraft. (Image: DLR, CC-BY 3.0) ](../fig/640px-DLR_2007_A380_sim_hires.jpg){alt='Computational fluid dynamics simulation of airflow over an aeroplane wing.'}
 
 ::::::::::::::::::::::::::::::::::::: challenge 
 
-### Exercise: Other systems
-Think of another physical system you might simulate. Can you think of how to break it down into two or more computational models that, when coupled together, simulate the overall system? Most importantly, consider what information would be passed from one model to the other.
+### Exercise: Breaking it down
+Think of another physical system you might simulate. Can you think of how to break it down into two or more computational submodels that, when coupled together, simulate the overall system? Most importantly, consider what information would be passed from one model to the other.
 
 :::::::::::::::::::::::: solution 
 
@@ -45,7 +52,7 @@ Think of another physical system you might simulate. Can you think of how to bre
 
 Weather forecasting
 
-Drug binding
+Drug binding:
 
 Stents in blood vessel
 
@@ -72,7 +79,6 @@ modularity
 :::::::::::::::::::::::::::::::::
 
 
-![Multiscale model image](figure url){alt='alt text for accessibility purposes'}
 
 
 ## Distributed computing
