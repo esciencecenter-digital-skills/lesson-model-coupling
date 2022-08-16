@@ -44,39 +44,40 @@ In this way we have _coupled_ the two models together, making a new, more comple
 ::::::::::::::::::::::::::::::::::::: challenge 
 
 ### Exercise: Breaking it down
-Think of another physical system you might simulate. Can you think of how to break it down into two or more computational submodels that, when coupled together, simulate the overall system? Most importantly, consider what information would be passed from one model to the other.
+Think of another system you might want to simulate.
+Can you think of how to break it down into two or more computational submodels?
+Most importantly, consider what information would be passed from one model to the other.
 
 :::::::::::::::::::::::: solution 
 
 ### Example solution
 
-Local climate-ecology: One model simulates the expected climate of a region of the Earth under certain vegetation/land use conditions. A separate model simulates the proliferation and behaviour of animals and vegetation in a given region under influence of various climatic conditions.
-
-Stent in a blood vessel: A computational fluid dynamics model (simulating the blood flow) through a metal alloy stent. The stresses created by the blood on the stent are passed to a mechanical model of the stent, and used to deform the stent accordingly. The current deformation state of the stent is passed to the blood flow model.
+- Local climate-ecology: One model simulates the expected climate of a region of the Earth under certain vegetation/land use conditions. A separate model simulates the proliferation and behaviour of animals and vegetation in a given region under influence of various climatic conditions.
+- Stent in a blood vessel: A computational fluid dynamics model (simulating the blood flow) through a metal alloy stent. The stresses created by the blood on the stent are passed to a mechanical model of the stent, and used to deform the stent accordingly. The current deformation state of the stent is passed to the blood flow model.
 
 :::::::::::::::::::::::::::::::::
 
 
 ## Why couple models together?
-It is common in computational science to have many different models for the same system. There are many reasons - wome may be more accurate (and therefore more computationally expensive), while others may implement different theoretical interactions. A scientist or engineer will combine different submodels together to run different computational experiments.
+It is generally simpler and cheaper to simulate a small part of a system, or specific physical interaction. Processes at different length or time scales are often subject to different forces, while they can neglect others. For example, a mechanical model of a car frame will not consider behaviour at the atomic scale, whereas a molecular dynamics simulation naturally must. Computational modelling is therefore often highly specialised.
+
+Furthermore, there can be an enormous number of different computational models even for the same problem, at the same length and time scales. Some models may be more accurate than others, or include newer theory etc. A scientist or engineer will combine different submodels together to run different computational experiments.
 
 ::::::::::::::::::::::::::::::::::::: challenge 
 
-### Why not monolothic?
-It is of course possible, and frequently the case, that a single monolithic computer program is created that simulates all aspects of a complex physical system.
+### Why bother? Let's just have one big model
+Rather than couple existing models together, it is of course possible to simply create a single, monolithic model that handles all of the interactions within it. Can you think of reasons why we would not want to do that?
 
 :::::::::::::::::::::::: solution 
 
 ### Solution
-
-Performance
-Ease of swapping new, different models in and out
-Separation of concerns
-modularity
+- Code re-use: If a model already exists then ideally you should reuse it, rather than re-invent the wheel.
+- Separation of concerns: The submodel does 'one thing and does it well' (hopefully). The modularity of keeping code separate in this way can really help with long term maintenance of a large comple simulation model. This is particularly obvious when models simulate processes that happen on totally different and non-overlapping length and time scales.
+- Speed of building new models: If people can construct a complex model out of smaller, highly tested and optimised building blocks, then the task is a lot less laborious.
+- Ease of swapping new, different models in and out. If a new, faster or more accurate implementation of a model is released, you want to be able to swap out an existing submodel for it. Having everything in a single monolithic code can lead to a tangled mess that is harder to refactor. In many cases it will just not be worth the time to refactor the existing simulation code, and people will write a new one, or not try the new model at all.
+- Performance: A model coupling approach often makes it easier to exploit the massive parallelism of supercomputers.
 
 :::::::::::::::::::::::::::::::::
-
-
 
 
 ## Distributed computing
