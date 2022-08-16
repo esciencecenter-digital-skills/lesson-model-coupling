@@ -1,7 +1,7 @@
 ---
 title: "Introduction to model coupling"
 teaching: 30
-exercises: 10
+exercises: 20
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
@@ -15,7 +15,7 @@ exercises: 10
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain the benefits and downsides of coupling simulation models
+- Explain the benefits of coupling simulation models
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -80,15 +80,9 @@ Rather than couple existing models together, it is of course possible to simply 
 :::::::::::::::::::::::::::::::::
 
 
-## Distributed computing
-
-Supercomputers have lots of cores
-We can use these to run more quickly
-Without supercomputers, weather forecasts would take forever
-
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
-- Crossing scales
+- Crossing the scales
 - Modularity
 - Flexibility
 - Performance
