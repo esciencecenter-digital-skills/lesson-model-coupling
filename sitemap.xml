@@ -1,33 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/01-introduction.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/01-introduction.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/CODE_OF_CONDUCT.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/LICENSE.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/index.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/aio.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/01-introduction.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/images.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/CODE_OF_CONDUCT.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/index.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/LICENSE.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/01-introduction.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/index.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/CODE_OF_CONDUCT.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/instructor/profiles.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://carpentries.github.io/workbench-template-md/profiles.html</loc>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/aio.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/images.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/profiles.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/key-points.html</loc>
+  </url>
+  <url>
+    <loc>https://esciencecenter-digital-skills.github.io/model-coupling-workshop/profiles.html</loc>
   </url>
 </urlset>
