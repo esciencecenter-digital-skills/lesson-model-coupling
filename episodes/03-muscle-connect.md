@@ -1,19 +1,19 @@
 ---
-title: "MUSCLE3"
-teaching: 10
+title: "MUSCLE3 - connecting a model to MUSCLE"
+teaching: 60
 exercises: 2
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
 
-- How do you write a lesson using Markdown and `{sandpaper}`?
+- How do you connect an exisiting model code to MUSCLE3?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Explain how to use markdown with The Carpentries Workbench
-- Demonstrate how to include pieces of code, figures, and nested challenge blocks
+- 
+- 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -50,6 +50,10 @@ What is the output of this command?
 
 ```r
 paste("This", "new", "lesson", "looks", "good")
+```
+
+```python
+print("This", "new", "lesson", "looks", "good")
 ```
 
 :::::::::::::::::::::::: solution 
