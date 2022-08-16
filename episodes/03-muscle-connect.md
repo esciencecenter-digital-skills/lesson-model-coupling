@@ -27,11 +27,13 @@ MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe
 
 We continue with the reaction-diffusion model example from the previous episode and in this episode we will connect a 1-dimensional implementation of the reaction model to the MUSCLE3 library.
 
+In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are asociated with . 
+
 ::::::::::::::::::::::::::::::::::::: challenge
 
 ## Challenge 1: Can you recognize the Submodel execution loop?
-In the previous episode we have discussed the Submodel Execution Loop (SEL). 
-Open the file called reaction.py. Can you recognize the various operators (F_INIT, S and O_F) and the state update loop in this submodel? 
+Open the file called reaction.py. Can you recognize the beginning and end of the various operators (F_INIT, S and O_F) and the state update loop in this submodel? Mark them with comments in the code. 
+What about the O_I operator?
 
 ```python
 def reaction(initial_state):
@@ -71,6 +73,9 @@ def reaction(initial_state):
 
     # begin state_update_loop
     while t_cur + dt < t_max:
+        # begin O_I
+        # end O_I
+
         # begin S
         U += k * U * dt
         t_cur += dt
@@ -81,7 +86,7 @@ def reaction(initial_state):
     return t_cur
     # end O_F
 ```
-
+The Submodel Execution Loop specifies another operator within the state update loop, which is called O_I and comes before S. This operator provides for observations of intermediate states. In other words, here is where you can send a message to the outside world with (part of) the current state. In this case, the O_I operator is empty; we’re not sending anything.
 :::::::::::::::::::::::::::::::::
 
 
