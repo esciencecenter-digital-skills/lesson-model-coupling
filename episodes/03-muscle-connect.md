@@ -4,64 +4,82 @@ teaching: 60
 exercises: 2
 ---
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
-- How do you connect an exisiting model code to MUSCLE3?
+- How do you connect an existing python model code to MUSCLE3?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- 
-- 
+- Identify the inputs and outputs of your submodel and link them to ports
+- Recognize the Submodel Execution Loop structure in your code
+- Learn to connect your own model to the MUSCLE3 library
+- Run a single uncoupled model using the MUSCLE3 manager
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output. 
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
+MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environment. Its purpose is to make creating coupled multiscale simulations easy, and to then enable efficient Uncertainty Quantification of such models using advanced semi-intrusive algorithms.
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
+MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe the structure of a multiscale model and you will notice that the terminology in MUSCLE3 closely links to what you have learned in the previous episode about MMSF.
 
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
+We continue with the reaction-diffusion model example from the previous episode and in this episode we will connect a 1-dimensional implementation of the reaction model to the MUSCLE3 library.
 
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
+::::::::::::::::::::::::::::::::::::: challenge
 
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
+## Challenge 1: Can you recognize the Submodel execution loop?
+In the previous episode we have discussed the Submodel Execution Loop (SEL). 
+Open the file called reaction.py. Can you recognize the various operators (F_INIT, S and O_F) and the state update loop in this submodel? 
 
 ```python
-print("This", "new", "lesson", "looks", "good")
+def reaction(initial_state):
+    """A simple exponential reaction model on a 1D grid.
+    """
+    t_max = 2.469136e-6
+    dt = 2.469136e-8
+    k = -4.05e4
+
+    U = initial_state
+
+    t_cur = 0
+    while t_cur + dt < t_max:
+        U += k * U * dt
+        t_cur += dt
+
+    return U
 ```
 
-:::::::::::::::::::::::: solution 
+:::::::::::::::::::::::: solution
 
-## Output
- 
-```output
-[1] "This new lesson looks good"
+## Solution
+
+```python
+def reaction(initial_state):
+    """A simple exponential reaction model on a 1D grid.
+    """
+    # begin F_INIT
+    t_max = 2.469136e-6
+    dt = 2.469136e-8
+    k = -4.05e4
+
+    U = initial_state
+
+    t_cur = 0
+    # end F_INIT
+
+    # begin state_update_loop
+    while t_cur + dt < t_max:
+        # begin S
+        U += k * U * dt
+        t_cur += dt
+        # end S
+    # end state_update_loop
+
+    # begin O_F
+    return t_cur
+    # end O_F
 ```
 
 :::::::::::::::::::::::::::::::::
