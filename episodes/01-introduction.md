@@ -50,11 +50,9 @@ Think of another physical system you might simulate. Can you think of how to bre
 
 ### Example solution
 
-Weather forecasting
+Local climate-ecology: One model simulates the expected climate of a region of the Earth under certain vegetation/land use conditions. A separate model simulates the proliferation and behaviour of animals and vegetation in a given region under influence of various climatic conditions.
 
-Drug binding:
-
-Stents in blood vessel
+Stent in a blood vessel: A computational fluid dynamics model (simulating the blood flow) through a metal alloy stent. The stresses created by the blood on the stent are passed to a mechanical model of the stent, and used to deform the stent accordingly. The current deformation state of the stent is passed to the blood flow model.
 
 :::::::::::::::::::::::::::::::::
 
