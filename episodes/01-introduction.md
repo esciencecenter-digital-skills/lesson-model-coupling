@@ -57,7 +57,7 @@ Most importantly, consider what information would be passed from one model to th
 ### Example solution
 
 - Local climate-ecology: One model simulates the expected climate of a region of the Earth under certain vegetation/land use conditions. A separate model simulates the proliferation and behaviour of animals and vegetation in a given region under influence of various climatic conditions.
-- Stent in a blood vessel: A computational fluid dynamics model (simulating the blood flow) through a metal alloy stent. The stresses created by the blood on the stent are passed to a mechanical model of the stent, and used to deform the stent accordingly. The current deformation state of the stent is passed to the blood flow model.
+- Stent in a blood vessel: There is a computational fluid dynamics model (simulating the blood flow) through a stent. A separate model is modelling the growth of scar tissue, that covers the stent as the artery wall heals. The stresses created by the blood on the stent and tissue affect how it grows. In turn, the new, narrowed arterial wall needs to be passed back to the blood flow model, since new tissue will affect the flow.
 
 :::::::::::::::::::::::::::::::::
 ::::::::::::::::::::::::::::::::::::::::::::::::
