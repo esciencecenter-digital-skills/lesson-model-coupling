@@ -60,7 +60,7 @@ Most importantly, consider what information would be passed from one model to th
 - Stent in a blood vessel: A computational fluid dynamics model (simulating the blood flow) through a metal alloy stent. The stresses created by the blood on the stent are passed to a mechanical model of the stent, and used to deform the stent accordingly. The current deformation state of the stent is passed to the blood flow model.
 
 :::::::::::::::::::::::::::::::::
-
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Why couple models together?
 It is generally simpler and cheaper to simulate a small part of a system, or specific physical interaction. Processes at different length or time scales are often subject to different forces, while they can neglect others. For example, a mechanical model of a car frame will not consider behaviour at the atomic scale, whereas a molecular dynamics simulation naturally must. Computational modelling is therefore often highly specialised.
@@ -82,7 +82,7 @@ Rather than couple existing models together, it is of course possible to simply 
 - Performance: A model coupling approach often makes it easier to exploit the massive parallelism of supercomputers.
 
 :::::::::::::::::::::::::::::::::
-
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints 
 
