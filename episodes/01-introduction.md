@@ -26,7 +26,7 @@ Computer simulations are widely used in modern science to understand and predict
 For this course, it is important to distinguish between a _mathematical_ model, and a _computational_ model.
 A mathematical model refers to the set of mathematical equations that describe the evolution of a given physical system.
 The computational model refers to the actual computer program that describes the evolution of a physical system.
-These are closely connected concepts - after all, many computational models are just solving a given mathematical model numerically. However, the distinction is important. Some computational models can be simulating many different aspects of a physical system, which could involve solving many different mathematical models.
+These are closely connected concepts - after all, many computational models are just solving a given mathematical model numerically. However, the distinction is important. Some computational models can be simulating many different aspects of a physical system, which could involve solving many different mathematical models. The process of making sure that a computational model is solving the mathematical model you think it is, is called _verification_.
 
 ## What is model coupling?
 In short, "coupling" one computational model to another means that we pass information between the models in order to connect them into one big model. If the output of one model can be used as the input of another, for example, then it may be possible to couple them. The models must of course be compatible - at least one model must calculate something that can be used by the other model.
