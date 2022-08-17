@@ -43,6 +43,8 @@ We could pass the shape, speed and rotation of the airplane as input to Model B,
 In turn, we could then pass the calculated forces back to Model A, allowing it to calculate the effect of the forces on the plane's speed, position and rotation.
 In this way we have _coupled_ the two models together, making a new, more complex computational model. The two original models are _submodels_ of the coupled model.
 
+![Models A and B for the plane coupling example](../fig/ep01-plane-model-coupling.png){alt='One box labelled Model A and another box labelled Model B. There is an arrow between A and B showing transfer of plane shape. There is an arrow from B to A showing transfer of resulting airflow stresses.'}
+
 ::::::::::::::::::::::::::::::::::::: challenge 
 
 ### Exercise: Breaking it down
