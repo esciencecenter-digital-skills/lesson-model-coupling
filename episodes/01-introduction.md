@@ -20,7 +20,12 @@ exercises: 20
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ## Introduction
-Computer simulations are widely used in modern science to understand and predict the behaviour of natural systems. The computer program that simulates the system is referred to as a "model" of that system. Some models may be very simple e.g. describing the evolution of a 1 dimensional system. Others may be highly complex, involving many different physical processes. A well known use of computer simulation is in the field of weather forecasting, in which a very complex model composed of a multitude of different physical processes must be simulated by a computer program, generally requiring powerful supercomputers. The computer program that simulates a given physical system is known as a _model_ of that system. A given climate simulation code is a _model_ of the Earth's climate, for example.
+Computer simulations are widely used in modern science to understand and predict the behaviour of natural systems.
+The computer program that simulates a given physical system is referred to as a _model_ of that system.
+For example, a climate simulation code is a _model_ of the Earth's climate.
+Some models may be very simple e.g. describing the evolution of a 1 dimensional system.
+Others may be highly complex, involving many different physical processes.
+A well known use of computer simulation is in the field of weather forecasting, in which a very complex model composed of a multitude of different physical processes must be simulated by a computer program, generally requiring powerful supercomputers.
 
 ## Mathematical model vs computational model
 For this course, it is important to distinguish between a _mathematical_ model, and a _computational_ model.
