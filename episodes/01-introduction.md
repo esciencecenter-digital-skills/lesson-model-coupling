@@ -7,7 +7,7 @@ exercises: 20
 :::::::::::::::::::::::::::::::::::::: questions 
 
 - What is meant by a "model"?
-- What is the difference between a mathematical model and a submodel?
+- What is the difference between a mathematical model and a computational model?
 - What is model coupling?
 - Why would we want to couple simulation models?
 
