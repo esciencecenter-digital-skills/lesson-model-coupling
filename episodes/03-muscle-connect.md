@@ -1,7 +1,7 @@
 ---
 title: "MUSCLE3 - connecting a model to MUSCLE"
 teaching: 60
-exercises: 4
+exercises: 5
 ---
 
 ::: questions
@@ -356,7 +356,7 @@ libmuscle.Instance.send('final_state', final_message)
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
-## Exercise 4: Send back the result
+## Exercise 5: Send back the result
 
 In the $O_F$ operator of your model construct a message and replace the return statement with a call to `libmuscle.Instance.send()` to send the final state to the outside world.
 
