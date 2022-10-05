@@ -34,7 +34,7 @@ MUSCLE3 consist of three components:
 
 We continue with the reaction-diffusion model example that we used in the previous episode and in this episode we will connect an implementation of the reaction model to the MUSCLE3 library step by step.
 
-## Disect your model
+## Dissect your model
 
 In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are associated with it.
 
@@ -42,7 +42,17 @@ In the previous episode we have discussed the Submodel Execution Loop (SEL) and 
 
 ## Exercise 1: Can you recognize the Submodel Execution Loop?
 
-Open the file called reaction.py in a text editor. Can you recognize the beginning and end of the four operators ($F_{init}$, $O_I$, $S$ and $O_F$ ) plus the state update loop in this submodel? Mark them with comments in the code (e.g. `# begin F_init`, 10 comments in total).
+Open the file called reaction.py in a text editor (see below for code). Can you recognize the beginning and end of the four operators ($F_{init}$, $O_I$, $S$ and $O_F$ ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:
+- `# begin F_INIT`
+- `# end F_INIT`
+- `# begin O_I`
+- `# end O_I`
+- `# begin S`
+- `# end S`
+- `# begin state_update_loop`
+- `# end state_update_loop`
+- `# begin O_F`
+- `# end O_F`
 
 ```python
 def reaction(initial_state: np.array) -> np.array:
@@ -98,14 +108,14 @@ def reaction(initial_state: np.array) -> np.array:
     # end O_F
 ```
 
-The Submodel Execution Loop specifies two operators within the state update loop. $O_I$ and comes before $S$ and you can use it to send a message to the outside world with (part of) the current state. In this case, the $O_I$ operator is empty; we are not sending or storing any intermediate states. The original type annotations in the function definition serve the same purpose but we will be losing these once we are done connecting the model to MUSCLE.
+The Submodel Execution Loop specifies two operators within the state update loop. $O_I$ comes before $S$ and you can use it to send a message to the outside world with (part of) the current state. In this case, the $O_I$ operator is empty; we are not sending or storing any intermediate states. The original type annotations in the function definition serve the same purpose but we will be losing these once we are done connecting the model to MUSCLE.
 :::::
 
 :::
 
 ## The constructor
 
-To let a model communicate with the muscle manager, other submodels and the outside world we need to create a `libmuscle.Instance` object:
+To let a model communicate with the muscle manager, other submodels and the outside world, we need to create a `libmuscle.Instance` object:
 
 ```python
 from libmuscle import Instance
@@ -148,7 +158,7 @@ In multiscale simulations, submodels often have to run multiple times, for insta
 
 ::: challenge
 
-## Exercise 2: Constructing your submodel
+## Exercise 2: The MUSCLE constructor
 
 Add the following to our reaction model code:
 
@@ -204,7 +214,7 @@ Note that the type of data that is sent is documented in a comment. This is obvi
 
 ## Settings
 
-Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). We would like to control these settings centrally suing the MUSCLE manager when starting up the coupled simulation so we don't have to change it in our model code every time if we want to try a range of values for instance to perform a sensitivity analysis. We can use the `libmuscle.Instance.get_setting` function instead to ask the MUSCLE manager for the values. The values, or ranges of values, should be recorded in the configuration file which we will cover in the next chapter.
+Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). We would like to control these settings centrally using the MUSCLE manager when starting up the coupled simulation so we don't have to change it in our model code every time if we want to try a range of values (for instance, to perform a sensitivity analysis). We can use the `libmuscle.Instance.get_setting` function instead to ask the MUSCLE manager for the values. The values, or ranges of values, should be recorded in the configuration file which we will cover in the next chapter.
 
 ```python
     some_variable = instance.get_setting('variable_name', 'variable_type')
@@ -217,11 +227,11 @@ The second argument, which specifies the expected type, is optional. If it is gi
 ::: challenge
 
 ## Exercise 3: 
-In our example several settings have been hard-coded into the model:
+In our example, several settings have been hard-coded into the model:
 
-- the total simulation time to run this sub-model `tmax`
-- the time step to use `dt`
-- and the model parameter `k`
+- the total simulation time to run this sub-model, `tmax`
+- the time step to use, `dt`
+- and the model parameter, `k`
 
 Change the code such that we request these settings from the MUSCLE manager.
 
@@ -262,7 +272,7 @@ Note that getting settings needs to happen within the reuse loop; doing it befor
 ## Receiving messages
 Apart from settings, we can use the `libmuscle.Instance.receive` function to receive an initial state for this submodel on the `initial_state` port. Note that we have declared that port above, and declared it to be associated with the `F_INIT` operator. During `F_INIT`, messages can only be received, not sent, so that declaration makes `initial_state` a receiving port.
 
-The message that we will receive can contain several pieces of information. For now, we are interested in the `data` and `timestamp` attributes. We assume the data to be a grid of floats containing our initial state and the time stamp tells us the simulated time at which this state is valid. We can store receive a message and store the `data` and `timestamp` attributes in the following way:
+The message that we will receive can contain several pieces of information. For now, we are interested in the `data` and `timestamp` attributes. We assume the data to be a grid of floats containing our initial state and the time stamp tells us the simulated time at which this state is valid. We can receive a message and store the `data` and `timestamp` attributes in the following way:
 
 ```python
     msg = instance.receive('initial_state')
@@ -279,11 +289,11 @@ The `timestamp` attribute is a double precision float containing the number of s
 
 ## State update loop
 
-The actual state update happens in the operator $S$ in the Submodel Execution Loop, and in our example model, it is determined entirely by the current state. Since no information from outside is needed, we do not receive any messages, and in our `libmuscle.Instance` declaration above, we did not declare any ports associated with `Operator.S`. 
+The actual state update happens in the operator $S$ in the Submodel Execution Loop and, in our example model, it is determined entirely by the current state. Since no information from outside is needed, we do not receive any messages, and in our `libmuscle.Instance` declaration above, we did not declare any ports associated with `Operator.S`. 
 
 The operator `O_I` provides for observations of intermediate states. In other words, here is where you can send a message to the outside world with (part of) the current state. In this case, the `O_I` operator is empty; we’re not sending anything.
 
-One thing we need to be aware of is time. Most models depend on time in some way and it is good to be aware of the various time frames. MUSCLE3 enables passing on timestamps 
+One thing we need to be aware of is time. Most models depend on time in some way and it is good to be aware of the various time frames. Libmuscles messages support passing on timestamps to be able to keep track of the global simulation time of the coupled model. It is easier to keep track of only one time frame and it is therefore good practice to add the timestamp that accompanied the initial state to the sub-model simulation time steps instead of starting at zero for every sub-model instance. 
 
 :::challenge
 
@@ -341,14 +351,14 @@ We convert our `numpy.array` explicitly into a `libmuscle.Grid object`, so that 
 Note that grids (and NumPy arrays) are much more efficient than lists and dictionaries. If you have a lot of data to send, then you should use those as much as possible. For example, a set of agents is best sent as a dictionary of 1D NumPy arrays, with one array/grid for each attribute. A list of dictionaries will be quite a bit slower and use a lot more memory, but it should work up to a million or so objects.
 :::
 
-The optional second parameter is a second timestamp, which is only used in [more advance applications](https://muscle3.readthedocs.io/en/latest/tutorial.html#message-timestamps) and can be set to `None` here.
+The optional second parameter is a second timestamp, which is only used in [more advanced applications](https://muscle3.readthedocs.io/en/latest/tutorial.html#message-timestamps) and can be set to `None` here.
 
 ```python
 from libmuscle import Grid, Message
 my_message = Message(my_timestamp, None, Grid(my_state, ['x']))
 ```
 
-To send the message we specify the port on which to send which again needs to match the declaration.
+To send the message we specify the port on which to send, which again needs to match the declaration.
 
 ```python
 libmuscle.Instance.send('final_state', final_message)
@@ -412,7 +422,7 @@ Right now your sub-model is ready to be used by the muscle manager. We will coup
 ::: keypoints
 
 - MUSCLE3 implements the MMSF theory, using the same terminology and MMSL for configuration of the coupled simulation
-- First analyze your code to    find the Submodel Execution Loop structure
+- First analyze your code to find the Submodel Execution Loop structure
 - MUSCLE lets the submodels communicate through messages, containing model states and simulation times
 
 ::::::::::::::
