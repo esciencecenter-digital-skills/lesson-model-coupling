@@ -32,7 +32,7 @@ MUSCLE3 consist of three components:
 
 **ymmsl-python** is a Python library that contains class definitions to represent an MMSL model description. A yMMSL file serves as the interface between us (humans) and the muscle manager and is meant to describe the multiscale simulation and tell the muscle manager what to do.
 
-We continue with the reaction-diffusion model example that we used the previous episode and in this episode we will connect an implementation of the reaction model to the MUSCLE3 library step by step.
+We continue with the reaction-diffusion model example that we used in the previous episode and in this episode we will connect an implementation of the reaction model to the MUSCLE3 library step by step.
 
 ## Disect your model
 
