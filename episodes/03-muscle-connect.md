@@ -375,7 +375,6 @@ To send a message we first have to construct a `libmuscle.Message` object contai
 
 We convert our `numpy.array` explicitly into a `libmuscle.Grid object`, so that we can add the name of the dimensions. In our example case there is only one, and "x" is not very descriptive, so we could have also passed the array directly, in which case MUSCLE would have done the conversion for us and sent a `libmuscle.Grid` without index names automatically.
 
-Note that grids (and NumPy arrays) are much more efficient than lists and dictionaries. If you have a lot of data to send, then you should use those as much as possible. For example, a set of agents is best sent as a dictionary of 1D NumPy arrays, with one array/grid for each attribute. A list of dictionaries will be quite a bit slower and use a lot more memory, but it should work up to a million or so objects.
 :::
 
 The optional second parameter is a second timestamp, which is only used in [more advanced applications](https://muscle3.readthedocs.io/en/latest/tutorial.html#message-timestamps) and can be set to `None` here.
