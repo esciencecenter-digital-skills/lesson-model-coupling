@@ -43,6 +43,7 @@ In the previous episode we have discussed the Submodel Execution Loop (SEL) and 
 ## Exercise 1: Can you recognize the Submodel Execution Loop?
 
 Open the file called reaction.py in a text editor (see below for code). Can you recognize the beginning and end of the four operators ($F_{init}$, $O_I$, $S$ and $O_F$ ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:
+
 - `# begin F_INIT`
 - `# end F_INIT`
 - `# begin O_I`
@@ -267,6 +268,7 @@ def reaction(initial_state: np.array) -> np.array:
 Note that getting settings needs to happen within the reuse loop; doing it before can lead to incorrect results.
 
 ::::::
+
 :::
 
 ## Receiving messages
@@ -303,7 +305,7 @@ Where previously we had received `initial_state` from the function call, we now 
 
 Also make sure the state update loop tracks global simulation time (corrected by the received timestamp).
 
-::: solution
+:::::: solution
 
 ```python
 from libmuscle import Instance
@@ -364,13 +366,13 @@ To send the message we specify the port on which to send, which again needs to m
 libmuscle.Instance.send('final_state', final_message)
 ```
 
-::::::::::::::::::::::::::::::::::::: challenge
+::: challenge
 
 ## Exercise 5: Send back the result
 
 In the $O_F$ operator of your model construct a message and replace the return statement with a call to `libmuscle.Instance.send()` to send the final state to the outside world.
 
-::: solution
+:::::: solution
 
 ```python
 from libmuscle import Instance, Grid, Message
@@ -414,8 +416,8 @@ def reaction():
         # end O_F
 ```
 
-::::::::::::
-:::::::::::::
+::::::
+:::
 
 Right now your sub-model is ready to be used by the muscle manager. We will couple it to another submodel and configure it to run the coupled simulation in the next chapter.
 
@@ -425,4 +427,4 @@ Right now your sub-model is ready to be used by the muscle manager. We will coup
 - First analyze your code to find the Submodel Execution Loop structure
 - MUSCLE lets the submodels communicate through messages, containing model states and simulation times
 
-::::::::::::::
+:::
