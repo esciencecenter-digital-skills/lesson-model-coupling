@@ -201,7 +201,7 @@
 <div class="accordion accordion-flush" id="accordionFlush4">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading4">
-        <a href="03-muscle3.html">3. MUSCLE3</a>
+        <a href="03-muscle-connect.html">3. MUSCLE3 - connecting a model to MUSCLE</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -213,7 +213,7 @@
 <div class="accordion accordion-flush" id="accordionFlush5">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading5">
-        <a href="04-amuse.html">4. AMUSE</a>
+        <a href="04-muscle-couple.html">4. MUSCLE3 - coupling and running</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -346,7 +346,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul>
 <li>Local climate-ecology: One model simulates the expected climate of a region of the Earth under certain vegetation/land use conditions. A separate model simulates the proliferation and behaviour of animals and vegetation in a given region under influence of various climatic conditions.</li>
@@ -381,7 +381,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <ul>
 <li>Code re-use: If a model already exists then ideally you should reuse it, rather than re-invent the wheel.</li>
@@ -418,316 +418,6 @@ any links that you are not going to use.
 </section></section><section id="aio-02-theory"><p>Content from <a href="02-theory.html">Theory</a></p>
 <hr>
 <p> Last updated on 2022-08-16 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/02-theory.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Explain how to use markdown with The Carpentries Workbench</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h2>
-<hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a> for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files that can render code into output. Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a valid Carpentries lesson:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Instructor Note
-  </h3>
-</button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
-<div class="accordion-body">
-<p>Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the “Instructor View”</p>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge1" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
-</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Output
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge2" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
-</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Show me the solution
-  </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section id="figures"><h2 class="section-heading">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can use standard markdown for static figures with the following syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure></section><section id="math"><h2 class="section-heading">Math<a class="anchor" aria-label="anchor" href="#math"></a>
-</h2>
-<hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li>Use <code>.md</code> files for episodes when you want static content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
-</ul>
-</div>
-</div>
-</div>
-<!-- 
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use. 
- -->
-</section></section><section id="aio-03-muscle3"><p>Content from <a href="03-muscle3.html">MUSCLE3</a></p>
-<hr>
-<p> Last updated on 2022-08-16 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle3.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
-<div class="text-end">
-          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
-        </div>
-<div class="overview card">
-<h2 class="card-header">Overview</h2>
-<div class="row g-0">
-<div class="col-md-4">
-<div class="card-body">
-<div class="inner">
-<h3 class="card-title">Questions</h3>
-<ul>
-<li>How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="col-md-8">
-<div class="card-body">
-<div class="inner bordered">
-<h3 class="card-title">Objectives</h3>
-<ul>
-<li>Explain how to use markdown with The Carpentries Workbench</li>
-<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
-</h2>
-<hr class="half-width">
-<p>This is a lesson created via The Carpentries Workbench. It is written in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a> for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files that can render code into output. Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The Carpentries Workbench</a> for full documentation.</p>
-<p>What you need to know is that there are three sections required for a valid Carpentries lesson:</p>
-<ol style="list-style-type: decimal">
-<li>
-<code>questions</code> are displayed at the beginning of the episode to prime the learner for the content.</li>
-<li>
-<code>objectives</code> are the learning objectives for an episode displayed with the questions.</li>
-<li>
-<code>keypoints</code> are displayed at the end of the episode to reinforce the objectives.</li>
-</ol>
-<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
-  <h3 class="accordion-header" id="headingInstructor1">
-  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
-  Instructor Note
-  </h3>
-</button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
-<div class="accordion-body">
-<p>Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the “Instructor View”</p>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge1" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-1-can-you-do-it" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you do it?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
-</h3>
-<div class="callout-content">
-<p>What is the output of this command?</p>
-<div class="codewrapper sourceCode" id="cb1">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Output
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="challenge2" class="callout challenge">
-<div class="callout-square">
-<i class="callout-icon" data-feather="zap"></i>
-</div>
-<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
-<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
-</h3>
-<div class="callout-content">
-
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  Show me the solution
-  </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
-</div>
-</div>
-</div>
-</div>
-</section><section id="figures"><h2 class="section-heading">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
-</h2>
-<hr class="half-width">
-<p>You can use standard markdown for static figures with the following syntax:</p>
-<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure></section><section id="math"><h2 class="section-heading">Math<a class="anchor" aria-label="anchor" href="#math"></a>
-</h2>
-<hr class="half-width">
-<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
-<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
-<p>Cool, right?</p>
-<div id="keypoints1" class="callout keypoints">
-<div class="callout-square">
-<i class="callout-icon" data-feather="key"></i>
-</div>
-<div class="callout-inner">
-<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li>Use <code>.md</code> files for episodes when you want static content</li>
-<li>Use <code>.Rmd</code> files for episodes when you need to generate output</li>
-<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
-<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
-</ul>
-</div>
-</div>
-</div>
-<!-- 
-Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use. 
- -->
-</section></section><section id="aio-04-amuse"><p>Content from <a href="04-amuse.html">AMUSE</a></p>
-<hr>
-<p> Last updated on 2022-08-16 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/04-amuse.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 12 minutes </p>
 <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
@@ -880,6 +570,743 @@ any links that you are not going to use.
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
+</section></section><section id="aio-03-muscle-connect"><p>Content from <a href="03-muscle-connect.html">MUSCLE3 - connecting a model to MUSCLE</a></p>
+<hr>
+<p> Last updated on 2022-10-07 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 65 minutes </p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do you connect an existing python model code to MUSCLE3?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Identify the inputs and outputs of your submodel and link them to ports</li>
+<li>Recognize the Submodel Execution Loop structure in your code</li>
+<li>Learn to connect a simple model to the MUSCLE3 library</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environment. Its purpose is to make creating coupled multiscale simulations easy, and to then enable efficient Uncertainty Quantification of such models using advanced semi-intrusive algorithms.</p>
+<p>MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe the structure of a multiscale model and you will notice that the terminology in MUSCLE3 closely links to what you have learned in the previous episode about MMSF.</p>
+<p>MUSCLE3 consist of three components:</p>
+<p><strong>libmuscle</strong> is a library that is used to connect component intances (e.g new or existing submodels) to a coupled simulation.</p>
+<p><strong>muscle_manager</strong> is the central manager of MUSCLE3 that starts up submodels and coordinates their interaction.</p>
+<p><strong>ymmsl-python</strong> is a Python library that contains class definitions to represent an MMSL model description. A yMMSL file serves as the interface between us (humans) and the muscle manager and is meant to describe the multiscale simulation and tell the muscle manager what to do.</p>
+<p>We continue with the reaction-diffusion model example that we used in the previous episode and in this episode we will connect an implementation of the reaction model to the MUSCLE3 library step by step.</p>
+</section><section id="dissect-your-model"><h2 class="section-heading">Dissect your model<a class="anchor" aria-label="anchor" href="#dissect-your-model"></a>
+</h2>
+<hr class="half-width">
+<p>Open the file called reaction.py from the data folder that you downloaded in the setup section in a text editor. It contains a function called <code>reaction</code> that requires a <code>numpy.array</code> as input and returns another after doing some operations.</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reaction(initial_state: np.array) <span class="op">-&gt;</span> np.array:</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">    ...</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    t_max <span class="op">=</span> <span class="fl">2.469136e-6</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> <span class="fl">2.469136e-8</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="op">-</span><span class="fl">4.05e4</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> initial_state.copy()</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    t_cur <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> t_cur <span class="op">+</span> dt <span class="op">&lt;</span> t_max:</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        U <span class="op">+=</span> k <span class="op">*</span> U <span class="op">*</span> dt</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        t_cur <span class="op">+=</span> dt</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> U</span></code></pre>
+</div>
+<p>The function starts with defining some parameters that are used for the calculations in the main <code>while</code> loop. The <code>initial_state</code> is copied to a new working state <code>U</code> before the simulation starts.</p>
+<div id="callout1" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="why-.copy" class="callout-inner">
+<h3 class="callout-title">Why .copy()?<a class="anchor" aria-label="anchor" href="#callout1"></a>
+</h3>
+<div class="callout-content">
+<p>Instead of using <code>.copy()</code>, we could also just assign <code>U</code> to equal the initial state (e.g. <code>U = initial_state</code>). For this particular example it would not matter since we do not use <code>initial_state</code> anymore. But if we did that, we would change the contents of <code>initial_state</code> every time we do an operation on <code>U</code>, because both variables would point to the same object. Since the variable is called <code>initial_state</code> it would be very confusing if it would change during the model execution. When you want to expand or change the model later on, it can be dangerous if variables do not behave as their name suggests.</p>
+</div>
+</div>
+</div>
+<p>At every iteration of the loop, the state <code>U</code> is updated by adding a fraction of the old state, scaled by the parameter k and the size of a time step. Also the time counter <code>t_cur</code> is incremented with one time step. The <code>while</code> loop continues to run until <code>t_cur</code> has reached the value of the parameter <code>t_max</code>. Finally, when it exits the loop, the function returns the updated state <code>U</code>.</p>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-1-can-you-recognize-the-submodel-execution-loop" class="callout-inner">
+<h3 class="callout-title">Exercise 1: Can you recognize the Submodel Execution Loop?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
+<div class="callout-content">
+<p>In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are associated with it. In the code of the <code>reaction</code> function, can you recognize the beginning and end of the four operators (<span class="math inline">\(F_{init}\)</span>, <span class="math inline">\(O_I\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_F\)</span> ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:</p>
+<ul>
+<li><code># begin F_INIT</code></li>
+<li><code># end F_INIT</code></li>
+<li><code># begin O_I</code></li>
+<li><code># end O_I</code></li>
+<li><code># begin S</code></li>
+<li><code># end S</code></li>
+<li><code># begin state_update_loop</code></li>
+<li><code># end state_update_loop</code></li>
+<li><code># begin O_F</code></li>
+<li><code># end O_F</code></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb2">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reaction(initial_state: np.array) <span class="op">-&gt;</span> np.array:</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    ...</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="co"># begin F_INIT</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    t_max <span class="op">=</span> <span class="fl">2.469136e-6</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    dt <span class="op">=</span> <span class="fl">2.469136e-8</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    k <span class="op">=</span> <span class="op">-</span><span class="fl">4.05e4</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    U <span class="op">=</span> initial_state</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    t_cur <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    <span class="co"># end F_INIT</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="co"># begin state_update_loop</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> t_cur <span class="op">+</span> dt <span class="op">&lt;</span> t_max:</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin O_I</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end O_I</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin S</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        U <span class="op">+=</span> k <span class="op">*</span> U <span class="op">*</span> dt</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        t_cur <span class="op">+=</span> dt</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end S</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># end state_update_loop</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># begin O_F</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> U</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># end O_F</span></span></code></pre>
+</div>
+<p>The Submodel Execution Loop specifies two operators within the state update loop. <span class="math inline">\(O_I\)</span> comes before <span class="math inline">\(S\)</span> and you can use it to send a message to the outside world with (part of) the current state. In this case, the <span class="math inline">\(O_I\)</span> operator is empty; we are not sending or storing any intermediate states. The original type annotations in the function definition serve the same purpose but we will be losing these once we are done connecting the model to MUSCLE.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="the-constructor"><h2 class="section-heading">The constructor<a class="anchor" aria-label="anchor" href="#the-constructor"></a>
+</h2>
+<hr class="half-width">
+<p>To let a model communicate with the muscle manager, other submodels and the outside world, we need to create a <code>libmuscle.Instance</code> object:</p>
+<div class="codewrapper sourceCode" id="cb3">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Instance</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ymmsl <span class="im">import</span> Operator</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> some_example_submodel():</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    instance <span class="op">=</span> Instance({</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>            Operator.F_INIT: [<span class="st">'initial_state_a'</span>, <span class="st">'initial_state_b'</span>],</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>            Operator.O_I: [<span class="st">'some_intermediate_state'</span>],</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            Operator.S: [<span class="st">'some_other_intermediate_state'</span>],</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state_a'</span>, <span class="st">'final_state_b'</span>]})</span></code></pre>
+</div>
+<p>The constructor takes a single argument, a dictionary that maps <code>ymmsl.Operator</code> objects to lists of ports. Ports are used by submodels to exchange messages with the outside world and eachother. These messages usually contain the state of the model, but they can also contain other information. Ports can be input ports or output ports, but not both at the same time, the operator that they are mapped to determines how the port is used. The names of the available operators correspond to their theoretical counterparts (<span class="math inline">\(F_{init}\)</span>, <span class="math inline">\(O_I\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_F\)</span> ).</p>
+<div id="challenge2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="what-ports-do-we-need" class="callout-inner">
+<h3 class="callout-title">What ports do we need?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+</h3>
+<div class="callout-content">
+<p>Question: In our example of the reaction submodel, what ports do we need to communicate the model state to the outside world? Come up with good names. What operators would we need to map them to?</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div class="accordion-body">
+<p>In this model, we need:</p>
+<ul>
+<li>a single input port that will receive an initial state (e.g. named “initial_state”) at the beginning of the model run and it should be mapped to the <span class="math inline">\(F_{init}\)</span> operator</li>
+<li>a single output port that sends the final state (e.g. named “final_State”) at the end of the reaction simulation to the rest of the simulation, it should be mapped to the <span class="math inline">\(O_F\)</span> operator</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<p>In multiscale simulations, submodels often have to run multiple times, for instance because they are used as a micro model or because they are part of an ensemble that cannot be completely parallelised. In order to accomplish this, the entire submodel is wrapped into a loop. Exactly when this loop needs to end often depends on the behaviour of the whole model, and is not easy to determine beforehand, but fortunately MUSCLE will do that for us if we call the <code>libmuscle.Instance.reuse_instance()</code> method.</p>
+<div class="codewrapper sourceCode" id="cb4">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> instance.reuse_instance():</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>        <span class="co"># F_INIT</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># State update loop</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># O_F</span></span></code></pre>
+</div>
+<div id="challenge3" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-2-the-muscle-constructor" class="callout-inner">
+<h3 class="callout-title">Exercise 2: The MUSCLE constructor<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+</h3>
+<div class="callout-content">
+<p>Add the following to our reaction model code:</p>
+<ul>
+<li>a <code>libmuscle.Instance</code> object with the appropriate operator-port dictionary</li>
+<li>the reuse loop</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
+  <h4 class="accordion-header" id="headingSolution3">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Instance</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ymmsl <span class="im">import</span> Operator</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reaction(initial_state: np.array) <span class="op">-&gt;</span> np.array:</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ...</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    instance <span class="op">=</span> Instance({</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>            Operator.F_INIT: [<span class="st">'initial_state'</span>],       <span class="co"># np.array</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state'</span>]})           <span class="co"># np.array</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> instance.reuse_instance():</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin F_INIT</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        t_max <span class="op">=</span> <span class="fl">2.469136e-6</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        dt <span class="op">=</span> <span class="fl">2.469136e-8</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> <span class="op">-</span><span class="fl">4.05e4</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        U <span class="op">=</span> initial_state</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>        t_cur <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end F_INIT</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin state_update_loop</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> t_cur <span class="op">+</span> dt <span class="op">&lt;</span> t_max:</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>            <span class="co"># begin O_I</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>            <span class="co"># end O_I</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>            <span class="co"># begin S</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>            U <span class="op">+=</span> k <span class="op">*</span> U <span class="op">*</span> dt</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            t_cur <span class="op">+=</span> dt</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>            <span class="co"># end S</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end state_update_loop</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin O_F</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> U</span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end O_F</span></span></code></pre>
+</div>
+<p>Note that the type of data that is sent is documented in a comment. This is obviously not required, but it makes life a lot easier if someone else needs to use the code or you haven’t looked at it for a while, so it’s highly recommended.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="settings"><h2 class="section-heading">Settings<a class="anchor" aria-label="anchor" href="#settings"></a>
+</h2>
+<hr class="half-width">
+<p>Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). We would like to control these settings centrally using the MUSCLE manager when starting up the coupled simulation so we don’t have to change it in our model code every time if we want to try a range of values (for instance, to perform a sensitivity analysis). We can use the <code>libmuscle.Instance.get_setting</code> function instead to ask the MUSCLE manager for the values. The values, or ranges of values, should be recorded in the configuration file which we will cover in the next chapter.</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    some_variable <span class="op">=</span> instance.get_setting(<span class="st">'variable_name'</span>, <span class="st">'variable_type'</span>)</span></code></pre>
+</div>
+<div id="callout2" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="type-checking" class="callout-inner">
+<h3 class="callout-title">Type checking<a class="anchor" aria-label="anchor" href="#callout2"></a>
+</h3>
+<div class="callout-content">
+<p>The second argument, which specifies the expected type, is optional. If it is given, MUSCLE will check that the user specified a value of the correct type, and if not raise an exception.</p>
+</div>
+</div>
+</div>
+<div id="challenge4" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-3" class="callout-inner">
+<h3 class="callout-title">Exercise 3:<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+</h3>
+<div class="callout-content">
+<p>In our example, several settings have been hard-coded into the model:</p>
+<ul>
+<li>the total simulation time to run this sub-model, <code>tmax</code>
+</li>
+<li>the time step to use, <code>dt</code>
+</li>
+<li>and the model parameter, <code>k</code>
+</li>
+</ul>
+<p>Change the code such that we request these settings from the MUSCLE manager.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution4" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
+  <h4 class="accordion-header" id="headingSolution4">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb7">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Instance</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ymmsl <span class="im">import</span> Operator</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reaction(initial_state: np.array) <span class="op">-&gt;</span> np.array:</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ...</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    instance <span class="op">=</span> Instance({</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>            Operator.F_INIT: [<span class="st">'initial_state'</span>],       <span class="co"># np.array</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state'</span>]})           <span class="co"># np.array</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> instance.reuse_instance():</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin F_INIT</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>        t_max <span class="op">=</span> instance.get_setting(<span class="st">'t_max'</span>, <span class="st">'float'</span>)</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>        dt <span class="op">=</span> instance.get_setting(<span class="st">'dt'</span>, <span class="st">'float'</span>)</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> instance.get_setting(<span class="st">'k'</span>, <span class="st">'float'</span>)</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>        U <span class="op">=</span> initial_state</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>        t_cur <span class="op">=</span> <span class="dv">0</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end F_INIT</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin state_update_loop</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>        ...</span></code></pre>
+</div>
+<p>Note that getting settings needs to happen within the reuse loop; doing it before can lead to incorrect results.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="receiving-messages"><h2 class="section-heading">Receiving messages<a class="anchor" aria-label="anchor" href="#receiving-messages"></a>
+</h2>
+<hr class="half-width">
+<p>Apart from settings, we can use the <code>libmuscle.Instance.receive</code> function to receive an initial state for this submodel on the <code>initial_state</code> port. Note that we have declared that port above, and declared it to be associated with the <code>F_INIT</code> operator. During <code>F_INIT</code>, messages can only be received, not sent, so that declaration makes <code>initial_state</code> a receiving port.</p>
+<p>The message that we will receive can contain several pieces of information. For now, we are interested in the <code>data</code> and <code>timestamp</code> attributes. We assume the data to be a grid of floats containing our initial state and the time stamp tells us the simulated time at which this state is valid. We can receive a message and store the <code>data</code> and <code>timestamp</code> attributes in the following way:</p>
+<div class="codewrapper sourceCode" id="cb8">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>    msg <span class="op">=</span> instance.receive(<span class="st">'initial_state'</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> msg.data.array.copy()</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    timestamp <span class="op">=</span> msg.timestamp</span></code></pre>
+</div>
+<div id="callout3" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="why-.copy-again" class="callout-inner">
+<h3 class="callout-title">Why .copy() again?<a class="anchor" aria-label="anchor" href="#callout3"></a>
+</h3>
+<div class="callout-content">
+<p>The <code>msg.data</code> attribute holds an object of type <code>libmuscle.Grid</code>, which holds a read-only NumPy array and optionally a list of index names. Here, we take the array and make a copy of it for <code>data</code>, so that we can modify <code>data</code> in our upcoming state update. Without calling <code>.copy()</code>, the variable <code>data</code> would end up pointing to the same read-only array, and we would get an error message if we tried to modify it.</p>
+<p>The <code>timestamp</code> attribute is a double precision float containing the number of simulated (not wall-clock) seconds since the whole simulation started. Since <code>t_cur</code> is assigned the value of the timestamp, we don’t need to make a copy.</p>
+</div>
+</div>
+</div>
+</section><section id="state-update-loop"><h2 class="section-heading">State update loop<a class="anchor" aria-label="anchor" href="#state-update-loop"></a>
+</h2>
+<hr class="half-width">
+<p>The actual state update happens in the operator <span class="math inline">\(S\)</span> in the Submodel Execution Loop and, in our example model, it is determined entirely by the current state. Since no information from outside is needed, we do not receive any messages, and in our <code>libmuscle.Instance</code> declaration above, we did not declare any ports associated with <code>Operator.S</code>.</p>
+<p>The operator <code>O_I</code> provides for observations of intermediate states. In other words, here is where you can send a message to the outside world with (part of) the current state. In this case, the <code>O_I</code> operator is empty; we’re not sending anything.</p>
+<p>One thing we need to be aware of is time. Most models depend on time in some way and it is good to be aware of the various time frames. Libmuscles messages support passing on timestamps to be able to keep track of the global simulation time of the coupled model. It is easier to keep track of only one time frame and it is therefore good practice to add the timestamp that accompanied the initial state to the sub-model simulation time steps instead of starting at zero for every sub-model instance.</p>
+<div id="challenge5" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-4-receiving-the-initial-state-and-keeping-track-of-time" class="callout-inner">
+<h3 class="callout-title">Exercise 4: Receiving the initial state and keeping track of time<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+</h3>
+<div class="callout-content">
+<p>Where previously we had received <code>initial_state</code> from the function call, we now want to get it through a libmuscle message. Add statements to receive a message on the <code>initial_state</code> port and store the <code>data</code> and <code>timestamp</code> attributes in an appropriate place.</p>
+<p>Also make sure the state update loop tracks global simulation time (corrected by the received timestamp).</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution5" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
+  <h4 class="accordion-header" id="headingSolution5">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb9">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Instance</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ymmsl <span class="im">import</span> Operator</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reaction() <span class="op">-&gt;</span> np.array:</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ...</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>    instance <span class="op">=</span> Instance({</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>            Operator.F_INIT: [<span class="st">'initial_state'</span>],       <span class="co"># np.array</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state'</span>]})           <span class="co"># np.array</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> instance.reuse_instance():</span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin F_INIT</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>        t_max <span class="op">=</span> instance.get_setting(<span class="st">'t_max'</span>, <span class="st">'float'</span>)</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>        dt <span class="op">=</span> instance.get_setting(<span class="st">'dt'</span>, <span class="st">'float'</span>)</span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> instance.get_setting(<span class="st">'k'</span>, <span class="st">'float'</span>)</span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>        msg <span class="op">=</span> instance.receive(<span class="st">'initial_state'</span>)</span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>        U <span class="op">=</span> msg.data.array.copy()</span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        t_cur <span class="op">=</span> msg.timestamp</span>
+<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        t_max <span class="op">=</span> msg.timestamp <span class="op">+</span> t_max</span>
+<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end F_INIT</span></span>
+<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin state_update_loop</span></span>
+<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> t_cur <span class="op">+</span> dt <span class="op">&lt;</span> t_max:</span>
+<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        ...</span></code></pre>
+</div>
+<div id="callout4" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="time-keeping" class="callout-inner">
+<h3 class="callout-title">Time keeping<a class="anchor" aria-label="anchor" href="#callout4"></a>
+</h3>
+<div class="callout-content">
+<p>Both <code>t_cur</code> and <code>t_max</code> used to be relative to the start of the submodel, but now represent absolute simulation time of the coupled system. The length of the while loop will not change, but in this way we would be able to send out the current global simulation time <code>t_cur</code> in the state update loop using the <code>I_O</code> operator. It is also possible to keep <code>t_cur</code> and <code>t_max</code> relative to the start of the submodel and only correct for the received global timestamp when you send out a message. It is often however preferable to keep track of only one single timeframe and make the corrections right at the receiving end.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section><section id="sending-messages"><h2 class="section-heading">Sending messages<a class="anchor" aria-label="anchor" href="#sending-messages"></a>
+</h2>
+<hr class="half-width">
+<p>To send a message we first have to construct a <code>libmuscle.Message</code> object containing the current simulation time and the current state. We will convert the <code>numpy.array</code> to a <code>libmuscle.Grid</code> object first.</p>
+<div id="callout5" class="callout callout">
+<div class="callout-square">
+<i class="callout-icon" data-feather="bell"></i>
+</div>
+<div id="muscle-grids" class="callout-inner">
+<h3 class="callout-title">MUSCLE grids<a class="anchor" aria-label="anchor" href="#callout5"></a>
+</h3>
+<div class="callout-content">
+<p>We convert our <code>numpy.array</code> explicitly into a <code>libmuscle.Grid object</code>, so that we can add the name of the dimensions. In our example case there is only one, and “x” is not very descriptive, so we could have also passed the array directly, in which case MUSCLE would have done the conversion for us and sent a <code>libmuscle.Grid</code> without index names automatically.</p>
+</div>
+</div>
+</div>
+<p>The optional second parameter is a second timestamp, which is only used in <a href="https://muscle3.readthedocs.io/en/latest/tutorial.html#message-timestamps" class="external-link">more advanced applications</a> and can be set to <code>None</code> here.</p>
+<div class="codewrapper sourceCode" id="cb10">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Grid, Message</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>my_message <span class="op">=</span> Message(my_timestamp, <span class="va">None</span>, Grid(my_state, [<span class="st">'x'</span>]))</span></code></pre>
+</div>
+<p>To send the message we specify the port on which to send, which again needs to match the declaration.</p>
+<div class="codewrapper sourceCode" id="cb11">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>libmuscle.Instance.send(<span class="st">'final_state'</span>, final_message)</span></code></pre>
+</div>
+<div id="challenge6" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="exercise-5-send-back-the-result" class="callout-inner">
+<h3 class="callout-title">Exercise 5: Send back the result<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+</h3>
+<div class="callout-content">
+<p>In the <span class="math inline">\(O_F\)</span> operator of your model construct a message and replace the return statement with a call to <code>libmuscle.Instance.send()</code> to send the final state to the outside world.</p>
+</div>
+</div>
+</div>
+<div id="accordionSolution6" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
+  <h4 class="accordion-header" id="headingSolution6">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div class="accordion-body">
+<div class="codewrapper sourceCode" id="cb12">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Instance, Grid, Message</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> ymmsl <span class="im">import</span> Operator</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> reaction():</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">    ...</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    instance <span class="op">=</span> Instance({</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>            Operator.F_INIT: [<span class="st">'initial_state'</span>],       <span class="co"># np.array</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state'</span>]})           <span class="co"># np.array</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> instance.reuse_instance():</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin F_INIT</span></span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        t_max <span class="op">=</span> instance.get_setting(<span class="st">'t_max'</span>, <span class="st">'float'</span>)</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>        dt <span class="op">=</span> instance.get_setting(<span class="st">'dt'</span>, <span class="st">'float'</span>)</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        k <span class="op">=</span> instance.get_setting(<span class="st">'k'</span>, <span class="st">'float'</span>)</span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        msg <span class="op">=</span> instance.receive(<span class="st">'initial_state'</span>)</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        U <span class="op">=</span> msg.data.array.copy()</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>        t_cur <span class="op">=</span> msg.timestamp</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>        t_max <span class="op">=</span> msg.timestamp <span class="op">+</span> t_max</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end F_INIT</span></span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin state_update_loop</span></span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> t_cur <span class="op">+</span> dt <span class="op">&lt;</span> t_max:</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>            <span class="co"># begin O_I</span></span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>            <span class="co"># end O_I</span></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>            <span class="co"># begin S</span></span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>            U <span class="op">+=</span> k <span class="op">*</span> U <span class="op">*</span> dt</span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>            t_cur <span class="op">+=</span> dt</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>            <span class="co"># end S</span></span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end state_update_loop</span></span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># begin O_F</span></span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>        final_message <span class="op">=</span> Message(t_cur, <span class="va">None</span>, Grid(U, [<span class="st">'x'</span>]))</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>        instance.send(<span class="st">'final_state'</span>, final_message)</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end O_F</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<p>Right now your sub-model is ready to be used by the muscle manager. We will couple it to another submodel and configure it to run the coupled simulation in the next chapter.</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>MUSCLE3 implements the MMSF theory, using the same terminology and MMSL for configuration of the coupled simulation</li>
+<li>First analyze your code to find the Submodel Execution Loop structure</li>
+<li>MUSCLE lets the submodels communicate through messages, containing model states and simulation times</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
+</section></section><section id="aio-04-muscle-couple"><p>Content from <a href="04-muscle-couple.html">MUSCLE3 - coupling and running</a></p>
+<hr>
+<p> Last updated on 2022-10-07 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/04-muscle-couple.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+<p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 62 minutes </p>
+<div class="text-end">
+          <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
+        </div>
+<div class="overview card">
+<h2 class="card-header">Overview</h2>
+<div class="row g-0">
+<div class="col-md-4">
+<div class="card-body">
+<div class="inner">
+<h3 class="card-title">Questions</h3>
+<ul>
+<li>How do you write a lesson using Markdown and <a href="https://carpentries.github.io/sandpaper/" class="external-link">sandpaper</a>?</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<div class="inner bordered">
+<h3 class="card-title">Objectives</h3>
+<ul>
+<li>Explain how to use markdown with The Carpentries Workbench</li>
+<li>Demonstrate how to include pieces of code, figures, and nested challenge blocks</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
+</h2>
+<hr class="half-width">
+<p>This is a lesson created via The Carpentries Workbench. It is written in <a href="https://pandoc.org/MANUAL.txt" class="external-link">Pandoc-flavored Markdown</a> for static files and <a href="https://rmarkdown.rstudio.com/" class="external-link">R Markdown</a> for dynamic files that can render code into output. Please refer to the <a href="https://carpentries.github.io/sandpaper-docs/" class="external-link">Introduction to The Carpentries Workbench</a> for full documentation.</p>
+<p>What you need to know is that there are three sections required for a valid Carpentries lesson:</p>
+<ol style="list-style-type: decimal">
+<li>
+<code>questions</code> are displayed at the beginning of the episode to prime the learner for the content.</li>
+<li>
+<code>objectives</code> are the learning objectives for an episode displayed with the questions.</li>
+<li>
+<code>keypoints</code> are displayed at the end of the episode to reinforce the objectives.</li>
+</ol>
+<div id="accordionInstructor1" class="accordion instructor-note accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
+  <h3 class="accordion-header" id="headingInstructor1">
+  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div>
+  Instructor Note
+  </h3>
+</button>
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div class="accordion-body">
+<p>Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the “Instructor View”</p>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge1" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-1-can-you-do-it" class="callout-inner">
+<h3 class="callout-title">Challenge 1: Can you do it?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+</h3>
+<div class="callout-content">
+<p>What is the output of this command?</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">paste</span><span class="op">(</span><span class="st">"This"</span>, <span class="st">"new"</span>, <span class="st">"lesson"</span>, <span class="st">"looks"</span>, <span class="st">"good"</span><span class="op">)</span></span></code></pre>
+</div>
+</div>
+</div>
+</div>
+<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
+  <h4 class="accordion-header" id="headingSolution1">
+  Output
+  </h4>
+</button>
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div class="accordion-body">
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>[1] "This new lesson looks good"</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="challenge2" class="callout challenge">
+<div class="callout-square">
+<i class="callout-icon" data-feather="zap"></i>
+</div>
+<div id="challenge-2-how-do-you-nest-solutions-within-challenge-blocks" class="callout-inner">
+<h3 class="callout-title">Challenge 2: how do you nest solutions within challenge blocks?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+</h3>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
+<div class="accordion-item">
+<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
+  <h4 class="accordion-header" id="headingSolution2">
+  Show me the solution
+  </h4>
+</button>
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div class="accordion-body">
+<p>You can add a line with at least three colons and a <code>solution</code> tag.</p>
+</div>
+</div>
+</div>
+</div>
+</section><section id="figures"><h2 class="section-heading">Figures<a class="anchor" aria-label="anchor" href="#figures"></a>
+</h2>
+<hr class="half-width">
+<p>You can use standard markdown for static figures with the following syntax:</p>
+<p><code>![optional caption that appears below the figure](figure url){alt='alt text for accessibility purposes'}</code></p>
+<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure></section><section id="math"><h2 class="section-heading">Math<a class="anchor" aria-label="anchor" href="#math"></a>
+</h2>
+<hr class="half-width">
+<p>One of our episodes contains <span class="math inline">\(\LaTeX\)</span> equations when describing how to create dynamic reports with {knitr}, so we now use mathjax to describe this:</p>
+<p><code>$\alpha = \dfrac{1}{(1 - \beta)^2}$</code> becomes: <span class="math inline">\(\alpha = \dfrac{1}{(1 - \beta)^2}\)</span></p>
+<p>Cool, right?</p>
+<div id="keypoints1" class="callout keypoints">
+<div class="callout-square">
+<i class="callout-icon" data-feather="key"></i>
+</div>
+<div class="callout-inner">
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
+<div class="callout-content">
+<ul>
+<li>Use <code>.md</code> files for episodes when you want static content</li>
+<li>Use <code>.Rmd</code> files for episodes when you need to generate output</li>
+<li>Run <code>sandpaper::check_lesson()</code> to identify any issues with your lesson</li>
+<li>Run <code>sandpaper::build_lesson()</code> to preview your lesson locally</li>
+</ul>
+</div>
+</div>
+</div>
+<!-- 
+Place links that you need to refer to multiple times across pages here. Delete
+any links that you are not going to use. 
+ -->
 </section></section>
 </div>
     </main>
@@ -899,7 +1326,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.1" class="external-link">sandpaper (0.10.1)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.3" class="external-link">sandpaper (0.10.3)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.4" class="external-link">varnish (0.2.4)</a>.</p>
 			</div>
@@ -923,8 +1350,8 @@ any links that you are not going to use.
   "url": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/aio.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/aio.html",
   "dateCreated": "2022-08-16",
-  "dateModified": "2022-10-04",
-  "datePublished": "2022-10-04"
+  "dateModified": "2022-10-07",
+  "datePublished": "2022-10-07"
 }
 
   </script><script>
