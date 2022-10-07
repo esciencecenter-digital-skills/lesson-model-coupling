@@ -14,4 +14,4 @@ Beggy never did any model coupling but needs to start with that for their PhD in
 
 ### Fusey Knowitall, Postdoc
 
-Fusey has a quite advanced, complex piece of code that combines different mathematical models that together simulate a nuclear fusion reactor. The problem is that the different submodels are tangled together by pieces of code that are hard to understand. This makes it very hard to change one of the submodels to incorporate new scientific insights. Fusey would like to explore how they could make a more modular simulation where they can easily interchange and compare different parts of the system. 
+Fusey has a quite advanced, complex piece of code that combines different mathematical models that together simulate a nuclear fusion reactor. The problem is that the different submodels are tangled together by pieces of code that are hard to understand. This makes it very hard to change one of the submodels to incorporate new scientific insights. Fusey would like to explore how they could make a more modular simulation where they can easily interchange and compare different parts of the system.

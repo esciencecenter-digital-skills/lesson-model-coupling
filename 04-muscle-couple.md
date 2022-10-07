@@ -1,6 +1,6 @@
 ---
-title: "MUSCLE3"
-teaching: 10
+title: "MUSCLE3 - coupling and running"
+teaching: 60
 exercises: 2
 ---
 
