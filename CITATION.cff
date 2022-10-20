@@ -1,0 +1,30 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Model Coupling with MUSCLE3 and AMUSE
+message: >-
+  If you want to cite this lesson, please use these
+  metadata.
+type: software
+authors:
+  - given-names: Lourens
+    family-names: Veen
+    email: l.veen@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0002-6311-1168'
+  - given-names: Robin
+    family-names: Richardson
+    email: r.richardson@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0002-9984-2720'
+  - given-names: Jaro
+    family-names: Camphuijsen
+    email: j.camphuijsen@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0002-8928-7831'
+  - given-names: Inti
+    family-names: Pelupessy
+    email: i.pelupessy@esciencecenter.nl
+    affiliation: Netherlands eScience Center
+    orcid: 'https://orcid.org/0000-0002-8024-0412'
