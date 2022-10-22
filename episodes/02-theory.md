@@ -219,7 +219,7 @@ large box for the atmosphere model, ranging from 1 second to 1 day and 10 cm to
 :::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Models
+## Models and the Submodel Execution Loop
 
 So far, we have talked about domains and scales of models, which we can do based
 on the physical properties of the modelled system, and the research questions we
@@ -237,23 +237,23 @@ away from O f. The circle marked O i and the diamond marked O f are white on
 black, the others black on white.'}
 
 According to the MMSF, each model starts by initialising itself, a stage (or
-*operator*) known as `F_INIT`. This puts the model into its initial state.
-During `F_INIT`, information may be received from other models in a coupled
+*operator*) known as $f_{init}$. This puts the model into its initial state.
+During $f_{init}$, information may be received from other models in a coupled
 simulation, which the model can use to initialise itself.
 
-Second, some output based on that state is produced in the `O_I` operator. This
-is Intermediate Output, or, looking from the outside in, we Observe an
-Intermediate state, hence `O_I`. This output may be sent to other models, where
-it can for example be used as boundary conditions.
+Second, some output based on that state is produced in the $O_i$ operator. This
+is **i**ntermediate Output, or, looking from the outside in, we Observe an
+**i**ntermediate state, hence $O_i$. This output may be sent to other models,
+where it can for example be used as boundary conditions.
 
-Third, a state update may be performed using the `S` operator, which moves the
-model to its next state (timestep). During `S`, information may be received from
+Third, a state update may be performed using the $S$ operator, which moves the
+model to its next state (timestep). During $S$, information may be received from
 other models to help perform the state update.
 
-After `S`, the model may loop back to before `O_I`, and repeat those two
+After $S$, the model may loop back to before $O_i$, and repeat those two
 operators for a while, until the end of the time scale is reached. This leaves
-the model with a final state, which may be output in the `O_F` operator (for
-Final output or observation).
+the model with a final state, which may be output in the $O_f$ operator (for
+**f**inal output or observation).
 
 This basic model is quite flexible. If the loop is run zero times, then the
 model is a simple function. Timesteps may be of any length, and vary during the
@@ -316,18 +316,18 @@ communication pattern is implemented.
 
 If the time domains are adjacent or separated, then the final output of the
 first model is used to initialise the subsequent model. We can implement this
-by sending information from the first model's `O_F` to the second model's
-`F_INIT`.
+by sending information from the first model's $O_f$ to the second model's
+$f_{init}$.
 
 If the temporal scales are the same, then the models exchange information every
-time they have a new state. This can be done by connecting each model's `O_I`
-to the other model's `S`, thus sending information at each step.
+time they have a new state. This can be done by connecting each model's $O_i$
+to the other model's $S$, thus sending information at each step.
 
 In case of temporal scale separation, the fast model needs to be reinitialised
 at every timestep of the slow model, do an entire run, and return some
 information based on its final state to the slow model. This can be
-accomplished by sending from the slow model's `O_I` to the fast model's
-`F_INIT` and from the fast model's `O_F` back to the slow model's `S`.
+accomplished by sending from the slow model's $O_i$ to the fast model's
+$f_{init}$ and from the fast model's $O_f$ back to the slow model's $S$.
 
 :::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::
@@ -343,10 +343,10 @@ Release. O_I on the first SEL is connected to F_INIT on the second, this is
 Call. O_F on the second SEL is connected to S on the first, this is Release.'}
 
 These three cases demonstrate the four *Coupling Templates* defined by the
-MMSF. The first one, `O_F` to `F_INIT`, is called *dispatch*. The second one,
-`O_I` to `S` is called *interact*, and usually comes in pairs. The third one
-and the fourth one usually go together, as the combination *call* (`O_I` to
-`F_INIT`) and *release* (`O_F` to `S`).
+MMSF. The first one, $O_f$ to $f_{init}$, is called *dispatch*. The second one,
+$O_i$ to $S$ is called *interact*, and usually comes in pairs. The third one
+and the fourth one usually go together, as the combination *call* ($O_i$ to
+$f_{init}$) and *release* ($O_f$ to $S$).
 
 Given the constraints of which operators can send and which can receive, these
 are in fact all four possible types of connections, and between them they cover
