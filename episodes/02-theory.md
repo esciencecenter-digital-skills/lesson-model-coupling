@@ -263,7 +263,7 @@ in whichever way is suitable for the model. Any simulation code you may want to
 use is very likely to fit these minimal constraints.
 
 
-## Coupling templates
+## Temporal domain and scale relations
 
 Now that we know what a model is and how models may be related in terms of their
 domains and scales, we can decide how to set up the coupled simulation. We do
@@ -342,7 +342,7 @@ each SEL is connected to S on the other. The third diagram is titled Call and
 Release. O_I on the first SEL is connected to F_INIT on the second, this is
 Call. O_F on the second SEL is connected to S on the first, this is Release.'}
 
-These three cases demonstrate the four *Coupling Templates* defined by the
+The three cases above demonstrate the four *Coupling Templates* defined by the
 MMSF. The first one, $O_f$ to $f_{init}$, is called *dispatch*. The second one,
 $O_i$ to $S$ is called *interact*, and usually comes in pairs. The third one
 and the fourth one usually go together, as the combination *call* ($O_i$ to
@@ -415,6 +415,77 @@ Can you think of examples that don't fit any of them?
 :::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::
 
+## MMSL Diagrams
+
+For larger coupled simulations consisting of several submodels and other
+components, drawing the complete submodel execution loop as we did above gets
+too complicated. Fortunately, a simplified notation is available in the form of
+the Multiscale Modelling and Simulation Language (MMSL). This language
+describes a coupled simulation as a set of components and the connections
+between them. Its YAML-based form, yMMSL, is used as the configuration
+language for MUSCLE3 (more on which in the next episodes). Its graphical form,
+gMMSL, provides a compact visual representation of a coupled model:
+
+![Coupling Templates in gMMSL](fig/ep02-coupling-templates-mmsl.png){alt='Three
+diagrams of the coupling templates, this time in gMMSL. Each diagram shows two
+boxes. The top diagram is labelled dispatch and has the boxes labeled First and
+Second. A line connects a filled diamond on the box labelled first to an open
+diamond on the box labelled second. The bottom left diagram is labelled
+interact and has the boxes labeled A and B. A line connects a filled circle on
+box A to an open circle on box B, and another line connects a closed circle on
+box B to an open circle on box A. The bottom right diagram is labelled Call and
+Release. Its boxes are labelled Macro and Micro. A line connects a closed
+circle on Macro to an open diamond on Micro, and another line connects a filled
+diamond on Micro to an open circle on Macro. The box labeled Micro
+additionally has the number 10 written in its top right corner.'}
+
+::::::::::::::::::::::::::::::::::::: challenge
+
+## Challenge 6: Deciphering gMMSL
+
+Explain the above figure.
+
+:::::::::::::::::::::::: solution
+
+## Example solution
+
+Each box represents a submodel. The lines show where information is sent from
+one model to another. The diamonds and circles designate the SEL operators that
+information is sent from and to. A number in the top right corner of a box is
+optional, but when it's there it shows how many instances of that submodel
+exist. In this case, the model at the bottom right has temporal and spatial
+scale separation, so it uses the call-and-release coupling template and has
+multiple instances of the micromodel.
+
+:::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::
+
+Note that there can be multiple lines or *conduits* between the same operators
+and models if multiple bits of information need to be transferred, but then
+these could also be glued together into a single message. This is a modelling
+decision, so do what works best for your model.
+
+Not shown in the diagram is that the lines can be labeled with a label at each
+end showing the name of the *port* on the model that is being connected.
+Especially if there are multiple lines then it is necessary to do that to avoid
+confusion. More about this in the following episodes, when we connect two
+models using MUSCLE3.
+
+::: callout
+
+Real simulations often need more than just the submodels, especially if you
+want to keep everything nice and modular. Different models often send and
+receive data in different formats for example, so that you need converters, and
+sometimes splitters and joiners that can split messages or join them together.
+If there is a scale difference, then some kind of scale bridge usually needs to
+be implemented, and for uncertainty quantification components may be needed
+that sample parameters and combine results into distributions.
+
+These components are often simple functions, and can then be implemented just
+like a submodel with only an $f_{init}$ and $O_f$. Such a component can then be
+inserted in between a connection between two submodels by interrupting a
+conduit and putting it in between.
+:::
 
 
 ::::::::::::::::::::::::::::::::::::: keypoints
