@@ -28,9 +28,9 @@ involved that model processes in different ways and at different scales in time
 and space. To make a coupled simulation, you need to figure out which
 information needs to be passed between which submodels, when it needs to be sent
 and received, and how it can be represented, and that can be quite a puzzle.
-Fortunately, there is a theory of model coupling that can help you do this. It
-is called the Multiscale Modelling and Simulation Framework (MMSF), and despite
-its name, it also includes same-scale couplings.
+Fortunately, there is a theory of model coupling that can help you with this.
+It is called the Multiscale Modelling and Simulation Framework (MMSF), and
+despite its name, it also includes same-scale couplings.
 
 In this episode, we'll work through a slightly extended version of the MMSF's
 process for coupling two models representing two processes.
@@ -119,6 +119,8 @@ are their grain and extent in space and in time?
 
 ## Example solution
 
+### Surface
+
 Model 1 simulates the heating of the Earth's surface as the sun shines on it.
 
 The temperature of the Earth's surface only changes slowly during the day, and
@@ -131,6 +133,8 @@ In space, the grain depends on the research question, and could be as small as
 10cm if we are looking at the detailed thermal environment around a building, or
 as large as a few kilometers if we want to make a national weather forecast. The
 extent is the size of the area of study.
+
+### Atmosphere
 
 Model 2 simulates the flow of the air above as it warms up and starts rising.
 This is probably done using a computational fluid dynamics model. Both the
@@ -155,7 +159,13 @@ the left edge at the temporal grain, the right edge at the temporal extent, the
 lower edge at the spatial grain, and the upper edge at the spatial extent. Here
 is an example:
 
-SSM EXAMPLE
+![The Scale Separation Map. The box
+in the center depicts the
+scale of a given process or model, the dashed boxes show possible other scales
+and the corresponding relationships.
+](fig/ep02-scale-separation-map.png){alt='2D plot with time on the horizontal
+axis and space on the vertical axis. In the center there is a box, which is
+surrounded by dashed boxes labelled a through h.'}
 
 The SSM may look very counterintuitive at first, because we are used to plotting
 locations, not sizes. So look at the graph carefully and think about what you
@@ -178,14 +188,32 @@ and draw them correspondingly.
 
 ## Challenge 3: Scale Separation Map
 
-Draw a scale separation map for the models you would like to couple.
+- What are the relations of scales a through h in the figure relative to the
+  reference scale?
+- Draw a scale separation map for the models you would like to couple.
 
 :::::::::::::::::::::::: solution
 
 ## Example solution
 
-SSM with Surface Heating model with time 10 min -> 1 day, space 1m -> 100m and
-Atmosphere 1s -> 1 day, space 10 cm -> 100m
+### Scale relations
+
+a. Spatially (larger) and temporally (faster) scale separated.
+b. Spatially scale adjacent (larger), tomporally scale overlapping.
+c. Spatially scale adjacent (larger), temporally scale adjacent (larger).
+d. Spatially scale overlapping, temporally scale adjacent (smaller).
+e. Spatially scale overlapping, temporally scale separated (slower).
+f. Spatially and temporally scale overlapping.
+g. Spatially scale adjacent (smaller) and temporally scale separated (faster).
+h. Spatially scale separated (smaller) and temporally scale adjacent (slower).
+
+### Scale Separation Map
+
+![Scale Separation Map for the atmosphere/surface
+model.](fig/ep02-scale-separation-map-solution.png){alt='2D plot showing one
+large box for the atmosphere model, ranging from 1 second to 1 day and 10 cm to
+100 m, and a smaller overlapping box for the surface heating model ranging from
+10 mn to 1 day and 1m to 100m.'}
 
 :::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::
@@ -199,7 +227,14 @@ ask about that system. In order to be able to technically couple models however,
 we need to know what a model is. In the MMSF, this is done using a universal
 model-of-a-model called the Submodel Execution Loop (SEL):
 
-SEL diagram
+![Submodel Execution Loop
+(SEL)](fig/ep02-submodel-execution-loop.png){alt='Diagram showing a
+diamond marked f init, a circle marked O i, another circle marked S, and
+another diamond marked O f connected by arrows in order. Another arrow loops
+back from S to O i. A dashed arrow points into f init, another dashed arrow
+points away from O i, another points into S and a fourth dashed arrow points
+away from O f. The circle marked O i and the diamond marked O f are white on
+black, the others black on white.'}
 
 According to the MMSF, each model starts by initialising itself, a stage (or
 *operator*) known as `F_INIT`. This puts the model into its initial state.
@@ -267,7 +302,7 @@ model needs to do an entire run for every timestep of the slow model.
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
-## Challenge 4: Coupling with the Submodel Execution Loop
+## Challenge 4: Coupling Submodel Execution Loops
 
 We can represent each of the two models in the scenarios above as a Submodel
 Execution Loop. To connect the models, we then have to send information between
@@ -282,7 +317,7 @@ communication pattern is implemented.
 If the time domains are adjacent or separated, then the final output of the
 first model is used to initialise the subsequent model. We can implement this
 by sending information from the first model's `O_F` to the second model's
-'F_INIT'.
+`F_INIT`.
 
 If the temporal scales are the same, then the models exchange information every
 time they have a new state. This can be done by connecting each model's `O_I`
@@ -297,111 +332,90 @@ accomplished by sending from the slow model's `O_I` to the fast model's
 :::::::::::::::::::::::::::::::::
 :::::::::::::::::::::::::::::::::::::::::::::::
 
+## Coupling Templates
 
-These three cases demonstrate the three *Coupling Templates* defined by the
+![Coupling Templates](fig/ep02-coupling-templates.png){alt='Three diagrams of
+the coupling templates. Each diagram shows two submodel execution loops. The
+first diagram is titled Dispatch. In it, O_F on the first SEL is connected to
+F_INIT on the second SEL. The second diagram is titled Interact. In it, O_I on
+each SEL is connected to S on the other. The third diagram is titled Call and
+Release. O_I on the first SEL is connected to F_INIT on the second, this is
+Call. O_F on the second SEL is connected to S on the first, this is Release.'}
+
+These three cases demonstrate the four *Coupling Templates* defined by the
 MMSF. The first one, `O_F` to `F_INIT`, is called *dispatch*. The second one,
-`O_I` to `S` is called *interact*. The third one has two parts, `O_I` to
-`F_INIT` (*call*) and `O_F` to `S` (*release*).
+`O_I` to `S` is called *interact*, and usually comes in pairs. The third one
+and the fourth one usually go together, as the combination *call* (`O_I` to
+`F_INIT`) and *release* (`O_F` to `S`).
 
 Given the constraints of which operators can send and which can receive, these
-are in fact all four possible types of connections.
+are in fact all four possible types of connections, and between them they cover
+all kinds of temporal scale relations.
 
+If the time domains or time scales overlap, but are not equivalent, then an
+additional component is needed that sits between the models; we will not go
+into that advanced use case here.
 
+## Spatial scale relations and multiplicity
 
-TODO
+Having discussed temporal scales, let's move on to the spatial scales. Like
+with scales in time, scales in space can be the same, overlap, be adjacent or
+be separated, and you can see which one you have by looking at your Scale
+Separation Map.
 
+### Same spatial domain and scale
 
+This is a very tight coupling, where usually the two processes end up in a
+single equation on the theory side, and in a single code in the implementation.
+Unless there is temporal scale separation, it's probably better to combine the
+models into a single implementation. In case of temporal scale separation, a
+call-and-release template may be used and the state is passed back and forth
+between the models.
 
+### Same spatial domain, adjacent or separated scales
 
+If one process is much smaller than the other, then the entire small process
+takes place within one grid cell or agent of the larger process. Frequently,
+this means that there are multiple instances of the smaller model, maybe even
+one for each grid cell or agent, with communication between the large-scale
+model and each small-scale model instance. Some kind of iterative equilibration
+between the models may be needed to reconcile the two representations of the
+state.
 
+### Adjacent spatial domains, same or overlapping spatial scales
 
-- Coupling templates
-    - Spatial scale separation
-        - Overlap -> one-on-one
-        - Separation and adjacency -> one-to-many
+If two processes are of similar size and resolution, but occur on adjacent
+domains, then they will each have their own state, and exchange boundary
+conditions. If there's a temporal scale separation between them, then the
+call-and-release coupling template is used and the called (fast) model keeps
+its state in between calls.
 
-What is sent in those messages depends on the models, but in general if they
-share a domain this will be (part of) the domain's state, while if they occupy
-adjacent domains then boundary conditions will be exchanged.
+::::::::::::::::::::::::::::::::::::: challenge
 
-- Data integration(?)
+## Challenge 5: Spatial relations
 
-- MMSL
-    - Components
-    - Operators
-    - Conduits
+Think of an example for each of the above spatial domain and scale relations.
+Can you think of examples that don't fit any of them?
 
+:::::::::::::::::::::::: solution
 
-This is a lesson created via The Carpentries Workbench. It is written in
-[Pandoc-flavored Markdown](https://pandoc.org/MANUAL.txt) for static files and
-[R Markdown][r-markdown] for dynamic files that can render code into output.
-Please refer to the [Introduction to The Carpentries 
-Workbench](https://carpentries.github.io/sandpaper-docs/) for full documentation.
+## Example solution
 
-What you need to know is that there are three sections required for a valid
-Carpentries lesson:
-
- 1. `questions` are displayed at the beginning of the episode to prime the
-    learner for the content.
- 2. `objectives` are the learning objectives for an episode displayed with
-    the questions.
- 3. `keypoints` are displayed at the end of the episode to reinforce the
-    objectives.
-
-:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: instructor
-
-Inline instructor notes can help inform instructors of timing challenges
-associated with the lessons. They appear in the "Instructor View"
-
-::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-::::::::::::::::::::::::::::::::::::: challenge 
-
-## Challenge 1: Can you do it?
-
-What is the output of this command?
-
-```r
-paste("This", "new", "lesson", "looks", "good")
-```
-
-:::::::::::::::::::::::: solution 
-
-## Output
- 
-```output
-[1] "This new lesson looks good"
-```
+- Reaction-diffusion models have the two processes acting on the same domain and
+  spatial scale, but may be temporally scale-separated depending on parameter
+  values.
+- A crack propagation model coupling a continuum representation of a material
+  sample to molecular mechanics models at specific points. Stresses and strains
+  are exchanged in this case.
+- In a simulation of In-Stent Restenosis, a complication of vascular surgery, a
+  cell growth process in the wall of an artery is coupled with a fluid dynamics
+  simulation of the blood flow through the artery. The domains are adjacent and
+  boundary conditions are exchanged.
 
 :::::::::::::::::::::::::::::::::
+:::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Challenge 2: how do you nest solutions within challenge blocks?
-
-:::::::::::::::::::::::: solution 
-
-You can add a line with at least three colons and a `solution` tag.
-
-:::::::::::::::::::::::::::::::::
-::::::::::::::::::::::::::::::::::::::::::::::::
-
-## Figures
-
-You can use standard markdown for static figures with the following syntax:
-
-`![optional caption that appears below the figure](figure url){alt='alt text for
-accessibility purposes'}`
-
-![You belong in The Carpentries!](https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg){alt='Blue Carpentries hex person logo with no text.'}
-
-## Math
-
-One of our episodes contains $\LaTeX$ equations when describing how to create
-dynamic reports with {knitr}, so we now use mathjax to describe this:
-
-`$\alpha = \dfrac{1}{(1 - \beta)^2}$` becomes: $\alpha = \dfrac{1}{(1 - \beta)^2}$
-
-Cool, right?
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
@@ -412,11 +426,4 @@ Cool, right?
   template to use to connect them
 - An MMSL diagram can be used to visualise a complete coupled simulation
 
-- Use `.md` files for episodes when you want static content
-- Use `.Rmd` files for episodes when you need to generate output
-- Run `sandpaper::check_lesson()` to identify any issues with your lesson
-- Run `sandpaper::build_lesson()` to preview your lesson locally
-
 :::::::::::::::::::::::::::::::::::::::::::::::
-
-[r-markdown]: https://rmarkdown.rstudio.com/
