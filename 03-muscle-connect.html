@@ -174,7 +174,8 @@
       <div class="accordion-body">
         <ul><li><a href="#introduction">Introduction</a></li>
 <li><a href="#dissect-your-model">Dissect your model</a></li>
-<li><a href="#the-constructor">The constructor</a></li>
+<li><a href="#creating-an-instance-object">Creating an Instance object</a></li>
+<li><a href="#the-reuse-loop">The reuse loop</a></li>
 <li><a href="#settings">Settings</a></li>
 <li><a href="#receiving-messages">Receiving messages</a></li>
 <li><a href="#state-update-loop">State update loop</a></li>
@@ -245,7 +246,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>MUSCLE3 - connecting a model to MUSCLE</h1>
-        <p> Last updated on 2022-10-07 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2022-10-23 | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right"> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -283,7 +284,9 @@
 <p><strong>libmuscle</strong> is a library that is used to connect component intances (e.g new or existing submodels) to a coupled simulation.</p>
 <p><strong>muscle_manager</strong> is the central manager of MUSCLE3 that starts up submodels and coordinates their interaction.</p>
 <p><strong>ymmsl-python</strong> is a Python library that contains class definitions to represent an MMSL model description. A yMMSL file serves as the interface between us (humans) and the muscle manager and is meant to describe the multiscale simulation and tell the muscle manager what to do.</p>
-<p>We continue with the reaction-diffusion model example that we used in the previous episode and in this episode we will connect an implementation of the reaction model to the MUSCLE3 library step by step.</p>
+<p>In this section, we will be working with a simple 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models simple exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid. A diffusion submodel models diffusion through the 1D grid.</p>
+<p>Reaction-diffusion models are a traditional example case for multiscale modelling because depending on the parameters used, they may be time-scale overlapping, adjacent or separated. In this example, we’re going to configure the diffusion model to be much slower than the reaction model, resulting in temporal scale separation.</p>
+<p>Before we can create our coupled simulation however, we will need to connect each submodel to MUSCLE3. Here, we will connect the reaction submodel to the <code>libmuscle</code> library step by step.</p>
 </section><section id="dissect-your-model"><h2 class="section-heading">Dissect your model<a class="anchor" aria-label="anchor" href="#dissect-your-model"></a>
 </h2>
 <hr class="half-width"><p>Open the file called reaction.py from the data folder that you downloaded in the setup section in a text editor. It contains a function called <code>reaction</code> that requires a <code>numpy.array</code> as input and returns another after doing some operations.</p>
@@ -329,7 +332,7 @@
 <h3 class="callout-title">Exercise 1: Can you recognize the Submodel Execution Loop?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
 </h3>
 <div class="callout-content">
-<p>In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are associated with it. In the code of the <code>reaction</code> function, can you recognize the beginning and end of the four operators (<span class="math inline">\(F_{init}\)</span>, <span class="math inline">\(O_I\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_F\)</span> ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:</p>
+<p>In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are associated with it. In the code of the <code>reaction</code> function, can you recognize the beginning and end of the four operators (<span class="math inline">\(f_{init}\)</span>, <span class="math inline">\(O_i\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_f\)</span> ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:</p>
 <ul><li><code># begin F_INIT</code></li>
 <li><code># end F_INIT</code></li>
 <li><code># begin O_I</code></li>
@@ -384,14 +387,14 @@
 <span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> U</span>
 <span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    <span class="co"># end O_F</span></span></code></pre>
 </div>
-<p>The Submodel Execution Loop specifies two operators within the state update loop. <span class="math inline">\(O_I\)</span> comes before <span class="math inline">\(S\)</span> and you can use it to send a message to the outside world with (part of) the current state. In this case, the <span class="math inline">\(O_I\)</span> operator is empty; we are not sending or storing any intermediate states. The original type annotations in the function definition serve the same purpose but we will be losing these once we are done connecting the model to MUSCLE.</p>
+<p>The Submodel Execution Loop specifies two operators within the state update loop. <span class="math inline">\(O_i\)</span> comes before <span class="math inline">\(S\)</span> and you can use it to send a message to the outside world with (part of) the current state. In this case, the <span class="math inline">\(O_i\)</span> operator is empty; we are not sending or storing any intermediate states. The original type annotations in the function definition serve the same purpose but we will be losing these once we are done connecting the model to MUSCLE.</p>
 </div>
 </div>
 </div>
 </div>
-</section><section id="the-constructor"><h2 class="section-heading">The constructor<a class="anchor" aria-label="anchor" href="#the-constructor"></a>
+</section><section id="creating-an-instance-object"><h2 class="section-heading">Creating an Instance object<a class="anchor" aria-label="anchor" href="#creating-an-instance-object"></a>
 </h2>
-<hr class="half-width"><p>To let a model communicate with the muscle manager, other submodels and the outside world, we need to create a <code>libmuscle.Instance</code> object:</p>
+<hr class="half-width"><p>To let a model communicate with the muscle manager, other submodels and the outside world, we need to create a <code>libmuscle.Instance</code> object. An instance is a running submodel, and the Instance object represents this particular instance to MUSCLE3:</p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -405,7 +408,7 @@
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            Operator.S: [<span class="st">'some_other_intermediate_state'</span>],</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state_a'</span>, <span class="st">'final_state_b'</span>]})</span></code></pre>
 </div>
-<p>The constructor takes a single argument, a dictionary that maps <code>ymmsl.Operator</code> objects to lists of ports. Ports are used by submodels to exchange messages with the outside world and eachother. These messages usually contain the state of the model, but they can also contain other information. Ports can be input ports or output ports, but not both at the same time, the operator that they are mapped to determines how the port is used. The names of the available operators correspond to their theoretical counterparts (<span class="math inline">\(F_{init}\)</span>, <span class="math inline">\(O_I\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_F\)</span> ).</p>
+<p>The constructor takes a single argument, a dictionary that maps <code>ymmsl.Operator</code> objects to lists of ports. Ports are used by submodels to exchange messages with the outside world and eachother. These messages usually contain (part of) the state of the model (including boundary conditions), but they can also contain other information. Ports can be input ports or output ports, but not both at the same time. The operator that they are mapped to determines how the port is used, as explained in the previous episode. The names of the available operators correspond to their theoretical counterparts (<span class="math inline">\(f_{init}\)</span>, <span class="math inline">\(O_i\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_f\)</span> ).</p>
 <div id="challenge2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -428,13 +431,15 @@
 <div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In this model, we need:</p>
-<ul><li>a single input port that will receive an initial state (e.g. named “initial_state”) at the beginning of the model run and it should be mapped to the <span class="math inline">\(F_{init}\)</span> operator</li>
-<li>a single output port that sends the final state (e.g. named “final_State”) at the end of the reaction simulation to the rest of the simulation, it should be mapped to the <span class="math inline">\(O_F\)</span> operator</li>
+<ul><li>a single input port that will receive an initial state (e.g. named “initial_state”) at the beginning of the model run and it should be mapped to the <span class="math inline">\(f_{init}\)</span> operator</li>
+<li>a single output port that sends the final state (e.g. named “final_state”) at the end of the reaction simulation to the rest of the simulation, it should be mapped to the <span class="math inline">\(O_f\)</span> operator</li>
 </ul></div>
 </div>
 </div>
 </div>
-<p>In multiscale simulations, submodels often have to run multiple times, for instance because they are used as a micro model or because they are part of an ensemble that cannot be completely parallelised. In order to accomplish this, the entire submodel is wrapped into a loop. Exactly when this loop needs to end often depends on the behaviour of the whole model, and is not easy to determine beforehand, but fortunately MUSCLE will do that for us if we call the <code>libmuscle.Instance.reuse_instance()</code> method.</p>
+</section><section id="the-reuse-loop"><h2 class="section-heading">The reuse loop<a class="anchor" aria-label="anchor" href="#the-reuse-loop"></a>
+</h2>
+<hr class="half-width"><p>In multiscale coupled simulations, submodels often have to run multiple times, for instance because they are used as a micro model or because they are part of an ensemble that cannot be completely parallelised. To make this possible, we will wrap the entire submodel in a loop, the so-called reuse loop. Exactly when this loop needs to end often depends on the behaviour of the whole model, and is not easy to determine in advance, but fortunately MUSCLE will do that for us if we call the <code>libmuscle.Instance.reuse_instance()</code> method.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -506,14 +511,14 @@
 <span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> U</span>
 <span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>        <span class="co"># end O_F</span></span></code></pre>
 </div>
-<p>Note that the type of data that is sent is documented in a comment. This is obviously not required, but it makes life a lot easier if someone else needs to use the code or you haven’t looked at it for a while, so it’s highly recommended.</p>
+<p>Note that the type of data that is sent is documented in a comment. This is obviously not required, but it makes life a lot easier if someone else needs to use the code or you haven’t looked at it for a while, so it’s highly recommended. MUSCLE3 does not require you to fix the type of the messages you’re sending to a port in advance; in principle you could send a different type of message every time you send something. The latter is a bad idea, but the flexibility makes development much easier.</p>
 </div>
 </div>
 </div>
 </div>
 </section><section id="settings"><h2 class="section-heading">Settings<a class="anchor" aria-label="anchor" href="#settings"></a>
 </h2>
-<hr class="half-width"><p>Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). We would like to control these settings centrally using the MUSCLE manager when starting up the coupled simulation so we don’t have to change it in our model code every time if we want to try a range of values (for instance, to perform a sensitivity analysis). We can use the <code>libmuscle.Instance.get_setting</code> function instead to ask the MUSCLE manager for the values. The values, or ranges of values, should be recorded in the configuration file which we will cover in the next chapter.</p>
+<hr class="half-width"><p>Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). With MUSCLE, we can specify settings for each submodel in a central configuration file, and get those settings from <code>libmuscle</code> in the model code. This way, we don’t have to change our model code every time if we want to try a range of values (for instance, to perform a sensitivity analysis). We can use the <code>libmuscle.Instance.get_setting</code> function instead to ask the MUSCLE manager for the values. Putting the values in the configuration file will be covered in the next episode, here we’ll look at how to get them from <code>libmuscle</code>.</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -540,7 +545,7 @@
 </h3>
 <div class="callout-content">
 <p>In our example, several settings have been hard-coded into the model:</p>
-<ul><li>the total simulation time to run this sub-model, <code>tmax</code>
+<ul><li>the total simulation time to run this sub-model, <code>t_max</code>
 </li>
 <li>the time step to use, <code>dt</code>
 </li>
@@ -713,7 +718,7 @@
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> libmuscle <span class="im">import</span> Grid, Message</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>my_message <span class="op">=</span> Message(my_timestamp, <span class="va">None</span>, Grid(my_state, [<span class="st">'x'</span>]))</span></code></pre>
 </div>
-<p>To send the message we specify the port on which to send, which again needs to match the declaration.</p>
+<p>To send the message, we specify the port on which to send, which again needs to match the declaration.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -727,7 +732,7 @@
 <h3 class="callout-title">Exercise 5: Send back the result<a class="anchor" aria-label="anchor" href="#challenge6"></a>
 </h3>
 <div class="callout-content">
-<p>In the <span class="math inline">\(O_F\)</span> operator of your model construct a message and replace the return statement with a call to <code>libmuscle.Instance.send()</code> to send the final state to the outside world.</p>
+<p>In the <span class="math inline">\(O_f\)</span> operator of your model construct a message and replace the return statement with a call to <code>libmuscle.Instance.send()</code> to send the final state to the outside world.</p>
 </div>
 </div>
 </div>
@@ -853,8 +858,8 @@ any links that you are not going to use.
   "url": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/03-muscle-connect.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/03-muscle-connect.html",
   "dateCreated": "2022-08-16",
-  "dateModified": "2022-10-07",
-  "datePublished": "2022-10-20"
+  "dateModified": "2022-10-23",
+  "datePublished": "2022-10-23"
 }
 
   </script><script>
