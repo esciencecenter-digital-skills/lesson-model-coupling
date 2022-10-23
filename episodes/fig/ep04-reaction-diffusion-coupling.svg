@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="793.70081"
+   height="1122.5197"
+   viewBox="0 0 793.70081 1122.5197"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="ep04-reaction-diffusion-coupling.svg"
+   inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/episodes/fig/ep02-coupling-templates-mmsl.png"
+   inkscape:export-xdpi="288"
+   inkscape:export-ydpi="288"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:pageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="true"
+     inkscape:document-units="px"
+     showgrid="true"
+     units="px"
+     inkscape:snap-smooth-nodes="true"
+     inkscape:snap-midpoints="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:zoom="1.7235666"
+     inkscape:cx="380.02593"
+     inkscape:cy="211.18998"
+     inkscape:window-width="3840"
+     inkscape:window-height="2091"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9"
+       empspacing="10"
+       originx="0"
+       originy="0" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:1;vector-effect:none;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="rect55023"
+       width="380"
+       height="240"
+       x="210"
+       y="90"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/episodes/fig/ep04-reaction-diffusion-coupling.png"
+       inkscape:export-xdpi="384"
+       inkscape:export-ydpi="384" />
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2182"
+       width="100"
+       height="60"
+       x="350"
+       y="110" />
+    <rect
+       style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2184"
+       width="100"
+       height="60"
+       x="350"
+       y="250" />
+    <circle
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="circle2186"
+       cx="370"
+       cy="180"
+       r="10" />
+    <circle
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="circle2192"
+       cx="430"
+       cy="180"
+       r="10" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 370,190 v 40"
+       id="path2194" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 430,190 v 40"
+       id="path2196" />
+    <rect
+       style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2869"
+       width="14.142136"
+       height="14.142136"
+       x="127.27922"
+       y="466.69049"
+       transform="rotate(-45)" />
+    <rect
+       style="fill:none;stroke:#000000;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect2871"
+       width="14.142136"
+       height="14.142136"
+       x="84.852814"
+       y="424.26404"
+       transform="rotate(-45)" />
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+       x="400"
+       y="150"
+       id="text77957"><tspan
+         sodipodi:role="line"
+         id="tspan77955"
+         x="400"
+         y="150"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle">macro</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;text-align:center;text-anchor:middle"
+       x="400"
+       y="290"
+       id="text77961"><tspan
+         sodipodi:role="line"
+         id="tspan77959"
+         x="400"
+         y="290"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle">micro</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;text-align:end;text-anchor:end"
+       x="340"
+       y="190"
+       id="text96129"><tspan
+         sodipodi:role="line"
+         id="tspan96127"
+         x="340"
+         y="190"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:end;text-anchor:end">state_out</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;text-align:end;text-anchor:end"
+       x="340"
+       y="250"
+       id="text101995"><tspan
+         sodipodi:role="line"
+         id="tspan101993"
+         x="340"
+         y="250"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:end;text-anchor:end">state_in</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="460"
+       y="250"
+       id="text118885"><tspan
+         sodipodi:role="line"
+         id="tspan118883"
+         x="460"
+         y="250">final_state</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="460"
+       y="190"
+       id="text120659"><tspan
+         sodipodi:role="line"
+         id="tspan120657"
+         x="460"
+         y="190">state_in</tspan></text>
+  </g>
+</svg>
