@@ -255,6 +255,17 @@ operators for a while, until the end of the time scale is reached. This leaves
 the model with a final state, which may be output in the $O_f$ operator (for
 **f**inal output or observation).
 
+::: callout
+
+Note that there’s a mnemonic here for the symbols: Operators $O_i$ and $S$,
+which are within the state update loop, have a circular symbol, while
+$f_{init}$ and $O_f$ use a diamond shape. Also, filled symbols designate ports
+on which messages are sent, while open symbols designate receiving ports.
+Information must always be sent from an operator with a filled symbol to one
+with an open symbol.
+
+:::
+
 This basic model is quite flexible. If the loop is run zero times, then the
 model is a simple function. Timesteps may be of any length, and vary during the
 run, and the model may decide to stop and exit the state update loop at any
