@@ -20,11 +20,21 @@ exercises: 5
 
 ## Introduction
 
-MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environment. Its purpose is to make creating coupled multiscale simulations easy, and to then enable efficient Uncertainty Quantification of such models using advanced semi-intrusive algorithms.
+MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environment. Its purpose is to make creating coupled multiscale simulations easy. MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe the structure of a multiscale model and you will notice that the terminology in MUSCLE3 closely links to what you have learned in the previous episode about MMSF.
 
-MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe the structure of a multiscale model and you will notice that the terminology in MUSCLE3 closely links to what you have learned in the previous episode about MMSF.
+In this episode, we will be connecting a small model to MUSCLE3, so that we can connect it to a second model in the next episode.
 
-MUSCLE3 consist of three components:
+The model is a 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid.  A diffusion submodel models diffusion through the 1D grid.
+
+Reaction-diffusion models are a traditional example case for multiscale modelling because depending on the parameters used, they may be time-scale overlapping, adjacent or separated. In this example, we're going to configure the diffusion model to be much slower than the reaction model, resulting in temporal scale separation.
+
+To find out how to connect the models, we need to apply the MMSF to this particular situation. The reaction and diffusion processes act simultaneously on the same spatial and temporal domain. The discretisation of that domain in space is also the same for the two models, so that they have the same spatial scale. And there is temporal scale separation. According to the MMSF, that means that we have to use the Call-and-Release coupling template, with one instance of each submodel:
+
+![gMMSL diagram for the reaction-diffusion model](fig/ep03-reaction-diffusion-coupling.png){alt='gMMSL diagram for the reaction-diffusion model. Two boxes labeled macro and micro represent the two submodels. A line connects a filled circle labeled state_out on macro to an open diamond labeled state_in on micro. A second line connects a filled diamond labeled final_state on micro to an open circle labeled state_in on macro.'}
+
+As you can see, each model will need to have two ports on different operators to send and receive data, and we will connect those together as shown to form the full simulation.
+
+Before we can create our coupled simulation however, we will need to connect each submodel to MUSCLE3. MUSCLE3 consist of three components:
 
 **libmuscle** is a library that is used to connect component intances (e.g new or existing submodels) to a coupled simulation.
 
@@ -32,15 +42,11 @@ MUSCLE3 consist of three components:
 
 **ymmsl-python** is a Python library that contains class definitions to represent an MMSL model description. A yMMSL file serves as the interface between us (humans) and the muscle manager and is meant to describe the multiscale simulation and tell the muscle manager what to do.
 
-In this section, we will be working with a simple 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models simple exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid.  A diffusion submodel models diffusion through the 1D grid.
-
-Reaction-diffusion models are a traditional example case for multiscale modelling because depending on the parameters used, they may be time-scale overlapping, adjacent or separated. In this example, we're going to configure the diffusion model to be much slower than the reaction model, resulting in temporal scale separation.
-
-Before we can create our coupled simulation however, we will need to connect each submodel to MUSCLE3. Here, we will connect the reaction submodel to the `libmuscle` library step by step.
+Here, we will connect the reaction submodel (the micromodel) to the `libmuscle` library step by step. We'll use yMMSL and the manager in the next episode.
 
 ## Dissect your model
 
- Open the file called reaction.py from the data folder that you downloaded in the setup section in a text editor. It contains a function called `reaction` that requires a `numpy.array` as input and returns another after doing some operations.
+ Open the file called `reaction.py` from the data folder that you downloaded in the setup section in a text editor. It contains a function called `reaction` that requires a `numpy.array` as input and returns another after doing some operations.
 
 ```python
 def reaction(initial_state: np.array) -> np.array:
