@@ -1,0 +1,38 @@
+ymmsl_version: v0.1
+
+model:
+  name: reaction_diffusion
+
+  components:
+    macro:
+      implementation: diffusion
+      ports:
+        o_i: state_out
+        s: state_in
+
+    micro:
+      implementation: reaction
+      ports:
+        f_init: initial_state
+        o_f: final_state
+
+  conduits:
+    macro.state_out: micro.initial_state
+    micro.final_state: macro.state_in
+
+settings:
+  micro.t_max: 2.469136e-6
+  micro.dt: 2.469136e-8
+  macro.t_max: 1.234568e-4
+  macro.dt: 2.469136e-6
+  x_max: 1.01
+  dx: 0.01
+  k: -4.05e4    # reaction parameter
+  d: 4.05e-2    # diffusion parameter
+
+resources:
+  macro:
+    threads: 1
+  micro:
+    threads: 1
+
