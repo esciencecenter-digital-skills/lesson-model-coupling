@@ -176,7 +176,7 @@ In this model, we need:
 
 ## The reuse loop
 
-In multiscale coupled simulations, submodels often have to run multiple times, for instance because they are used as a micro model or because they are part of an ensemble that cannot be completely parallelised. To make this possible, we will wrap the entire submodel in a loop, the so-called reuse loop. Exactly when this loop needs to end often depends on the behaviour of the whole model, and is not easy to determine in advance, but fortunately MUSCLE will do that for us if we call the `libmuscle.Instance.reuse_instance()` method.
+In multiscale coupled simulations, submodels often have to run multiple times, for instance because they are used as a micro model or because they are part of an ensemble that cannot be completely parallelised. To make this possible, we will wrap the entire submodel in a loop, the so-called reuse loop. Exactly when this loop needs to end often depends on the behaviour of the whole model, and is not easy to determine in advance, but fortunately MUSCLE will do that for us if we call the `Instance.reuse_instance()` method.
 
 ```python
     while instance.reuse_instance():
@@ -243,7 +243,7 @@ Note that the type of data that is sent is documented in a comment. This is obvi
 
 ## Settings
 
-Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). With MUSCLE, we can specify settings for each submodel in a central configuration file, and get those settings from `libmuscle` in the model code. This way, we don't have to change our model code every time if we want to try a range of values (for instance, to perform a sensitivity analysis). We can use the `libmuscle.Instance.get_setting` function instead to ask the MUSCLE manager for the values. Putting the values in the configuration file will be covered in the next episode, here we'll look at how to get them from `libmuscle`.
+Next is the first part of the model, in which the model is initialised. Nearly every model needs some settings that define how it behaves (e.g. the size of a timestep or model specific parameters). With MUSCLE, we can specify settings for each submodel in a central configuration file, and get those settings from `libmuscle` in the model code. This way, we don't have to change our model code every time if we want to try a range of values (for instance, to perform a sensitivity analysis). We can use the `Instance.get_setting` function instead to ask the MUSCLE manager for the values. Putting the values in the configuration file will be covered in the next episode, here we'll look at how to get them from `libmuscle`.
 
 ```python
     some_variable = instance.get_setting('variable_name', 'variable_type')
@@ -305,7 +305,7 @@ Note that getting settings needs to happen within the reuse loop; doing it befor
 
 ## Receiving messages
 
-Apart from settings, we can use the `libmuscle.Instance.receive` function to receive an initial state for this submodel on the `initial_state` port. Note that we have declared that port above, and declared it to be associated with the `F_INIT` operator. During `F_INIT`, messages can only be received, not sent, so that declaration makes `initial_state` a receiving port.
+Apart from settings, we can use the `Instance.receive` function to receive an initial state for this submodel on the `initial_state` port. Note that we have declared that port above, and declared it to be associated with the `F_INIT` operator. During `F_INIT`, messages can only be received, not sent, so that declaration makes `initial_state` a receiving port.
 
 The message that we will receive can contain several pieces of information. For now, we are interested in the `data` and `timestamp` attributes. We assume the data to be a grid of floats containing our initial state and the time stamp tells us the simulated time at which this state is valid. We can receive a message and store the `data` and `timestamp` attributes in the following way:
 
@@ -401,10 +401,10 @@ from libmuscle import Grid, Message
 my_message = Message(my_timestamp, None, Grid(my_state, ['x']))
 ```
 
-To send the message, we specify the port on which to send, which again needs to match the declaration.
+To send the message, we specify the port on which to send, which needs to match the name of a port specified when we created the `Instance` object:
 
 ```python
-libmuscle.Instance.send('final_state', final_message)
+instance.send('final_state', final_message)
 ```
 
 ::: challenge
