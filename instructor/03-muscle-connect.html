@@ -246,7 +246,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>MUSCLE3 - connecting a model to MUSCLE</h1>
-        <p> Last updated on 2022-10-23 | 
+        <p> Last updated on 2022-10-27 | 
         
         <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -285,18 +285,20 @@
 </div>
 <section id="introduction"><h2 class="section-heading">Introduction<a class="anchor" aria-label="anchor" href="#introduction"></a>
 </h2>
-<hr class="half-width"><p>MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environment. Its purpose is to make creating coupled multiscale simulations easy, and to then enable efficient Uncertainty Quantification of such models using advanced semi-intrusive algorithms.</p>
-<p>MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe the structure of a multiscale model and you will notice that the terminology in MUSCLE3 closely links to what you have learned in the previous episode about MMSF.</p>
-<p>MUSCLE3 consist of three components:</p>
+<hr class="half-width"><p>MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environment. Its purpose is to make creating coupled multiscale simulations easy. MUSCLE3 uses the Multiscale Modelling and Simulation Language (MMSL) to describe the structure of a multiscale model and you will notice that the terminology in MUSCLE3 closely links to what you have learned in the previous episode about MMSF.</p>
+<p>In this episode, we will be connecting a small model to MUSCLE3, so that we can connect it to a second model in the next episode.</p>
+<p>The model is a 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid. A diffusion submodel models diffusion through the 1D grid.</p>
+<p>Reaction-diffusion models are a traditional example case for multiscale modelling because depending on the parameters used, they may be time-scale overlapping, adjacent or separated. In this example, we’re going to configure the diffusion model to be much slower than the reaction model, resulting in temporal scale separation.</p>
+<p>To find out how to connect the models, we need to apply the MMSF to this particular situation. The reaction and diffusion processes act simultaneously on the same spatial and temporal domain. The discretisation of that domain in space is also the same for the two models, so that they have the same spatial scale. And there is temporal scale separation. According to the MMSF, that means that we have to use the Call-and-Release coupling template, with one instance of each submodel:</p>
+<figure><img src="../fig/ep03-reaction-diffusion-coupling.png" alt="gMMSL diagram for the reaction-diffusion model. Two boxes labeled macro and micro represent the two submodels. A line connects a filled circle labeled state_out on macro to an open diamond labeled state_in on micro. A second line connects a filled diamond labeled final_state on micro to an open circle labeled state_in on macro." class="figure mx-auto d-block"><figcaption>gMMSL diagram for the reaction-diffusion model</figcaption></figure><p>As you can see, each model will need to have two ports on different operators to send and receive data, and we will connect those together as shown to form the full simulation.</p>
+<p>Before we can create our coupled simulation however, we will need to connect each submodel to MUSCLE3. MUSCLE3 consist of three components:</p>
 <p><strong>libmuscle</strong> is a library that is used to connect component intances (e.g new or existing submodels) to a coupled simulation.</p>
 <p><strong>muscle_manager</strong> is the central manager of MUSCLE3 that starts up submodels and coordinates their interaction.</p>
 <p><strong>ymmsl-python</strong> is a Python library that contains class definitions to represent an MMSL model description. A yMMSL file serves as the interface between us (humans) and the muscle manager and is meant to describe the multiscale simulation and tell the muscle manager what to do.</p>
-<p>In this section, we will be working with a simple 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models simple exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid. A diffusion submodel models diffusion through the 1D grid.</p>
-<p>Reaction-diffusion models are a traditional example case for multiscale modelling because depending on the parameters used, they may be time-scale overlapping, adjacent or separated. In this example, we’re going to configure the diffusion model to be much slower than the reaction model, resulting in temporal scale separation.</p>
-<p>Before we can create our coupled simulation however, we will need to connect each submodel to MUSCLE3. Here, we will connect the reaction submodel to the <code>libmuscle</code> library step by step.</p>
+<p>Here, we will connect the reaction submodel (the micromodel) to the <code>libmuscle</code> library step by step. We’ll use yMMSL and the manager in the next episode.</p>
 </section><section id="dissect-your-model"><h2 class="section-heading">Dissect your model<a class="anchor" aria-label="anchor" href="#dissect-your-model"></a>
 </h2>
-<hr class="half-width"><p>Open the file called reaction.py from the data folder that you downloaded in the setup section in a text editor. It contains a function called <code>reaction</code> that requires a <code>numpy.array</code> as input and returns another after doing some operations.</p>
+<hr class="half-width"><p>Open the file called <code>reaction.py</code> from the data folder that you downloaded in the setup section in a text editor. It contains a function called <code>reaction</code> that requires a <code>numpy.array</code> as input and returns another after doing some operations.</p>
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -360,7 +362,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -415,7 +417,7 @@
 <span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>            Operator.S: [<span class="st">'some_other_intermediate_state'</span>],</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state_a'</span>, <span class="st">'final_state_b'</span>]})</span></code></pre>
 </div>
-<p>The constructor takes a single argument, a dictionary that maps <code>ymmsl.Operator</code> objects to lists of ports. Ports are used by submodels to exchange messages with the outside world and eachother. These messages usually contain (part of) the state of the model (including boundary conditions), but they can also contain other information. Ports can be input ports or output ports, but not both at the same time. The operator that they are mapped to determines how the port is used, as explained in the previous episode. The names of the available operators correspond to their theoretical counterparts (<span class="math inline">\(f_{init}\)</span>, <span class="math inline">\(O_i\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_f\)</span> ).</p>
+<p>The constructor takes a single argument, a dictionary that maps <code>ymmsl.Operator</code> objects to lists of ports. Ports are used to communicate with other simulation components. They have a name, and they are associated with a Submodel Execution Loop operator, which determines whether they are input or output ports. The operator that they are mapped to determines how the port is used, as explained in the previous episode. The names of the available operators correspond to their theoretical counterparts (<span class="math inline">\(f_{init}\)</span>, <span class="math inline">\(O_i\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_f\)</span> ).</p>
 <div id="challenge2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
@@ -435,7 +437,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>In this model, we need:</p>
 <ul><li>a single input port that will receive an initial state (e.g. named “initial_state”) at the beginning of the model run and it should be mapped to the <span class="math inline">\(f_{init}\)</span> operator</li>
@@ -459,8 +461,8 @@
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="exercise-2-the-muscle-constructor" class="callout-inner">
-<h3 class="callout-title">Exercise 2: The MUSCLE constructor<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<div id="exercise-2-creating-an-instance-and-adding-a-loop" class="callout-inner">
+<h3 class="callout-title">Exercise 2: Creating an Instance and adding a loop<a class="anchor" aria-label="anchor" href="#challenge3"></a>
 </h3>
 <div class="callout-content">
 <p>Add the following to our reaction model code:</p>
@@ -476,7 +478,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -569,7 +571,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -654,7 +656,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -750,7 +752,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -871,8 +873,8 @@ any links that you are not going to use.
   "url": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/03-muscle-connect.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/03-muscle-connect.html",
   "dateCreated": "2022-08-16",
-  "dateModified": "2022-10-23",
-  "datePublished": "2022-10-25"
+  "dateModified": "2022-10-27",
+  "datePublished": "2022-10-27"
 }
 
   </script><script>
