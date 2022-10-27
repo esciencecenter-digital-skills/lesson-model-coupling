@@ -27,6 +27,8 @@ We managed to connect one of our sub-models, the reaction model, to MUSCLE. In o
 
 ::: challenge
 
+## Challenge 1: Investigating the diffusion model
+
 The `diffusion.py` file contains a couple of functions, as well as a few lines of code that may come in useful later. For now, let's focus on the `diffusion` function.
 
 - Compared to the `reaction` function you made previously, what is different, other than the mathematics of the model itself?
@@ -48,6 +50,8 @@ With both models defined, we now need to instruct MUSCLE3 on how to connect them
 Since diagrams aren’t valid Python, we need an alternative way of describing this model in our code. For this, we will create a MUSCLE configuration file written in the yMMSL language. This file tells the MUSCLE manager about the existence of each submodel and how it should be connected to the other components.
 
 ::: challenge
+
+## Challenge 2: Creating the yMMSL file
 
 Open the file `reaction_diffusion.ymmsl`. In it, you'll find an incomplete yMMSL description of the coupled simulation, as shown below. Your challenge? Complete it!
 
@@ -125,6 +129,8 @@ settings:
   d: 4.05e-2    # diffusion parameter
 ```
 
+Look at the names of the settings. Does anything stand out to you?
+
 ## Specifying resources
 
 Finally, we need to tell MUSCLE3 whether and if so how each model is parallelised, so that it can reserve adequate resources for each component. In this case, the models are single-threaded so that is what we specify. Again, add this to your file.
@@ -175,6 +181,8 @@ You will find a `coupled_model.py` file with the others, which implements the ab
 
 ::: challenge
 
+## Challenge 3: Running the coupled simulation
+
 Run the `coupled_model.py` script and see if it works. It should show a plot on the screen showing the concentration over time. If not, try to find the problem! You should have a `muscle_manager.log` file, and maybe a `muscle3.micro.log` and `muscle3.macro.log` to help you figure out what went wrong.
 
 ::: solution
@@ -184,7 +192,13 @@ $ python3 coupled_model.py
 :::
 :::
 
+::: keypoints
 
+- Models may differ in which ports they have and when they send and receive
+- The yMMSL file discribes components, conduits, settings and resources
+- Running the coupled simulation can be done from a Python script
+
+:::
 
 
 
