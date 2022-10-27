@@ -134,12 +134,8 @@ def reaction(initial_state: np.array) -> np.array:
     # end O_F
 ```
 
-The Submodel Execution Loop specifies two operators within the state update
-loop. $O_i$ comes before $S$ and you can use it to send a message to the outside
-world with (part of) the current state. In this case, the $O_i$ operator is
-empty; we are not sending or storing any intermediate states. The original type
-annotations in the function definition serve the same purpose but we will be
-losing these once we are done connecting the model to MUSCLE.
+$f_{init}$ is where everything gets initialised, at the top of the function. This is not just the state, but also parameters and helper variables. Then, the Submodel Execution Loop specifies two operators within the state update loop. $O_i$ comes before $S$ and you can use it to send information to the outside world with (part of) the current state. $O_i$ is empty here, because this original model didn't produce any output for each state. It did update its state however, so that part of the code is in $S$. Finally, returning a result falls under $O_f$.
+
 :::::
 
 :::
