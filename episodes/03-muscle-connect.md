@@ -24,7 +24,9 @@ MUSCLE3 is the third incarnation of the Multiscale Coupling Library and Environm
 
 In this episode, we will be connecting a small model to MUSCLE3, so that we can connect it to a second model in the next episode.
 
-The model is a 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid.  A diffusion submodel models diffusion through the 1D grid.
+### Reaction-diffusion model
+
+The example model for this course is a 1-dimensional reaction-diffusion model. This model models a 1-dimensional medium in which some chemical is constantly destroyed by a reaction, while it is also diffusing through the medium. A reaction submodel models exponential growth (or decline in this case, with a negative parameter) for each cell in the 1D grid.  A diffusion submodel models diffusion through the 1D grid. This model is not very realistic, but we're interested in the coupling, not in reaction-diffusion dynamics, so the simpler the better.
 
 Reaction-diffusion models are a traditional example case for multiscale modelling because depending on the parameters used, they may be time-scale overlapping, adjacent or separated. In this example, we're going to configure the diffusion model to be much slower than the reaction model, resulting in temporal scale separation.
 
@@ -32,7 +34,9 @@ To find out how to connect the models, we need to apply the MMSF to this particu
 
 ![gMMSL diagram for the reaction-diffusion model](fig/ep03-reaction-diffusion-coupling.png){alt='gMMSL diagram for the reaction-diffusion model. Two boxes labeled macro and micro represent the two submodels. A line connects a filled circle labeled state_out on macro to an open diamond labeled state_in on micro. A second line connects a filled diamond labeled final_state on micro to an open circle labeled state_in on macro.'}
 
-As you can see, each model will need to have two ports on different operators to send and receive data, and we will connect those together as shown to form the full simulation.
+As you can see, each model will send and receive data on two operators, and we will connect them together as shown to form the full simulation.
+
+### MUSCLE3
 
 Before we can create our coupled simulation however, we will need to connect each submodel to MUSCLE3. MUSCLE3 consist of three components:
 
