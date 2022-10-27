@@ -156,7 +156,7 @@ def some_example_submodel():
             Operator.O_F: ['final_state_a', 'final_state_b']})
 ```
 
-The constructor takes a single argument, a dictionary that maps `ymmsl.Operator` objects to lists of ports. Ports are used by submodels to exchange messages with the outside world and eachother. These messages usually contain (part of) the state of the model (including boundary conditions), but they can also contain other information. Ports can be input ports or output ports, but not both at the same time. The operator that they are mapped to determines how the port is used, as explained in the previous episode. The names of the available operators correspond to their theoretical counterparts ($f_{init}$, $O_i$, $S$ and $O_f$ ).
+The constructor takes a single argument, a dictionary that maps `ymmsl.Operator` objects to lists of ports. Ports are used to communicate with other simulation components. They have a name, and they are associated with a Submodel Execution Loop operator, which determines whether they are input or output ports. The operator that they are mapped to determines how the port is used, as explained in the previous episode. The names of the available operators correspond to their theoretical counterparts ($f_{init}$, $O_i$, $S$ and $O_f$ ).
 
 ::: challenge
 
@@ -187,7 +187,7 @@ In multiscale coupled simulations, submodels often have to run multiple times, f
 
 ::: challenge
 
-## Exercise 2: The MUSCLE constructor
+## Exercise 2: Creating an Instance and adding a loop
 
 Add the following to our reaction model code:
 

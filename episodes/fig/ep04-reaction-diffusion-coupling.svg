@@ -8,10 +8,10 @@
    version="1.1"
    id="svg5"
    inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
-   sodipodi:docname="ep03-reaction-diffusion-coupling.svg"
-   inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/episodes/fig/ep03-reaction-diffusion-coupling.png"
-   inkscape:export-xdpi="384"
-   inkscape:export-ydpi="384"
+   sodipodi:docname="ep04-reaction-diffusion-coupling.svg"
+   inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/episodes/fig/ep02-coupling-templates-mmsl.png"
+   inkscape:export-xdpi="288"
+   inkscape:export-ydpi="288"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns="http://www.w3.org/2000/svg"
@@ -32,10 +32,10 @@
      inkscape:snap-text-baseline="true"
      inkscape:zoom="1.7235666"
      inkscape:cx="380.02593"
-     inkscape:cy="212.93056"
-     inkscape:window-width="1920"
-     inkscape:window-height="1043"
-     inkscape:window-x="3840"
+     inkscape:cy="211.18998"
+     inkscape:window-width="3840"
+     inkscape:window-height="2091"
+     inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
      inkscape:current-layer="layer1">
@@ -134,5 +134,47 @@
          x="400"
          y="290"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle">micro</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;text-align:end;text-anchor:end"
+       x="340"
+       y="190"
+       id="text96129"><tspan
+         sodipodi:role="line"
+         id="tspan96127"
+         x="340"
+         y="190"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:end;text-anchor:end">state_out</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:sans-serif;text-align:end;text-anchor:end"
+       x="340"
+       y="250"
+       id="text101995"><tspan
+         sodipodi:role="line"
+         id="tspan101993"
+         x="340"
+         y="250"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:end;text-anchor:end">state_in</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="460"
+       y="250"
+       id="text118885"><tspan
+         sodipodi:role="line"
+         id="tspan118883"
+         x="460"
+         y="250">final_state</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:26.6667px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="460"
+       y="190"
+       id="text120659"><tspan
+         sodipodi:role="line"
+         id="tspan120657"
+         x="460"
+         y="190">state_in</tspan></text>
   </g>
 </svg>
