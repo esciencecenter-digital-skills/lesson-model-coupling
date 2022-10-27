@@ -38,6 +38,12 @@ process for coupling two models representing two processes.
 
 ## Domains
 
+::::::::::::::::::::::::::::::::::::: instructor
+- Where process takes place
+- When process starts and ends (convergence, repetition)
+- Partly a modelling decision
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 Mathematical and simulation models represent some kind of process, which takes
 place in a certain location in time and in space: its domain. The weather takes
 place in the atmosphere, earthquakes in the Earth's crust, a forest fire in a
@@ -50,6 +56,11 @@ The domains of two models can be the *same*, *overlapping*, *adjacent*, or
 *separated*, in both space and time. This is important for the coupling between
 them, because it decides what is sent (state or boundary conditions) and when it
 is sent.
+
+::::::::::::::::::::::::::::::::::::: instructor
+- Collect in shared document
+- Discuss questions
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -97,6 +108,11 @@ adjacent.
 
 ## Scales
 
+::::::::::::::::::::::::::::::::::::: instructor
+- Grain and extent
+- Again, partly modelling decision
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 A second important property of a physical process is the scales, again in time
 and in space, on which it takes place. A scale can be defined by its grain and
 extent. There are many other terms in use for these, but we'll use these here
@@ -107,6 +123,10 @@ vary throughout the domain, pick the smallest. The *extent* refers to the size
 of the process in space and time, so the size of its domain. How long does it
 take to complete (or to reach a steady state), and how large an area is
 modelled?
+
+::::::::::::::::::::::::::::::::::::: instructor
+- Add to shared document
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -167,6 +187,12 @@ and the corresponding relationships.
 axis and space on the vertical axis. In the center there is a box, which is
 surrounded by dashed boxes labelled a through h.'}
 
+::::::::::::::::::::::::::::::::::::: instructor
+- Time horizontal, space vertical
+- Plotting scales, so sizes, not locations!
+- Timestep and extent, grid spacing and size
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 The SSM may look very counterintuitive at first, because we are used to plotting
 locations, not sizes. So look at the graph carefully and think about what you
 see and what it means. It does get easier to understand once you get the hang of
@@ -183,6 +209,10 @@ For coupling, it is actually only these relationships that matter. Even if you
 don't know the exact grain or extent of a particular model, you can often decide
 whether it's smaller, larger or the same as the grain or extent of another model
 and draw them correspondingly.
+
+::::::::::::::::::::::::::::::::::::: instructor
+- All together in class
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: challenge
 
@@ -220,6 +250,14 @@ large box for the atmosphere model, ranging from 1 second to 1 day and 10 cm to
 
 
 ## Models and the Submodel Execution Loop
+
+::::::::::::::::::::::::::::::::::::: instructor
+- Model of a computational model
+- Explain operators
+- Begin/end vs. inside state update loop
+- Filled output vs. open input
+- Quite flexible
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 So far, we have talked about domains and scales of models, which we can do based
 on the physical properties of the modelled system, and the research questions we
@@ -276,6 +314,16 @@ use is very likely to fit these minimal constraints.
 
 ## Temporal domain and scale relations
 
+::::::::::::::::::::::::::::::::::::: instructor
+- How to connect two SELs?
+- Time scales and domains are the most interesting part
+- Update shared document with SEL connections, but after giving everyone a bit of time to think
+- Three scenarios
+- --- **#** Adjacent or separated time domains
+- --- **#** Overlapping domains and same time scale
+- --- **#** Overlapping domains and time scale separation
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 Now that we know what a model is and how models may be related in terms of their
 domains and scales, we can decide how to set up the coupled simulation. We do
 this by looking at all pairs of two models under consideration, one pair at a
@@ -308,7 +356,7 @@ right when the other process finishes, or separated, meaning one process starts
 some time after the other process finishes. In this case, the final output of
 the first model is used to initialise the subsequent model.
 
-### Overlapping time domains and the same temporal scale
+### Same time domains and the same temporal scale
 
 If two processes do not happen one after the other, then they occur at least
 partially simultaneously, and their models have overlapping time domains. The
@@ -318,7 +366,7 @@ to the next timestep, then sends some information based on the new state (e.g.
 boundary conditions) to the other model, receives information from the other
 model in return, and goes to do the next state update.
 
-### Overlapping time domains and temporal scale separation
+### Same time domains and temporal scale separation
 
 A third interesting case is when two processes happen at the same time, but one
 process is much faster than the other, so that it runs to completion in (much)
@@ -360,6 +408,12 @@ $f_{init}$ and from the fast model's $O_f$ back to the slow model's $S$.
 
 ## Coupling Templates
 
+::::::::::::::::::::::::::::::::::::: instructor
+- Three scenarios use four coupling templates
+- Explain them, see picture
+- These are all the possibilities!
+::::::::::::::::::::::::::::::::::::::::::::::::
+
 ![Coupling Templates](fig/ep02-coupling-templates.png){alt='Three diagrams of
 the coupling templates. Each diagram shows two submodel execution loops. The
 first diagram is titled Dispatch. In it, O_F on the first SEL is connected to
@@ -383,6 +437,21 @@ additional component is needed that sits between the models; we will not go
 into that advanced use case here.
 
 ## Spatial domains, scales and multiplicity
+
+::::::::::::::::::::::::::::::::::::: instructor
+- Space is also important of course
+- Again three scenarios
+- --- **#** Same domain and scale
+- --- --- **#** May be best to make a single program
+- --- **#** Same spatial domain, adjacent or separated scales
+- --- --- **#** Multiple instances of the small one!
+- --- **#** Adjacent spatial domains, same or overlapping spatial scales
+- --- --- **#** For time-scale separation, fast model needs to keep state!
+- These determine:
+- --- **#** How many instances there are of each model
+- --- **#** Whether state or boundary conditions are exchanged
+- Challenge 5: Find examples in the shared document
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 Having discussed temporal scales, let's move on to the spatial scales. Like
 with scales in time, scales in space can be the same, overlap, be adjacent or
@@ -454,6 +523,11 @@ Can you think of examples that don't fit any of them?
 :::::::::::::::::::::::::::::::::::::::::::::::
 
 ## MMSL Diagrams
+
+::::::::::::::::::::::::::::::::::::: instructor
+- There's a diagram language for showing coupled models: gMMSL
+- Explain the diagram together (in the shared document)
+::::::::::::::::::::::::::::::::::::::::::::::::
 
 For larger coupled simulations consisting of several submodels and other
 components, drawing the complete submodel execution loop as we did above gets
