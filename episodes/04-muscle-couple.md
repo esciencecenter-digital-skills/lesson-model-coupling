@@ -1,7 +1,7 @@
 ---
 title: "MUSCLE3 - coupling and running"
-teaching: 60
-exercises: 2
+teaching: 45
+exercises: 3
 ---
 
 ::: questions
