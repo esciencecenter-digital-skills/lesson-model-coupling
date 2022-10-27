@@ -282,6 +282,21 @@ this by looking at all pairs of two models under consideration, one pair at a
 time, and consider the relationships between their temporal and spatial scales
 as well as their domains.
 
+For reference, here are the possible relations between two time domains or two
+time scales:
+
+| Property | Relation | Description |
+| -------- | -------- | ----------- |
+|  Domain  |   Same   | At the same time, acting on the exact same bit of reality |
+|  Domain  |  Overlap  | Some parts at the same time, acting on the same bit of reality |
+|  Domain  |  Adjacent  | One starting precisely when the other ends |
+|  Domain  |  Separated  | One starting some time after the other ends |
+|   Scale  |   Same   | Same grain (dt) and extent (duration) |
+|   Scale  |  Overlap  | Grain or extent differs, but neither model has a grain larger than the extent of the other or an extent smaller than the grain of the other |
+|   Scale  |  Adjacent  | One model's extent equals the other's grain |
+|   Scale  |  Separated  | One model's extent is smaller than the other model's grain |
+
+
 Of the different properties, those governing time are the most interesting, and
 also potentially the most confusing. Let's look at the possible scenarios one by
 one.
@@ -367,12 +382,24 @@ If the time domains or time scales overlap, but are not equivalent, then an
 additional component is needed that sits between the models; we will not go
 into that advanced use case here.
 
-## Spatial scale relations and multiplicity
+## Spatial domains, scales and multiplicity
 
 Having discussed temporal scales, let's move on to the spatial scales. Like
 with scales in time, scales in space can be the same, overlap, be adjacent or
 be separated, and you can see which one you have by looking at your Scale
-Separation Map.
+Separation Map. Here's another table with the interpretation of those relations
+in space:
+
+| Property | Relation | Description |
+| -------- | -------- | ----------- |
+|  Domain  |   Same   | In the same place, acting on the exact same bit of reality |
+|  Domain  |  Overlap  | Some parts in the same place, acting on the same bit of reality |
+|  Domain  |  Adjacent  | Acting on two different bits of reality which touch each other (space) |
+|  Domain  |  Separated  | Acting on two different bits of reality which do not touch (space) |
+|   Scale  |   Same   | Same grain (dx) and extent (size) |
+|   Scale  |  Overlap  | Grain or extent differs, but neither model has a grain larger than the extent of the other or an extent smaller than the grain of the other |
+|   Scale  |  Adjacent  | One model's extent equals the other's grain |
+|   Scale  |  Separated  | One model's extent is smaller than the other model's grain |
 
 ### Same spatial domain and scale
 
