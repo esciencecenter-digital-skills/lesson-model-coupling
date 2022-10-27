@@ -80,7 +80,7 @@ At every iteration of the loop, the state `U` is updated by adding a fraction of
 
 ::: challenge
 
-## Exercise 1: Can you recognize the Submodel Execution Loop?
+## Challenge 1: Can you recognize the Submodel Execution Loop?
 
  In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are associated with it. In the code of the `reaction` function, can you recognize the beginning and end of the four operators ($f_{init}$, $O_i$, $S$ and $O_f$ ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:
 
@@ -187,7 +187,7 @@ In multiscale coupled simulations, submodels often have to run multiple times, f
 
 ::: challenge
 
-## Exercise 2: Creating an Instance and adding a loop
+## Challenge 2: Creating an Instance and adding a loop
 
 Add the following to our reaction model code:
 
@@ -258,7 +258,7 @@ The second argument, which specifies the expected type, is optional. If it is gi
 
 ::: challenge
 
-## Exercise 3:
+## Challenge 3:
 
 In our example, several settings have been hard-coded into the model:
 
@@ -335,7 +335,7 @@ One thing we need to be aware of is time. Most models depend on time in some way
 
 :::challenge
 
-## Exercise 4: Receiving the initial state and keeping track of time
+## Challenge 4: Receiving the initial state and keeping track of time
 
 Where previously we had received `initial_state` from the function call, we now want to get it through a libmuscle message. Add statements to receive a message on the `initial_state` port and store the `data` and `timestamp` attributes in an appropriate place.
 
@@ -409,7 +409,7 @@ libmuscle.Instance.send('final_state', final_message)
 
 ::: challenge
 
-## Exercise 5: Send back the result
+## Challenge 5: Send back the result
 
 In the $O_f$ operator of your model construct a message and replace the return statement with a call to `libmuscle.Instance.send()` to send the final state to the outside world.
 
