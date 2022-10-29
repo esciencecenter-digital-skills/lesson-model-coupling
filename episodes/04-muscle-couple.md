@@ -25,6 +25,13 @@ We managed to connect one of our sub-models, the reaction model, to MUSCLE. In o
 
 ## Investigating the macro model
 
+::: instructor
+
+- Write differences between `diffusion.py` and `reaction.py` in shared document
+    - Besides the model, of course
+
+:::
+
 ::: challenge
 
 ## Challenge 1: Investigating the diffusion model
@@ -42,6 +49,16 @@ The `diffusion.py` file contains a couple of functions, as well as a few lines o
 :::
 
 ## Connecting the models together
+
+::: instructor
+
+- Time to connect the two models together, see diagram
+- Computers don't read diagrams very well, so there is yMMSL, based on YAML
+- MUSCLE3 is configured using a yMMSL file
+- Challenge 2: Translate diagram into text, based on given template
+    - See `reaction_diffusion.ymmsl` in ZIP
+
+:::
 
 With both models defined, we now need to instruct MUSCLE3 on how to connect them together. Recall the gMMSL diagram from the previous episode (with port names, this time):
 
@@ -115,6 +132,13 @@ Second, we need to connect the components together. This is done by conduits, wh
 
 ## Adding settings
 
+::: instructor
+
+- Remember that we're getting our settings from MUSCLE3, they need to be added
+- It's a YAML dict, but look at the names of the settings, does anything stand out?
+
+:::
+
 The above specifies which submodels we have and how they are connected together. Next, we need to configure them by adding the settings to the yMMSL file. These will be passed to the models, who get them using the `Instance.get_settings()` function. Go ahead and add them to your `reaction_diffusion.py`:
 
 ```yaml
@@ -133,6 +157,13 @@ Look at the names of the settings. Does anything stand out to you?
 
 ## Specifying resources
 
+::: instructor
+
+- Resources are a bit of an advance topic, so we're not going into it here
+- We need to specify something, which is that our components are single-threaded
+
+:::
+
 Finally, we need to tell MUSCLE3 whether and if so how each model is parallelised, so that it can reserve adequate resources for each component. In this case, the models are single-threaded so that is what we specify. Again, add this to your file.
 
 ```yaml
@@ -146,6 +177,16 @@ resources:
 Note that we specify resources for each component, not for each implementation.
 
 ## Launching the simulation
+
+::: instructor
+
+- To connect, need model functions and configuration, then tie together
+- Show code snippets
+- Challenge 3
+    - Add the settings and the resources section to your yMMSL file
+    - Look at `coupled_model.py` and try to run it!
+
+:::
 
 This gives us all the pieces needed to construct a coupled simulation. All we need is the two model functions and the configuration, then we can connect them together and run the whole thing. The model functions we can import from the files we saw before:
 
@@ -183,7 +224,7 @@ You will find a `coupled_model.py` file with the others, which implements the ab
 
 ## Challenge 3: Running the coupled simulation
 
-Run the `coupled_model.py` script and see if it works. It should show a plot on the screen showing the concentration over time. If not, try to find the problem! You should have a `muscle_manager.log` file, and maybe a `muscle3.micro.log` and `muscle3.macro.log` to help you figure out what went wrong.
+If you haven't already done so, add the settings and resources to your `reaction_diffusion.ymmsl`. Then, have a look at the `coupled_model.py` script and see if you can run it. It should show a plot on the screen showing the concentration over time. If not, try to find the problem! You should have a `muscle_manager.log` file, and maybe a `muscle3.micro.log` and `muscle3.macro.log` to help you figure out what went wrong.
 
 ::: solution
 
