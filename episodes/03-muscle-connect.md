@@ -1,7 +1,7 @@
 ---
 title: "MUSCLE3 - connecting a model to MUSCLE"
-teaching: 60
-exercises: 5
+teaching: 20
+exercises: 40
 ---
 
 ::: questions
