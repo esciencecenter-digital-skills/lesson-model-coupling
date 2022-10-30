@@ -1,7 +1,7 @@
 ---
 title: "Model coupling theory: the Multiscale Modelling and Simulation Framework"
-teaching: 45
-exercises: 6
+teaching: 25
+exercises: 20
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions
