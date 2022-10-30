@@ -36,3 +36,13 @@ resources:
   micro:
     threads: 1
 
+implementations:
+  reaction:
+    virtual_env: /path/to/my/env
+    executable: python
+    args: /path/to/my/reaction.py
+
+  diffusion:
+    virtual_env: /path/to/my/env
+    executable: python
+    args: /path/to/my/diffusion.py

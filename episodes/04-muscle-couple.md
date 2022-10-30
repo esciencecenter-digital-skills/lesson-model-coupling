@@ -139,7 +139,7 @@ Second, we need to connect the components together. This is done by conduits, wh
 
 :::
 
-The above specifies which submodels we have and how they are connected together. Next, we need to configure them by adding the settings to the yMMSL file. These will be passed to the models, who get them using the `Instance.get_settings()` function. Go ahead and add them to your `reaction_diffusion.py`:
+The above specifies which submodels we have and how they are connected together. Next, we need to configure them by adding the settings to the yMMSL file. These will be passed to the models, who get them using the `Instance.get_settings()` function. Go ahead and add them to your `reaction_diffusion.ymmsl`:
 
 ```yaml
 settings:
@@ -233,27 +233,106 @@ $ python3 coupled_model.py
 :::
 :::
 
+## Running separate programs using the MUSCLE3 manager
+
+::: instructor
+
+- This one may be a bit more difficult, but needed for C++, Fortran and HPC
+- Manager lets you use programs instead of Python functions to create instances
+- Component, Instance, Implementation
+- Challenge 4
+    - Turn reaction model into a separate Python program
+    - Tell MUSCLE3 how to start the submodels
+    - Run simulation using manager
+
+:::
+
+The above `coupled_model.py` script imports the models as Python functions, and then starts them using MUSCLE3's `runner.run_simulation()` function. This works great for models consisting entirely of Python components, and which are small enough to run on the local machine. However, models written in other languages like C++ or Fortran cannot be imported as Python functions, and larger simulations may need to run on many nodes on an HPC cluster. For such simulations, we cannot use `run_simulation()`, and we need to use the MUSCLE3 *manager* instead.
+
+The MUSCLE3 manager, like the runner, gets a model description and a list of implementations to use, and then starts each required instance by starting its implementation. That's a fair bit of new terminology, so here is what those words mean:
+
+Component
+:   Represents a simulated process with a domain and a scale, or is a helper component. One box in the gMMSL diagram. May have a single instance, or multiple instances e.g. in case of spatial scale separation or if it's part of a UQ ensemble.
+
+Instance
+:   A running program simulating a particular component. This may be a parallel program running on many cores or across many machines, or in could be a simple Python script.
+
+Implementation
+:   A computer program (e.g. a Python script) that can be started to create an instance.
+
+::: challenge
+
+## Challenge 4: Running using the manager
+
+In this final challenge, we'll run the reaction-diffusion model using the MUSCLE3 manager. This takes three steps: turning the reaction model into a stand-alone program, telling the manager how to start the programs, and finally running it all.
+
+### Create a stand-alone Python program
+
+First, you need to turn `reaction.py` into a stand-alone Python program.
+
+Hint: Look at `diffusion.py`, which is already set up to do this. You can copy-paste and adapt from there.
+
+### Add an implementations section
+
+Next, you need to add an `implementations:` section to your yMMSL file. The implementations section describes which implementations are available to run. Here's a template for a Python program:
+
+```
+implementations:
+  <implementation_name>:
+    virtual_env: <absolute path to virtual env to load>
+    executable: python
+    args: <absolute path to Python script>
+```
+
+Add this section to your `reaction_diffusion.ymmsl`, and replace all the items in angle brackets with the correct values.
+
+### Run the simulation
+
+To run the simulation using the manager, open a terminal and activate the virtual environment in which you've installed MUSCLE3. You can then start the simulation using `muscle_manager --start-all reaction_diffusion.ymmsl`. Do that, and inspect the output!
+
+::: solution
+
+To turn `reaction.py` into a stand-alone program, you need to add the final section of `diffusion.py` to the end, slightly modified:
+
+```
+if __name__ == '__main__':
+    logging.basicConfig()
+    logging.getLogger().setLevel(logging.INFO)
+    reaction()
+```
+
+The yMMSL file then gets an implementations section like this:
+
+```
+implementations:
+  reaction:
+    virtual_env: /path/to/workdir/env
+    executable: python
+    args: /path/to/workdir/reaction.py
+
+  diffusion:
+    virtual_env: /path/to/workdir/env
+    executable: python
+    args: /path/to/workdir/diffusion.py
+```
+
+Then, you can run using
+
+```
+(env) $ muscle_manager --start-all reaction_diffusion.ymmsl
+```
+
+And that will create a directory named `run_reaction_diffusion_<date>_<time>` with all the log files and model output neatly organised.
+
+:::
+:::
+
 ::: keypoints
 
 - Models may differ in which ports they have and when they send and receive
 - The yMMSL file discribes components, conduits, settings and resources
 - Running the coupled simulation can be done from a Python script
+- For larger simulations and C++ and Fortran, submodels run as separate programs via the MUSCLE3 manager
 
 :::
 
-
-
-
-
-
-## Bonus exercise
-
-TODO: do this or not?
-
-- turn reaction.py and diffusion.py into stand-alone Python programs
-- put the yMMSL into a separate YAML file
-- add implementations: section pointing to those files
-- run using muscle_manager --start-all
-
-
-?
