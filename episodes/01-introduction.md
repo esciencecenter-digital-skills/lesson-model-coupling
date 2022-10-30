@@ -1,7 +1,7 @@
 ---
 title: "Introduction to model coupling"
-teaching: 30
-exercises: 20
+teaching: 15
+exercises: 10
 ---
 
 :::::::::::::::::::::::::::::::::::::: questions 
