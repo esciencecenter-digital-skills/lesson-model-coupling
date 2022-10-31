@@ -378,7 +378,98 @@ any links that you are not going to use.
 <li>Explain the diagram together (in the shared document)</li>
 </ul>
 <hr></section><section id="03-muscle-connect"><h2 class="section-heading"><a href="03-muscle-connect.html">MUSCLE3 - connecting a model to MUSCLE</a></h2>
-<hr class="half-width"></section><section id="04-muscle-couple"><h2 class="section-heading"><a href="04-muscle-couple.html">MUSCLE3 - coupling and running</a></h2>
+<hr class="half-width">
+<ul>
+<li>MUSCLE3 makes coupled simulations easy</li>
+<li>Made by UvA-CSL and NLeSC</li>
+<li>Example model: 1D reaction-diffusion
+<ul>
+<li>Concentration of a chemical in a 1D container</li>
+<li>Time-scale separated -&gt; call and release</li>
+<li>Same spatial domain -&gt; exchange state</li>
+</ul>
+</li>
+<li>MUSCLE3 has three components: libmuscle, manager, ymmsl-python</li>
+<li>Connect model to libmuscle, here the (fast) micromodel (reaction)</li>
+</ul>
+<hr>
+<ul>
+<li>Reaction function is a very small (but typical) model code
+<ul>
+<li>Copy the state from the input to avoid overwriting it</li>
+</ul>
+</li>
+<li>Challenge 1: Edit your local <code>reaction.py</code>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Instance represents this model instance to the coupled simulation</li>
+<li>Send and receive messages on ports (don’t know what’s connected!)</li>
+<li>Challenge (in the shared document, then discuss)
+<ul>
+<li>What are good names for the ports?</li>
+<li>Which operators do they need to be associated with?</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Sometimes a model needs to run many times, depending on how it’s connected</li>
+<li>MUSCLE3 can figure that out, but we do need to add a loop to implement it</li>
+<li>Challenge 2: Add an Instance and a reuse loop</li>
+</ul>
+<hr>
+<ul>
+<li>Handy to have all the settings together in one place</li>
+<li>Models get them via the instance object (see syntax)
+<ul>
+<li>Optionally type check (not so optionally in C++ and Fortran)</li>
+</ul>
+</li>
+<li>Challenge 3: individually: get your settings from MUSCLE3 instead of hard-coding them</li>
+</ul>
+<hr>
+<ul>
+<li>Now, we need to receive our initial state from the appropriate port</li>
+<li>
+<code>msg.data</code> will be a MUSCLE3 Grid object, an array with annotated indices</li>
+<li>Explain syntax in example
+<ul>
+<li>Need to copy here too, as the received message is read-only</li>
+<li>Timestamp has simulation time the data corresponds to</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>We won’t try to connect anything to our <code>O_i</code> and <code>S</code>
+<ul>
+<li>No ports</li>
+<li>No need to receive or send there</li>
+</ul>
+</li>
+<li>It’s good to keep time carefully, for debugging alone
+<ul>
+<li>Use received timestamp to init current time, then run from there</li>
+<li>How should you adjust the final time?</li>
+</ul>
+</li>
+<li>Challenge 4: Receive initial state and track time</li>
+</ul>
+<hr>
+<ul>
+<li>At the end of the run, we need to send the final state</li>
+<li>Create a <code>Message</code>
+</li>
+<li>Use a <code>Grid</code> object (show and explain example code)
+<ul>
+<li>Second timestamp is for advanced cases, not needed here</li>
+</ul>
+</li>
+<li>Challenge 5: Send the final state</li>
+</ul>
+<hr></section><section id="04-muscle-couple"><h2 class="section-heading"><a href="04-muscle-couple.html">MUSCLE3 - coupling and running</a></h2>
 <hr class="half-width">
 <p>Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the “Instructor View”</p>
 <hr></section></section>
