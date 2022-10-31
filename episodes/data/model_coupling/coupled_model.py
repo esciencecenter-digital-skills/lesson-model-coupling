@@ -7,7 +7,7 @@ import ymmsl
 
 
 from diffusion import diffusion
-from reaction_solution import reaction
+from reaction import reaction
 
 
 # Configure Python logging
@@ -18,7 +18,7 @@ logging.getLogger('yatiml').setLevel(logging.WARNING)
 logging.getLogger().setLevel(logging.INFO)
 
 # Load configuration
-configuration = ymmsl.load(Path('reaction_diffusion_solution.ymmsl'))
+configuration = ymmsl.load(Path('reaction_diffusion.ymmsl'))
 
 # Connect the model functions to the configuration
 implementations = {'diffusion': diffusion, 'reaction': reaction}

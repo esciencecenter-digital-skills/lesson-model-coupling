@@ -17,6 +17,7 @@ python3 -m venv muscle3_venv
 . muscle3_venv/bin/activate
 pip install -U pip setuptools wheel
 pip install muscle3
+pip install matplotlib
 ```
 
 This will create a Python virtualenv in a directory named muscle3_venv in your home directory, and then activate it. This means that when you run Python, it will use the version of Python in the virtual environment, and see the packages you have installed there. Of course, you can put it wherever you want it.

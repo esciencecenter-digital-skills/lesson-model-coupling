@@ -107,13 +107,13 @@ model:
 
   components:
     macro:
-      implementation: diffusion_python
+      implementation: diffusion
       ports:
         o_i: state_out
         s: state_in
 
     micro:
-      implementation: reaction_python
+      implementation: reaction
       ports:
         f_init: initial_state
         o_f: final_state
