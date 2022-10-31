@@ -465,7 +465,7 @@ into that advanced use case here.
     - Same spatial domain, adjacent or separated scales
         - Multiple instances of the small one!
     - Adjacent spatial domains, same or overlapping spatial scales
-        - For time-scale separation, fast model needs to keep state!
+        - For time-scale separation, the fast model needs to keep state!
 - These determine:
     - How many instances there are of each model
     - Whether state or boundary conditions are exchanged
