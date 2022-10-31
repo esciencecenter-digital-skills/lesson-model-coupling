@@ -1,0 +1,19 @@
+ymmsl_version: v0.1
+
+model:
+  name: reaction_diffusion
+
+  components:
+    macro:
+      implementation: diffusion
+      ports:
+        o_i: state_out
+        ...
+
+    ...
+      implementation: reaction
+      ...
+
+  conduits:
+    macro.state_out: micro.initial_state
+    ...

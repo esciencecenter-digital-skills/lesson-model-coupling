@@ -145,8 +145,7 @@
         
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
-        <ul><li><a href="#data-sets">Data Sets</a></li>
-<li><a href="#software-setup">Software Setup</a></li>
+        <ul><li><a href="#setup">Setup</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
         
@@ -239,77 +238,42 @@
       <hr></nav><main id="main-content" class="main-content"><h1 class="schedule-heading">Summary and Schedule</h1>
       
 
-<p>This is a new lesson built with <a href="https://carpentries.github.io/sandpaper-docs" class="external-link">The Carpentries Workbench</a>.</p>
+<p>This lesson is intended for people who would like to combine several computational models into one big computational model. It covers the theory behind model coupling and teaches application via use of two different model coupling frameworks: MUSCLE3 and AMUSE.</p>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
 
 
-      <section id="setup"><p>Setup instructions live in this document. Please specify the tools and the data sets the Learner needs to have installed.</p>
-<section id="data-sets"><h2 class="section-heading">Data Sets<a class="anchor" aria-label="anchor" href="#data-sets"></a>
+      <section id="setup"><section id="setup"><h2 class="section-heading">Setup<a class="anchor" aria-label="anchor" href="#setup"></a>
 </h2>
-<hr class="half-width"><p>Download the <a href="data/data.zip">data zip file</a> and unzip it to your Desktop</p>
-</section><section id="software-setup"><h2 class="section-heading">Software Setup<a class="anchor" aria-label="anchor" href="#software-setup"></a>
-</h2>
-<hr class="half-width"><div id="discussion1" class="callout discussion">
-<div class="callout-square">
-<i class="callout-icon" data-feather="message-circle"></i>
-</div>
-<div id="details" class="callout-inner">
-<h3 class="callout-title">Details<a class="anchor" aria-label="anchor" href="#discussion1"></a>
+<hr class="half-width"><p>Please perform this setup before you start with the first episode.</p>
+<div class="section level3">
+<h3 id="muscle3">MUSCLE3<a class="anchor" aria-label="anchor" href="#muscle3"></a></h3>
+<p>Installing MUSCLE3 on Python will install all the Python-based components of the system, i.e. the Python version of libmuscle, the YMMSL Python library, and the MUSCLE Manager. This requires at least Python 3.6.</p>
+<p>MUSCLE3 is on PyPI as an ordinary Python package, so it can be installed via Pip in the usual way. It’s normally a good idea to make a virtual environment (virtualenv), if you don’t yet have one:</p>
+<div class="codewrapper sourceCode" id="cb1">
+<h3 class="code-label">BASH<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<div class="callout-content">
-<p>Setup for different systems can be presented in dropdown menus via a <code>solution</code> tag. They will join to this discussion block, so you can give a general overview of the software used in this lesson here and fill out the individual operating systems (and potentially add more, e.g. online setup) in the solutions blocks.</p>
+<pre class="sourceCode bash" tabindex="0"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">python3</span> <span class="at">-m</span> venv muscle3_venv</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="bu">.</span> muscle3_venv/bin/activate</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install <span class="at">-U</span> pip setuptools wheel</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install muscle3</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="ex">pip</span> install matplotlib</span></code></pre>
 </div>
+<p>This will create a Python virtualenv in a directory named muscle3_venv in your home directory, and then activate it. This means that when you run Python, it will use the version of Python in the virtual environment, and see the packages you have installed there. Of course, you can put it wherever you want it.</p>
+<p>Next, we upgrade pip, the Python package installer (most systems have an old version, and old versions sometimes give problems), setuptools (same thing) and we install wheel (which can cause packages to fail to install if it’s not there).</p>
+<p>Having made a good environment, we can then install MUSCLE3 inside of it. Once that’s done, you can use MUSCLE3 whenever you have the virtualenv activated. This will also install the Python YMMSL library, and any required dependencies.</p>
+<p><strong>Conda users beware</strong>: due to a bug in Anaconda, one of the dependencies of MUSCLE3 cannot be installed using <code>pip</code> in the Conda base environment. So, if you want to use Conda instead of virtualenv, you need to either make a separate Conda environment, and then pip install as described above, or, if you want to use the base environment anyway, do <code>conda install -c conda-forge yatiml</code> and then pip install muscle3 as above.</p>
 </div>
-</div>
-<div id="accordionSolution1" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
-  <h4 class="accordion-header" id="headingSolution1">
-  Windows
-  </h4>
-</button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
-<div class="accordion-body">
-<p>Use PuTTY</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution2" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
-  <h4 class="accordion-header" id="headingSolution2">
-  MacOS
-  </h4>
-</button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
-<div class="accordion-body">
-<p>Use Terminal.app</p>
-</div>
-</div>
-</div>
-</div>
-<div id="accordionSolution3" class="accordion challenge-accordion accordion-flush">
-<div class="accordion-item">
-<button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
-  <h4 class="accordion-header" id="headingSolution3">
-  Linux
-  </h4>
-</button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
-<div class="accordion-body">
-<p>Use Terminal</p>
-</div>
-</div>
-</div>
-</div>
+<div class="section level3">
+<h3 id="files">Files<a class="anchor" aria-label="anchor" href="#files"></a></h3>
+<p>The exercises in this course use several <a href="data/model_coupling.zip">prepared files</a>, which you should download and unpack.</p>
 <!-- 
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
+</div>
 </section></section></main><nav class="bottom-pagination mx-md-4" aria-label="Next Chapter"><!-- content for small screens --><div class="d-block d-sm-block d-md-none">
         <a class="chapter-link float-end" href="01-introduction.html">Next<i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i></a>
       </div>
@@ -323,13 +287,14 @@ any links that you are not going to use.
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
 				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
-				<p><a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/index.md" class="external-link">Edit on Github</a> 
+        <p>
         
-        <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/index.md" class="external-link">Edit on GitHub</a></p>
+        <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/index.md" class="external-link">Edit on GitHub</a>
         
         
         
-        | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/" class="external-link">Source</a>
+        | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:training@esciencecenter.nl">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
@@ -339,7 +304,7 @@ any links that you are not going to use.
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.10.6" class="external-link">sandpaper (0.10.6)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/0.3.2" class="external-link">pegboard (0.3.2)</a>,
-      and <a href="https://github.com/carpentries/varnish/tree/0.2.7" class="external-link">varnish (0.2.7)</a>.</p>
+      and <a href="https://github.com/carpentries/varnish/tree/0.2.8" class="external-link">varnish (0.2.8)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
