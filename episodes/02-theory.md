@@ -158,7 +158,7 @@ the order of a few minutes, perhaps up to an hour. The time extent of the model
 is one day, as it will repeat itself after that.
 
 In space, the grain depends on the research question, and could be as small as
-10cm if we are looking at the detailed thermal environment around a building, or
+10 cm if we are looking at the detailed thermal environment around a building, or
 as large as a few kilometers if we want to make a national weather forecast. The
 extent is the size of the area of study.
 
