@@ -1,0 +1,502 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1920"
+   height="1080"
+   viewBox="0 0 1920 1080"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.2 (0a00cf5339, 2022-02-04)"
+   sodipodi:docname="ep02-scale-separation-map-solution.svg"
+   inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/episodes/fig/ep02-scale-separation-map-solution.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:snap-text-baseline="true"
+     inkscape:zoom="0.56041667"
+     inkscape:cx="836.87732"
+     inkscape:cy="516.57993"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer2"
+     inkscape:snap-to-guides="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid9"
+       empspacing="10" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <linearGradient
+       id="linearGradient23664"
+       inkscape:swatch="solid">
+      <stop
+         style="stop-color:#000000;stop-opacity:1;"
+         offset="0"
+         id="stop23662" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Background"
+     style="display:inline">
+    <rect
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:#feffff;fill-opacity:1;stroke:none;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       id="rect47003"
+       width="1060"
+       height="1000"
+       x="340"
+       y="80"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+  </g>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 460,940 h 880"
+       id="path44"
+       sodipodi:nodetypes="cc"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 500,980 V 140"
+       id="path98"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect1032"
+       width="240"
+       height="160"
+       x="900"
+       y="460"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="-220"
+       y="440"
+       id="text9390"
+       transform="rotate(-90)"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan9388"
+         x="-220"
+         y="440">space</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="1300"
+       y="1020"
+       id="text11770"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96"><tspan
+         sodipodi:role="line"
+         id="tspan11768"
+         x="1300"
+         y="1020">time</tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 580,920 v 40"
+       id="path48094"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 660,920 v 40"
+       id="path48096"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 740,920 v 40"
+       id="path48098"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 820,920 v 40"
+       id="path48100"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 900,920 v 40"
+       id="path48102"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 980,920 v 40"
+       id="path48104"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 1060,920 v 40"
+       id="path48106"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 1140,920 v 40"
+       id="path48108"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 1220,920 v 40"
+       id="path48110"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 1300,920 v 40"
+       id="path48112"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="660"
+       y="1000"
+       id="text49920"><tspan
+         sodipodi:role="line"
+         id="tspan49918"
+         x="660"
+         y="1000">1</tspan><tspan
+         sodipodi:role="line"
+         x="660"
+         y="1040"
+         id="tspan208062">s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="740"
+       y="1000"
+       id="text52288"><tspan
+         sodipodi:role="line"
+         id="tspan52286"
+         x="740"
+         y="1000">10</tspan><tspan
+         sodipodi:role="line"
+         x="740"
+         y="1040"
+         id="tspan202282">s</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="820"
+       y="1000"
+       id="text54404"><tspan
+         sodipodi:role="line"
+         id="tspan54402"
+         x="820"
+         y="1000">1</tspan><tspan
+         sodipodi:role="line"
+         x="820"
+         y="1040"
+         id="tspan211232">min</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="900"
+       y="1000"
+       id="text56532"><tspan
+         sodipodi:role="line"
+         id="tspan56530"
+         x="900"
+         y="1000">10</tspan><tspan
+         sodipodi:role="line"
+         x="900"
+         y="1040"
+         id="tspan215668">min</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="980"
+       y="1000"
+       id="text60232"><tspan
+         sodipodi:role="line"
+         id="tspan60230"
+         x="980"
+         y="1000">1</tspan><tspan
+         sodipodi:role="line"
+         x="980"
+         y="1040"
+         id="tspan220930">h</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="580"
+       y="1000"
+       id="text65054"><tspan
+         sodipodi:role="line"
+         id="tspan65052"
+         x="580"
+         y="1000">100</tspan><tspan
+         sodipodi:role="line"
+         x="580"
+         y="1040"
+         id="tspan196388">ms</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="1060"
+       y="1000"
+       id="text92354"><tspan
+         sodipodi:role="line"
+         id="tspan92352"
+         x="1060"
+         y="1000">10</tspan><tspan
+         sodipodi:role="line"
+         x="1060"
+         y="1040"
+         id="tspan222582">h</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="1140"
+       y="1000"
+       id="text92358"><tspan
+         sodipodi:role="line"
+         id="tspan92356"
+         x="1140"
+         y="1000">1</tspan><tspan
+         sodipodi:role="line"
+         x="1140"
+         y="1040"
+         id="tspan236972">d</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="1220"
+       y="1000"
+       id="text92362"><tspan
+         sodipodi:role="line"
+         id="tspan92360"
+         x="1220"
+         y="1000">10</tspan><tspan
+         sodipodi:role="line"
+         x="1220"
+         y="1040"
+         id="tspan239902">d</tspan></text>
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,860 h 40"
+       id="path105654"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,780 h 40"
+       id="path105656"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,700 h 40"
+       id="path105658"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,620 h 40"
+       id="path105660"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,540 h 40"
+       id="path105662"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,460 h 40"
+       id="path105664"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,380 h 40"
+       id="path105666"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,300 h 40"
+       id="path105668"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <path
+       style="font-variation-settings:normal;opacity:1;vector-effect:none;fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;-inkscape-stroke:none;stop-color:#000000;stop-opacity:1"
+       d="m 480,220 h 40"
+       id="path105670"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="870"
+       id="text105767"><tspan
+         sodipodi:role="line"
+         id="tspan105765"
+         x="420"
+         y="870">1 mm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="790"
+       id="text112929"><tspan
+         sodipodi:role="line"
+         id="tspan112927"
+         x="420"
+         y="790">1 cm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="710"
+       id="text112933"><tspan
+         sodipodi:role="line"
+         id="tspan112931"
+         x="420"
+         y="710">10 cm</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="630"
+       id="text112937"><tspan
+         sodipodi:role="line"
+         id="tspan112935"
+         x="420"
+         y="630">1 m</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="550"
+       id="text112941"><tspan
+         sodipodi:role="line"
+         id="tspan112939"
+         x="420"
+         y="550">1 m</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="470"
+       id="text112945"><tspan
+         sodipodi:role="line"
+         id="tspan112943"
+         x="423.99997"
+         y="470">100 m </tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="390"
+       id="text112949"><tspan
+         sodipodi:role="line"
+         id="tspan112947"
+         x="420"
+         y="390">1 km</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="420"
+       y="310"
+       id="text112953"><tspan
+         sodipodi:role="line"
+         id="tspan112951"
+         x="420"
+         y="310">10 km</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant;text-align:center;text-anchor:middle"
+       x="1020"
+       y="526"
+       id="text247528"><tspan
+         sodipodi:role="line"
+         id="tspan247526"
+         x="1020"
+         y="526">Surface</tspan><tspan
+         sodipodi:role="line"
+         x="1020"
+         y="576"
+         id="tspan247530">Heating</tspan></text>
+    <rect
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:3;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="rect254012"
+       width="480"
+       height="240"
+       x="660"
+       y="460"
+       inkscape:export-filename="/home/lourens/NLeSC/projects/MC4DT/software/model-coupling-workshop/fig/ep02-scale-separation-map.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <text
+       xml:space="preserve"
+       style="font-size:40px;line-height:1.25;font-family:Assistant;-inkscape-font-specification:Assistant"
+       x="680"
+       y="592"
+       id="text258880"><tspan
+         sodipodi:role="line"
+         id="tspan258878"
+         x="680"
+         y="592">Atmosphere</tspan></text>
+  </g>
+</svg>
