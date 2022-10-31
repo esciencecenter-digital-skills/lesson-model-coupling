@@ -78,6 +78,25 @@ def diffusion() -> None:
         final_state_msg = Message(t_cur, None, Grid(U, ['x']))
         instance.send('final_state_out', final_state_msg)
 
+        if 'DONTPLOT' not in os.environ and 'SLURM_NODENAME' not in os.environ:
+            from matplotlib import pyplot as plt
+            plt.figure()
+            plt.imshow(
+                    np.log(Us + 1e-20),
+                    origin='upper',
+                    extent=[
+                        -0.5*dx, x_max - 0.5*dx,
+                        (t_max - 0.5*dt) * 1000.0, -0.5*dt * 1000.0],
+                    interpolation='none',
+                    aspect='auto'
+                    )
+            cbar = plt.colorbar()
+            cbar.set_label('log(Concentration)', rotation=270, labelpad=20)
+            plt.xlabel('x')
+            plt.ylabel('t (ms)')
+            plt.title('Concentration over time')
+            plt.show()
+
 
 if __name__ == '__main__':
     logging.basicConfig()
