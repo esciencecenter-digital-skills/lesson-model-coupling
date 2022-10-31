@@ -241,7 +241,7 @@ and draw them correspondingly.
 ### Scale relations
 
 a. Spatially (larger) and temporally (faster) scale separated.
-b. Spatially scale adjacent (larger), tomporally scale overlapping.
+b. Spatially scale adjacent (larger), temporally scale overlapping.
 c. Spatially scale adjacent (larger), temporally scale adjacent (larger).
 d. Spatially scale overlapping, temporally scale adjacent (smaller).
 e. Spatially scale overlapping, temporally scale separated (slower).
