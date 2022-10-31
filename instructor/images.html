@@ -189,7 +189,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-theory.html">2. Theory</a>
+        <a href="02-theory.html">2. Model coupling theory: the Multiscale Modelling and Simulation Framework</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -282,11 +282,23 @@
 <figure><img src="../fig/640px-DLR_2007_A380_sim_hires.jpg" alt="Computational fluid dynamics simulation of airflow over an aeroplane wing." class="figure mx-auto d-block"><figcaption>Computational fluid dynamics solver applied to A380 aircraft. (Image: DLR, CC-BY 3.0)</figcaption></figure><hr>
 <h3 id="01-introduction-figure-2">Figure 2</h3>
 <p aria-hidden="true">Image 1 of 1: ‘One box labelled Model A and another box labelled Model B. There is an arrow between A and B showing transfer of plane shape. There is an arrow from B to A showing transfer of resulting airflow stresses.’</p>
-<figure><img src="../fig/ep01-plane-model-coupling.png" alt="One box labelled Model A and another box labelled Model B. There is an arrow between A and B showing transfer of plane shape. There is an arrow from B to A showing transfer of resulting airflow stresses." class="figure mx-auto d-block"><figcaption>Models A and B for the plane coupling example</figcaption></figure><hr></section><section id="02-theory"><h2 class="section-heading"><a href="02-theory.html">Theory</a></h2>
+<figure><img src="../fig/ep01-plane-model-coupling.png" alt="One box labelled Model A and another box labelled Model B. There is an arrow between A and B showing transfer of plane shape. There is an arrow from B to A showing transfer of resulting airflow stresses." class="figure mx-auto d-block"><figcaption>Models A and B for the plane coupling example</figcaption></figure><hr></section><section id="02-theory"><h2 class="section-heading"><a href="02-theory.html">Model coupling theory: the Multiscale Modelling and Simulation Framework</a></h2>
 <hr class="half-width">
 <h3 id="02-theory-figure-1">Figure 1</h3>
-<p aria-hidden="true">Image 1 of 1: ‘Blue Carpentries hex person logo with no text.’</p>
-<figure><img src="https://raw.githubusercontent.com/carpentries/logo/master/Badge_Carpentries.svg" alt="Blue Carpentries hex person logo with no text." class="figure mx-auto d-block"><figcaption>You belong in The Carpentries!</figcaption></figure><hr></section><section id="03-muscle-connect"><h2 class="section-heading"><a href="03-muscle-connect.html">MUSCLE3 - connecting a model to MUSCLE</a></h2>
+<p aria-hidden="true">Image 1 of 1: ‘2D plot with time on the horizontal axis and space on the vertical axis. In the center there is a box, which is surrounded by dashed boxes labelled a through h.’</p>
+<figure><img src="../fig/ep02-scale-separation-map.png" alt="2D plot with time on the horizontal axis and space on the vertical axis. In the center there is a box, which is surrounded by dashed boxes labelled a through h." class="figure mx-auto d-block"><figcaption>The Scale Separation Map. The box in the center depicts the scale of a given process or model, the dashed boxes show possible other scales and the corresponding relationships.</figcaption></figure><hr>
+<h3 id="02-theory-figure-2">Figure 2</h3>
+<p aria-hidden="true">Image 1 of 1: ‘2D plot showing one large box for the atmosphere model, ranging from 1 second to 1 day and 10 cm to 100 m, and a smaller overlapping box for the surface heating model ranging from 10 mn to 1 day and 1m to 100m.’</p>
+<figure><img src="../fig/ep02-scale-separation-map-solution.png" alt="2D plot showing one large box for the atmosphere model, ranging from 1 second to 1 day and 10 cm to 100 m, and a smaller overlapping box for the surface heating model ranging from 10 mn to 1 day and 1m to 100m." class="figure mx-auto d-block"><figcaption>Scale Separation Map for the atmosphere/surface model.</figcaption></figure><hr>
+<h3 id="02-theory-figure-3">Figure 3</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Diagram showing a diamond marked f init, a circle marked O i, another circle marked S, and another diamond marked O f connected by arrows in order. Another arrow loops back from S to O i. A dashed arrow points into f init, another dashed arrow points away from O i, another points into S and a fourth dashed arrow points away from O f. The circle marked O i and the diamond marked O f are white on black, the others black on white.’</p>
+<figure><img src="../fig/ep02-submodel-execution-loop.png" alt="Diagram showing a diamond marked f init, a circle marked O i, another circle marked S, and another diamond marked O f connected by arrows in order. Another arrow loops back from S to O i. A dashed arrow points into f init, another dashed arrow points away from O i, another points into S and a fourth dashed arrow points away from O f. The circle marked O i and the diamond marked O f are white on black, the others black on white." class="figure mx-auto d-block"><figcaption>Submodel Execution Loop (SEL)</figcaption></figure><hr>
+<h3 id="02-theory-figure-4">Figure 4</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Three diagrams of the coupling templates. Each diagram shows two submodel execution loops. The first diagram is titled Dispatch. In it, O_F on the first SEL is connected to F_INIT on the second SEL. The second diagram is titled Interact. In it, O_I on each SEL is connected to S on the other. The third diagram is titled Call and Release. O_I on the first SEL is connected to F_INIT on the second, this is Call. O_F on the second SEL is connected to S on the first, this is Release.’</p>
+<figure><img src="../fig/ep02-coupling-templates.png" alt="Three diagrams of the coupling templates. Each diagram shows two submodel execution loops. The first diagram is titled Dispatch. In it, O_F on the first SEL is connected to F_INIT on the second SEL. The second diagram is titled Interact. In it, O_I on each SEL is connected to S on the other. The third diagram is titled Call and Release. O_I on the first SEL is connected to F_INIT on the second, this is Call. O_F on the second SEL is connected to S on the first, this is Release." class="figure mx-auto d-block"><figcaption>Coupling Templates</figcaption></figure><hr>
+<h3 id="02-theory-figure-5">Figure 5</h3>
+<p aria-hidden="true">Image 1 of 1: ‘Three diagrams of the coupling templates, this time in gMMSL. Each diagram shows two boxes. The top diagram is labelled dispatch and has the boxes labeled First and Second. A line connects a filled diamond on the box labelled first to an open diamond on the box labelled second. The bottom left diagram is labelled interact and has the boxes labeled A and B. A line connects a filled circle on box A to an open circle on box B, and another line connects a closed circle on box B to an open circle on box A. The bottom right diagram is labelled Call and Release. Its boxes are labelled Macro and Micro. A line connects a closed circle on Macro to an open diamond on Micro, and another line connects a filled diamond on Micro to an open circle on Macro. The box labeled Micro additionally has the number 10 written in its top right corner.’</p>
+<figure><img src="../fig/ep02-coupling-templates-mmsl.png" alt="Three diagrams of the coupling templates, this time in gMMSL. Each diagram shows two boxes. The top diagram is labelled dispatch and has the boxes labeled First and Second. A line connects a filled diamond on the box labelled first to an open diamond on the box labelled second. The bottom left diagram is labelled interact and has the boxes labeled A and B. A line connects a filled circle on box A to an open circle on box B, and another line connects a closed circle on box B to an open circle on box A. The bottom right diagram is labelled Call and Release. Its boxes are labelled Macro and Micro. A line connects a closed circle on Macro to an open diamond on Micro, and another line connects a filled diamond on Micro to an open circle on Macro. The box labeled Micro additionally has the number 10 written in its top right corner." class="figure mx-auto d-block"><figcaption>Coupling Templates in gMMSL</figcaption></figure><hr></section><section id="03-muscle-connect"><h2 class="section-heading"><a href="03-muscle-connect.html">MUSCLE3 - connecting a model to MUSCLE</a></h2>
 <hr class="half-width">
 <h3 id="03-muscle-connect-figure-1">Figure 1</h3>
 <p aria-hidden="true">Image 1 of 1: ‘gMMSL diagram for the reaction-diffusion model. Two boxes labeled macro and micro represent the two submodels. A line connects a filled circle labeled state_out on macro to an open diamond labeled state_in on micro. A second line connects a filled diamond labeled final_state on micro to an open circle labeled state_in on macro.’</p>
@@ -343,8 +355,8 @@
   "url": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/images.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/images.html",
   "dateCreated": "2022-08-16",
-  "dateModified": "2022-10-27",
-  "datePublished": "2022-10-27"
+  "dateModified": "2022-10-31",
+  "datePublished": "2022-10-31"
 }
 
   </script><script>

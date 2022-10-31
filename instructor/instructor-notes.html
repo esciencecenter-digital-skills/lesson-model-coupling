@@ -189,7 +189,7 @@
 <div class="accordion accordion-flush" id="accordionFlush3">
   <div class="accordion-item">
     <div class="accordion-header" id="flush-heading3">
-        <a href="02-theory.html">2. Theory</a>
+        <a href="02-theory.html">2. Model coupling theory: the Multiscale Modelling and Simulation Framework</a>
     </div>
 <!--/div.accordion-header-->
         
@@ -284,9 +284,99 @@ any links that you are not going to use.
 
 
       <section id="aggregate-instructor-notes"><section id="01-introduction"><h2 class="section-heading"><a href="01-introduction.html">Introduction to model coupling</a></h2>
-<hr class="half-width"></section><section id="02-theory"><h2 class="section-heading"><a href="02-theory.html">Theory</a></h2>
+<hr class="half-width"></section><section id="02-theory"><h2 class="section-heading"><a href="02-theory.html">Model coupling theory: the Multiscale Modelling and Simulation Framework</a></h2>
 <hr class="half-width">
-<p>Inline instructor notes can help inform instructors of timing challenges associated with the lessons. They appear in the “Instructor View”</p>
+<ul>
+<li>Where process takes place</li>
+<li>When process starts and ends (convergence, repetition)</li>
+<li>Partly a modelling decision</li>
+</ul>
+<hr>
+<ul>
+<li>Collect in shared document</li>
+<li>Discuss questions</li>
+</ul>
+<hr>
+<ul>
+<li>Grain and extent</li>
+<li>Again, partly modelling decision</li>
+</ul>
+<hr>
+<ul>
+<li>Add to shared document</li>
+</ul>
+<hr>
+<ul>
+<li>Time horizontal, space vertical</li>
+<li>Plotting scales, so sizes, not locations!</li>
+<li>Timestep and extent, grid spacing and size</li>
+</ul>
+<hr>
+<ul>
+<li>All together in class</li>
+</ul>
+<hr>
+<ul>
+<li>Model of a computational model</li>
+<li>Explain operators</li>
+<li>Begin/end vs. inside state update loop</li>
+<li>Filled output vs. open input</li>
+<li>Quite flexible</li>
+</ul>
+<hr>
+<ul>
+<li>How to connect two SELs?</li>
+<li>Time scales and domains are the most interesting part</li>
+<li>Update shared document with SEL connections, but after giving everyone a bit of time to think</li>
+<li>Three scenarios
+<ul>
+<li>Adjacent or separated time domains</li>
+<li>Overlapping domains and same time scale</li>
+<li>Overlapping domains and time scale separation</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>Three scenarios use four coupling templates</li>
+<li>Explain them, see picture</li>
+<li>These are all the possibilities!</li>
+</ul>
+<hr>
+<ul>
+<li>Space is also important of course</li>
+<li>Again three scenarios
+<ul>
+<li>Same domain and scale
+<ul>
+<li>May be best to make a single program</li>
+</ul>
+</li>
+<li>Same spatial domain, adjacent or separated scales
+<ul>
+<li>Multiple instances of the small one!</li>
+</ul>
+</li>
+<li>Adjacent spatial domains, same or overlapping spatial scales
+<ul>
+<li>For time-scale separation, the fast model needs to keep state!</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>These determine:
+<ul>
+<li>How many instances there are of each model</li>
+<li>Whether state or boundary conditions are exchanged</li>
+</ul>
+</li>
+<li>Challenge 5: Find examples in the shared document</li>
+</ul>
+<hr>
+<ul>
+<li>There’s a diagram language for showing coupled models: gMMSL</li>
+<li>Explain the diagram together (in the shared document)</li>
+</ul>
 <hr></section><section id="03-muscle-connect"><h2 class="section-heading"><a href="03-muscle-connect.html">MUSCLE3 - connecting a model to MUSCLE</a></h2>
 <hr class="half-width"></section><section id="04-muscle-couple"><h2 class="section-heading"><a href="04-muscle-couple.html">MUSCLE3 - coupling and running</a></h2>
 <hr class="half-width">
@@ -340,8 +430,8 @@ any links that you are not going to use.
   "url": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/instructor-notes.html",
   "identifier": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/instructor-notes.html",
   "dateCreated": "2022-08-16",
-  "dateModified": "2022-10-27",
-  "datePublished": "2022-10-27"
+  "dateModified": "2022-10-31",
+  "datePublished": "2022-10-31"
 }
 
   </script><script>
