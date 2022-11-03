@@ -248,7 +248,7 @@
         <h1>MUSCLE3 - connecting a model to MUSCLE</h1>
         <p> Last updated on 2022-10-31 | 
         
-        <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <a href="https://github.com/esciencecenter-digital-skills/lesson-model-coupling/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
         
         
@@ -293,7 +293,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <ul><li>MUSCLE3 makes coupled simulations easy</li>
 <li>Made by UvA-CSL and NLeSC</li>
@@ -335,7 +335,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <ul><li>Reaction function is a very small (but typical) model code
 <ul><li>Copy the state from the input to avoid overwriting it</li>
@@ -410,7 +410,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -459,7 +459,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
 <div class="accordion-body">
 <ul><li>Instance represents this model instance to the coupled simulation</li>
 <li>Send and receive messages on ports (don’t know what’s connected!)</li>
@@ -505,7 +505,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>In this model, we need:</p>
 <ul><li>a single input port that will receive an initial state (e.g. named “initial_state”) at the beginning of the model run and it should be mapped to the <span class="math inline">\(f_{init}\)</span> operator</li>
@@ -524,7 +524,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor4" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor4" aria-labelledby="headingInstructor4">
+<div id="collapseInstructor4" class="accordion-collapse collapse" aria-labelledby="headingInstructor4" data-bs-parent="#accordionInstructor4">
 <div class="accordion-body">
 <ul><li>Sometimes a model needs to run many times, depending on how it’s connected</li>
 <li>MUSCLE3 can figure that out, but we do need to add a loop to implement it</li>
@@ -563,7 +563,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -620,7 +620,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor5" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor5" aria-labelledby="headingInstructor5">
+<div id="collapseInstructor5" class="accordion-collapse collapse" aria-labelledby="headingInstructor5" data-bs-parent="#accordionInstructor5">
 <div class="accordion-body">
 <ul><li>Handy to have all the settings together in one place</li>
 <li>Models get them via the instance object (see syntax)
@@ -675,7 +675,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -720,7 +720,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor6" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor6" aria-labelledby="headingInstructor6">
+<div id="collapseInstructor6" class="accordion-collapse collapse" aria-labelledby="headingInstructor6" data-bs-parent="#accordionInstructor6">
 <div class="accordion-body">
 <ul><li>Now, we need to receive our initial state from the appropriate port</li>
 <li>
@@ -766,7 +766,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor7" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor7" aria-labelledby="headingInstructor7">
+<div id="collapseInstructor7" class="accordion-collapse collapse" aria-labelledby="headingInstructor7" data-bs-parent="#accordionInstructor7">
 <div class="accordion-body">
 <ul><li>We won’t try to connect anything to our <code>O_i</code> and <code>S</code>
 <ul><li>No ports</li>
@@ -804,7 +804,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -863,7 +863,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor8" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor8" aria-labelledby="headingInstructor8">
+<div id="collapseInstructor8" class="accordion-collapse collapse" aria-labelledby="headingInstructor8" data-bs-parent="#accordionInstructor8">
 <div class="accordion-body">
 <ul><li>At the end of the run, we need to send the final state</li>
 <li>Create a <code>Message</code>
@@ -921,7 +921,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1007,13 +1007,13 @@ any links that you are not going to use.
 				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
         
-        <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit on GitHub</a>
+        <a href="https://github.com/esciencecenter-digital-skills/lesson-model-coupling/edit/main/episodes/03-muscle-connect.md" class="external-link">Edit on GitHub</a>
         
         
         
-        | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
-        | <a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/" class="external-link">Source</a></p>
-				<p><a href="https://github.com/esciencecenter-digital-skills/model-coupling-workshop/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:training@esciencecenter.nl">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
+        | <a href="https://github.com/esciencecenter-digital-skills/lesson-model-coupling/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/esciencecenter-digital-skills/lesson-model-coupling/" class="external-link">Source</a></p>
+				<p><a href="https://github.com/esciencecenter-digital-skills/lesson-model-coupling/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:training@esciencecenter.nl">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
         
@@ -1034,14 +1034,14 @@ any links that you are not going to use.
     {
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
-  "@id": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/03-muscle-connect.html",
+  "@id": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/instructor/03-muscle-connect.html",
   "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "multiscale, modeling, simulation, coupling, multiphyiscs",
   "name": "MUSCLE3 - connecting a model to MUSCLE",
   "creativeWorkStatus": "active",
-  "url": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/03-muscle-connect.html",
-  "identifier": "https://esciencecenter-digital-skills.github.io/model-coupling-workshop/instructor/03-muscle-connect.html",
+  "url": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/instructor/03-muscle-connect.html",
+  "identifier": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/instructor/03-muscle-connect.html",
   "dateCreated": "2022-08-16",
   "dateModified": "2022-10-31",
   "datePublished": "2022-11-03"
