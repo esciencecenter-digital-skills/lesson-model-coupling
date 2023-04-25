@@ -296,7 +296,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <ul><li>Write differences between <code>diffusion.py</code> and <code>reaction.py</code> in shared document
 <ul><li>Besides the model, of course</li>
@@ -325,7 +325,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <ul><li>The ports are named differently, and are attached to different operators</li>
 <li>The send and receive statements are now within the state update loop</li>
@@ -343,7 +343,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <ul><li>Time to connect the two models together, see diagram</li>
 <li>Computers don’t read diagrams very well, so there is yMMSL, based on YAML</li>
@@ -400,7 +400,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -443,7 +443,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
 <div class="accordion-body">
 <ul><li>Remember that we’re getting our settings from MUSCLE3, they need to be added</li>
 <li>It’s a YAML dict, but look at the names of the settings, does anything stand out?</li>
@@ -476,7 +476,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor4" class="accordion-collapse collapse" aria-labelledby="headingInstructor4" data-bs-parent="#accordionInstructor4">
+<div id="collapseInstructor4" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor4" aria-labelledby="headingInstructor4">
 <div class="accordion-body">
 <ul><li>Resources are a bit of an advance topic, so we’re not going into it here</li>
 <li>We need to specify something, which is that our components are single-threaded</li>
@@ -505,7 +505,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor5" class="accordion-collapse collapse" aria-labelledby="headingInstructor5" data-bs-parent="#accordionInstructor5">
+<div id="collapseInstructor5" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor5" aria-labelledby="headingInstructor5">
 <div class="accordion-body">
 <ul><li>To connect, need model functions and configuration, then tie together</li>
 <li>Show code snippets</li>
@@ -567,7 +567,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>$ python3 coupled_model.py</p>
 </div>
@@ -584,7 +584,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor6" class="accordion-collapse collapse" aria-labelledby="headingInstructor6" data-bs-parent="#accordionInstructor6">
+<div id="collapseInstructor6" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor6" aria-labelledby="headingInstructor6">
 <div class="accordion-body">
 <ul><li>This one may be a bit more difficult, but needed for C++, Fortran and HPC</li>
 <li>Manager lets you use programs instead of Python functions to create instances</li>
@@ -647,7 +647,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>To turn <code>reaction.py</code> into a stand-alone program, you need to add the final section of <code>diffusion.py</code> to the end, slightly modified:</p>
 <pre><code>if __name__ == '__main__':
@@ -722,7 +722,7 @@ any links that you are not going to use.
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.15" class="external-link">sandpaper (0.11.15)</a>,
-        <a href="https://github.com/carpentries/pegboard/tree/0.5.2" class="external-link">pegboard (0.5.2)</a>,
+        <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
@@ -745,7 +745,7 @@ any links that you are not going to use.
   "identifier": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/instructor/04-muscle-couple.html",
   "dateCreated": "2022-08-16",
   "dateModified": "2022-10-31",
-  "datePublished": "2023-04-18"
+  "datePublished": "2023-04-25"
 }
 
   </script><script>
