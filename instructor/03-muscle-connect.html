@@ -293,7 +293,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <ul><li>MUSCLE3 makes coupled simulations easy</li>
 <li>Made by UvA-CSL and NLeSC</li>
@@ -335,7 +335,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
 <div class="accordion-body">
 <ul><li>Reaction function is a very small (but typical) model code
 <ul><li>Copy the state from the input to avoid overwriting it</li>
@@ -368,12 +368,12 @@
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> U</span></code></pre>
 </div>
 <p>The function starts with defining some parameters that are used for the calculations in the main <code>while</code> loop. The <code>initial_state</code> is copied to a new working state <code>U</code> before the simulation starts.</p>
-<div id="callout1" class="callout callout">
+<div id="why-.copy" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="why-.copy" class="callout-inner">
-<h3 class="callout-title">Why .copy()?<a class="anchor" aria-label="anchor" href="#callout1"></a>
+<h3 class="callout-title">Why .copy()?<a class="anchor" aria-label="anchor" href="#why-.copy"></a>
 </h3>
 <div class="callout-content">
 <p>Instead of using <code>.copy()</code>, we could also just assign <code>U</code> to equal the initial state (e.g. <code>U = initial_state</code>). For this particular example it would not matter since we do not use <code>initial_state</code> anymore. But if we did that, we would change the contents of <code>initial_state</code> every time we do an operation on <code>U</code>, because both variables would point to the same object. Since the variable is called <code>initial_state</code> it would be very confusing if it would change during the model execution. When you want to expand or change the model later on, it can be dangerous if variables do not behave as their name suggests.</p>
@@ -381,12 +381,12 @@
 </div>
 </div>
 <p>At every iteration of the loop, the state <code>U</code> is updated by adding a fraction of the old state, scaled by the parameter k and the size of a time step. Also the time counter <code>t_cur</code> is incremented with one time step. The <code>while</code> loop continues to run until <code>t_cur</code> has reached the value of the parameter <code>t_max</code>. Finally, when it exits the loop, the function returns the updated state <code>U</code>.</p>
-<div id="challenge1" class="callout challenge">
+<div id="challenge-1-can-you-recognize-the-submodel-execution-loop" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-1-can-you-recognize-the-submodel-execution-loop" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Can you recognize the Submodel Execution Loop?<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge 1: Can you recognize the Submodel Execution Loop?<a class="anchor" aria-label="anchor" href="#challenge-1-can-you-recognize-the-submodel-execution-loop"></a>
 </h3>
 <div class="callout-content">
 <p>In the previous episode we have discussed the Submodel Execution Loop (SEL) and the various operators that are associated with it. In the code of the <code>reaction</code> function, can you recognize the beginning and end of the four operators (<span class="math inline">\(f_{init}\)</span>, <span class="math inline">\(O_i\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_f\)</span> ) plus the state update loop in this submodel? Mark these by placing the following 10 comments in the code:</p>
@@ -410,7 +410,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -459,7 +459,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor3" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor3" aria-labelledby="headingInstructor3">
+<div id="collapseInstructor3" class="accordion-collapse collapse" aria-labelledby="headingInstructor3" data-bs-parent="#accordionInstructor3">
 <div class="accordion-body">
 <ul><li>Instance represents this model instance to the coupled simulation</li>
 <li>Send and receive messages on ports (don’t know what’s connected!)</li>
@@ -486,12 +486,12 @@
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>            Operator.O_F: [<span class="st">'final_state_a'</span>, <span class="st">'final_state_b'</span>]})</span></code></pre>
 </div>
 <p>The constructor takes a single argument, a dictionary that maps <code>ymmsl.Operator</code> objects to lists of ports. Ports are used to communicate with other simulation components. They have a name, and they are associated with a Submodel Execution Loop operator, which determines whether they are input or output ports. The operator that they are mapped to determines how the port is used, as explained in the previous episode. The names of the available operators correspond to their theoretical counterparts (<span class="math inline">\(f_{init}\)</span>, <span class="math inline">\(O_i\)</span>, <span class="math inline">\(S\)</span> and <span class="math inline">\(O_f\)</span> ).</p>
-<div id="challenge2" class="callout challenge">
+<div id="what-ports-do-we-need" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="what-ports-do-we-need" class="callout-inner">
-<h3 class="callout-title">What ports do we need?<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">What ports do we need?<a class="anchor" aria-label="anchor" href="#what-ports-do-we-need"></a>
 </h3>
 <div class="callout-content">
 <p>Question: In our example of the reaction submodel, what ports do we need to communicate the model state to the outside world? Come up with good names. What operators would we need to map them to?</p>
@@ -505,7 +505,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>In this model, we need:</p>
 <ul><li>a single input port that will receive an initial state (e.g. named “initial_state”) at the beginning of the model run and it should be mapped to the <span class="math inline">\(f_{init}\)</span> operator</li>
@@ -524,7 +524,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor4" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor4" aria-labelledby="headingInstructor4">
+<div id="collapseInstructor4" class="accordion-collapse collapse" aria-labelledby="headingInstructor4" data-bs-parent="#accordionInstructor4">
 <div class="accordion-body">
 <ul><li>Sometimes a model needs to run many times, depending on how it’s connected</li>
 <li>MUSCLE3 can figure that out, but we do need to add a loop to implement it</li>
@@ -542,12 +542,12 @@
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>        <span class="co"># State update loop</span></span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>        <span class="co"># O_F</span></span></code></pre>
 </div>
-<div id="challenge3" class="callout challenge">
+<div id="challenge-2-creating-an-instance-and-adding-a-loop" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-2-creating-an-instance-and-adding-a-loop" class="callout-inner">
-<h3 class="callout-title">Challenge 2: Creating an Instance and adding a loop<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge 2: Creating an Instance and adding a loop<a class="anchor" aria-label="anchor" href="#challenge-2-creating-an-instance-and-adding-a-loop"></a>
 </h3>
 <div class="callout-content">
 <p>Add the following to our reaction model code:</p>
@@ -563,7 +563,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb5">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -620,7 +620,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor5" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor5" aria-labelledby="headingInstructor5">
+<div id="collapseInstructor5" class="accordion-collapse collapse" aria-labelledby="headingInstructor5" data-bs-parent="#accordionInstructor5">
 <div class="accordion-body">
 <ul><li>Handy to have all the settings together in one place</li>
 <li>Models get them via the instance object (see syntax)
@@ -637,24 +637,24 @@
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    some_variable <span class="op">=</span> instance.get_setting(<span class="st">'variable_name'</span>, <span class="st">'variable_type'</span>)</span></code></pre>
 </div>
-<div id="callout2" class="callout callout">
+<div id="type-checking" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="type-checking" class="callout-inner">
-<h3 class="callout-title">Type checking<a class="anchor" aria-label="anchor" href="#callout2"></a>
+<h3 class="callout-title">Type checking<a class="anchor" aria-label="anchor" href="#type-checking"></a>
 </h3>
 <div class="callout-content">
 <p>The second argument, which specifies the expected type, is optional. If it is given, MUSCLE will check that the user specified a value of the correct type, and if not raise an exception.</p>
 </div>
 </div>
 </div>
-<div id="challenge4" class="callout challenge">
+<div id="challenge-3" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-3" class="callout-inner">
-<h3 class="callout-title">Challenge 3:<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge 3:<a class="anchor" aria-label="anchor" href="#challenge-3"></a>
 </h3>
 <div class="callout-content">
 <p>In our example, several settings have been hard-coded into the model:</p>
@@ -675,7 +675,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -720,7 +720,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor6" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor6" aria-labelledby="headingInstructor6">
+<div id="collapseInstructor6" class="accordion-collapse collapse" aria-labelledby="headingInstructor6" data-bs-parent="#accordionInstructor6">
 <div class="accordion-body">
 <ul><li>Now, we need to receive our initial state from the appropriate port</li>
 <li>
@@ -743,12 +743,12 @@
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> msg.data.array.copy()</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    timestamp <span class="op">=</span> msg.timestamp</span></code></pre>
 </div>
-<div id="callout3" class="callout callout">
+<div id="why-.copy-again" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="why-.copy-again" class="callout-inner">
-<h3 class="callout-title">Why .copy() again?<a class="anchor" aria-label="anchor" href="#callout3"></a>
+<h3 class="callout-title">Why .copy() again?<a class="anchor" aria-label="anchor" href="#why-.copy-again"></a>
 </h3>
 <div class="callout-content">
 <p>The <code>msg.data</code> attribute holds an object of type <code>libmuscle.Grid</code>, which holds a read-only NumPy array and optionally a list of index names. Here, we take the array and make a copy of it for <code>data</code>, so that we can modify <code>data</code> in our upcoming state update. Without calling <code>.copy()</code>, the variable <code>data</code> would end up pointing to the same read-only array, and we would get an error message if we tried to modify it.</p>
@@ -766,7 +766,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor7" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor7" aria-labelledby="headingInstructor7">
+<div id="collapseInstructor7" class="accordion-collapse collapse" aria-labelledby="headingInstructor7" data-bs-parent="#accordionInstructor7">
 <div class="accordion-body">
 <ul><li>We won’t try to connect anything to our <code>O_i</code> and <code>S</code>
 <ul><li>No ports</li>
@@ -784,12 +784,12 @@
 <p>The actual state update happens in the operator <span class="math inline">\(S\)</span> in the Submodel Execution Loop and, in our example model, it is determined entirely by the current state. Since no information from outside is needed, we do not receive any messages, and in our <code>libmuscle.Instance</code> declaration above, we did not declare any ports associated with <code>Operator.S</code>.</p>
 <p>The operator <code>O_I</code> provides for observations of intermediate states. In other words, here is where you can send a message to the outside world with (part of) the current state. In this case, the <code>O_I</code> operator is empty; we’re not sending anything.</p>
 <p>One thing we need to be aware of is time. Most models depend on time in some way and it is good to be aware of the various time frames. Libmuscles messages support passing on timestamps to be able to keep track of the global simulation time of the coupled model. It is easier to keep track of only one time frame and it is therefore good practice to add the timestamp that accompanied the initial state to the sub-model simulation time steps instead of starting at zero for every sub-model instance.</p>
-<div id="challenge5" class="callout challenge">
+<div id="challenge-4-receiving-the-initial-state-and-keeping-track-of-time" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-4-receiving-the-initial-state-and-keeping-track-of-time" class="callout-inner">
-<h3 class="callout-title">Challenge 4: Receiving the initial state and keeping track of time<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Challenge 4: Receiving the initial state and keeping track of time<a class="anchor" aria-label="anchor" href="#challenge-4-receiving-the-initial-state-and-keeping-track-of-time"></a>
 </h3>
 <div class="callout-content">
 <p>Where previously we had received <code>initial_state</code> from the function call, we now want to get it through a libmuscle message. Add statements to receive a message on the <code>initial_state</code> port and store the <code>data</code> and <code>timestamp</code> attributes in an appropriate place.</p>
@@ -804,7 +804,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -837,12 +837,12 @@
 <span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a>        <span class="cf">while</span> t_cur <span class="op">+</span> dt <span class="op">&lt;</span> t_max:</span>
 <span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a>        ...</span></code></pre>
 </div>
-<div id="callout4" class="callout callout">
+<div id="time-keeping" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="time-keeping" class="callout-inner">
-<h3 class="callout-title">Time keeping<a class="anchor" aria-label="anchor" href="#callout4"></a>
+<h3 class="callout-title">Time keeping<a class="anchor" aria-label="anchor" href="#time-keeping"></a>
 </h3>
 <div class="callout-content">
 <p>Both <code>t_cur</code> and <code>t_max</code> used to be relative to the start of the submodel, but now represent absolute simulation time of the coupled system. The length of the while loop will not change, but in this way we would be able to send out the current global simulation time <code>t_cur</code> in the state update loop using the <code>I_O</code> operator. It is also possible to keep <code>t_cur</code> and <code>t_max</code> relative to the start of the submodel and only correct for the received global timestamp when you send out a message. It is often however preferable to keep track of only one single timeframe and make the corrections right at the receiving end.</p>
@@ -863,7 +863,7 @@
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor8" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor8" aria-labelledby="headingInstructor8">
+<div id="collapseInstructor8" class="accordion-collapse collapse" aria-labelledby="headingInstructor8" data-bs-parent="#accordionInstructor8">
 <div class="accordion-body">
 <ul><li>At the end of the run, we need to send the final state</li>
 <li>Create a <code>Message</code>
@@ -877,12 +877,12 @@
 </div>
 </div>
 <p>To send a message we first have to construct a <code>libmuscle.Message</code> object containing the current simulation time and the current state. We will convert the <code>numpy.array</code> to a <code>libmuscle.Grid</code> object first.</p>
-<div id="callout5" class="callout callout">
+<div id="muscle-grids" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
 <div id="muscle-grids" class="callout-inner">
-<h3 class="callout-title">MUSCLE grids<a class="anchor" aria-label="anchor" href="#callout5"></a>
+<h3 class="callout-title">MUSCLE grids<a class="anchor" aria-label="anchor" href="#muscle-grids"></a>
 </h3>
 <div class="callout-content">
 <p>We convert our <code>numpy.array</code> explicitly into a <code>libmuscle.Grid object</code>, so that we can add the name of the dimensions. In our example case there is only one, and “x” is not very descriptive, so we could have also passed the array directly, in which case MUSCLE would have done the conversion for us and sent a <code>libmuscle.Grid</code> without index names automatically.</p>
@@ -902,12 +902,12 @@
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>instance.send(<span class="st">'final_state'</span>, final_message)</span></code></pre>
 </div>
-<div id="challenge6" class="callout challenge">
+<div id="challenge-5-send-back-the-result" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-5-send-back-the-result" class="callout-inner">
-<h3 class="callout-title">Challenge 5: Send back the result<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Challenge 5: Send back the result<a class="anchor" aria-label="anchor" href="#challenge-5-send-back-the-result"></a>
 </h3>
 <div class="callout-content">
 <p>In the <span class="math inline">\(O_f\)</span> operator of your model construct a message and replace the return statement with a call to <code>libmuscle.Instance.send()</code> to send the final state to the outside world.</p>
@@ -921,7 +921,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1019,7 +1019,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -1043,7 +1043,7 @@ any links that you are not going to use.
   "identifier": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/instructor/03-muscle-connect.html",
   "dateCreated": "2022-08-16",
   "dateModified": "2022-10-31",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

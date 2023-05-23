@@ -286,12 +286,12 @@
 <hr class="half-width"><p>We managed to connect one of our sub-models, the reaction model, to MUSCLE. In order to make a coupled simulation, we need at least two models. The second model here is the diffusion model. We prepared it for you, adding the necessary MUSCLE bindings and comments similar to what we did for the reaction model. You can open it from <code>diffusion.py</code>.</p>
 </section><section id="investigating-the-macro-model"><h2 class="section-heading">Investigating the macro model<a class="anchor" aria-label="anchor" href="#investigating-the-macro-model"></a>
 </h2>
-<hr class="half-width"><div id="challenge1" class="callout challenge">
+<hr class="half-width"><div id="challenge-1-investigating-the-diffusion-model" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-1-investigating-the-diffusion-model" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Investigating the diffusion model<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge 1: Investigating the diffusion model<a class="anchor" aria-label="anchor" href="#challenge-1-investigating-the-diffusion-model"></a>
 </h3>
 <div class="callout-content">
 <p>The <code>diffusion.py</code> file contains a couple of functions, as well as a few lines of code that may come in useful later. For now, let’s focus on the <code>diffusion</code> function.</p>
@@ -306,7 +306,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <ul><li>The ports are named differently, and are attached to different operators</li>
 <li>The send and receive statements are now within the state update loop</li>
@@ -318,12 +318,12 @@
 </h2>
 <hr class="half-width"><p>With both models defined, we now need to instruct MUSCLE3 on how to connect them together. Recall the gMMSL diagram from the previous episode (with port names, this time):</p>
 <figure><img src="fig/ep04-reaction-diffusion-coupling.png" alt="gMMSL diagram for the reaction-diffusion model. Two boxes labeled macro and micro represent the two submodels. A line connects a filled circle labeled state_out on macro to an open diamond labeled state_in on micro. A second line connects a filled diamond labeled final_state on micro to an open circle labeled state_in on macro." class="figure mx-auto d-block"><figcaption>gMMSL diagram for the reaction-diffusion model</figcaption></figure><p>Since diagrams aren’t valid Python, we need an alternative way of describing this model in our code. For this, we will create a MUSCLE configuration file written in the yMMSL language. This file tells the MUSCLE manager about the existence of each submodel and how it should be connected to the other components.</p>
-<div id="challenge2" class="callout challenge">
+<div id="challenge-2-creating-the-ymmsl-file" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-2-creating-the-ymmsl-file" class="callout-inner">
-<h3 class="callout-title">Challenge 2: Creating the yMMSL file<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge 2: Creating the yMMSL file<a class="anchor" aria-label="anchor" href="#challenge-2-creating-the-ymmsl-file"></a>
 </h3>
 <div class="callout-content">
 <p>Open the file <code>reaction_diffusion.ymmsl</code>. In it, you’ll find an incomplete yMMSL description of the coupled simulation, as shown below. Your challenge? Complete it!</p>
@@ -361,7 +361,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">YAML<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -457,12 +457,12 @@
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>run_simulation(configuration, implementations)</span></code></pre>
 </div>
 <p>You will find a <code>coupled_model.py</code> file with the others, which implements the above. It also configures Python’s logging subsystem to give us a bit more log output.</p>
-<div id="challenge3" class="callout challenge">
+<div id="challenge-3-running-the-coupled-simulation" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-3-running-the-coupled-simulation" class="callout-inner">
-<h3 class="callout-title">Challenge 3: Running the coupled simulation<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge 3: Running the coupled simulation<a class="anchor" aria-label="anchor" href="#challenge-3-running-the-coupled-simulation"></a>
 </h3>
 <div class="callout-content">
 <p>If you haven’t already done so, add the settings and resources to your <code>reaction_diffusion.ymmsl</code>. Then, have a look at the <code>coupled_model.py</code> script and see if you can run it. It should show a plot on the screen showing the concentration over time. If not, try to find the problem! You should have a <code>muscle_manager.log</code> file, and maybe a <code>muscle3.micro.log</code> and <code>muscle3.macro.log</code> to help you figure out what went wrong.</p>
@@ -476,7 +476,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <p>$ python3 coupled_model.py</p>
 </div>
@@ -496,12 +496,12 @@
 <dt>Implementation</dt>
 <dd>A computer program (e.g. a Python script) that can be started to create an instance.
 </dd>
-</dl><div id="challenge4" class="callout challenge">
+</dl><div id="challenge-4-running-using-the-manager" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-4-running-using-the-manager" class="callout-inner">
-<h3 class="callout-title">Challenge 4: Running using the manager<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge 4: Running using the manager<a class="anchor" aria-label="anchor" href="#challenge-4-running-using-the-manager"></a>
 </h3>
 <div class="callout-content">
 <p>In this final challenge, we’ll run the reaction-diffusion model using the MUSCLE3 manager. This takes three steps: turning the reaction model into a stand-alone program, telling the manager how to start the programs, and finally running it all.</p>
@@ -534,7 +534,7 @@
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>To turn <code>reaction.py</code> into a stand-alone program, you need to add the final section of <code>diffusion.py</code> to the end, slightly modified:</p>
 <pre><code>if __name__ == '__main__':
@@ -608,7 +608,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -632,7 +632,7 @@ any links that you are not going to use.
   "identifier": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/04-muscle-couple.html",
   "dateCreated": "2022-08-16",
   "dateModified": "2022-10-31",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>

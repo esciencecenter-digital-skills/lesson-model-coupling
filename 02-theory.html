@@ -290,12 +290,12 @@
 <hr class="half-width"><p>Mathematical and simulation models represent some kind of process, which takes place in a certain location in time and in space: its domain. The weather takes place in the atmosphere, earthquakes in the Earth’s crust, a forest fire in a forest. In time, that forest fire begins with a lightning strike and ends when the flames are extinguished, and even continuous processes like the airflow around an aeroplane wing can be considered to start when circumstances change and end when a steady state is reached again.</p>
 <p>The domains of two models can be the <em>same</em>, <em>overlapping</em>, <em>adjacent</em>, or <em>separated</em>, in both space and time. This is important for the coupling between them, because it decides what is sent (state or boundary conditions) and when it is sent.</p>
 
-<div id="challenge1" class="callout challenge">
+<div id="challenge-1-models-and-domains" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-1-models-and-domains" class="callout-inner">
-<h3 class="callout-title">Challenge 1: Models and domains<a class="anchor" aria-label="anchor" href="#challenge1"></a>
+<h3 class="callout-title">Challenge 1: Models and domains<a class="anchor" aria-label="anchor" href="#challenge-1-models-and-domains"></a>
 </h3>
 <div class="callout-content">
 <p>Think of two models that could potentially be coupled, and describe each model’s domain in time and space and the relation between them.</p>
@@ -312,7 +312,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="example-coupled-model">Example coupled model<a class="anchor" aria-label="anchor" href="#example-coupled-model"></a></h3>
@@ -332,12 +332,12 @@
 </h2>
 <hr class="half-width"><p>A second important property of a physical process is the scales, again in time and in space, on which it takes place. A scale can be defined by its grain and extent. There are many other terms in use for these, but we’ll use these here because they’re less ambiguous than most. The <em>grain</em> refers to the smallest detail that the model can represent. In practice, that is usually set by the timestep (in time), grid spacing, or size of an agent (in space). If these can vary throughout the domain, pick the smallest. The <em>extent</em> refers to the size of the process in space and time, so the size of its domain. How long does it take to complete (or to reach a steady state), and how large an area is modelled?</p>
 
-<div id="challenge2" class="callout challenge">
+<div id="challenge-2-models-and-scales" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-2-models-and-scales" class="callout-inner">
-<h3 class="callout-title">Challenge 2: Models and scales<a class="anchor" aria-label="anchor" href="#challenge2"></a>
+<h3 class="callout-title">Challenge 2: Models and scales<a class="anchor" aria-label="anchor" href="#challenge-2-models-and-scales"></a>
 </h3>
 <div class="callout-content">
 <p>What are the scales of the models you previously considered the domains of? What are their grain and extent in space and in time?</p>
@@ -351,7 +351,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="surface">Surface<a class="anchor" aria-label="anchor" href="#surface"></a></h3>
@@ -373,12 +373,12 @@
 <p>As you can see, we can plot multiple models on a Scale Separation Map and when we do, the map shows the relationship between the scales of two models. Both horizontally and vertically, model rectangles can have a gap between them (i.e. be separated), or be adjacent, or overlap, and the corresponding models are said to be scale separated, scale adjacent or scale overlapping in space and/or in time.</p>
 <p>For coupling, it is actually only these relationships that matter. Even if you don’t know the exact grain or extent of a particular model, you can often decide whether it’s smaller, larger or the same as the grain or extent of another model and draw them correspondingly.</p>
 
-<div id="challenge3" class="callout challenge">
+<div id="challenge-3-scale-separation-map" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-3-scale-separation-map" class="callout-inner">
-<h3 class="callout-title">Challenge 3: Scale Separation Map<a class="anchor" aria-label="anchor" href="#challenge3"></a>
+<h3 class="callout-title">Challenge 3: Scale Separation Map<a class="anchor" aria-label="anchor" href="#challenge-3-scale-separation-map"></a>
 </h3>
 <div class="callout-content">
 <ul><li>What are the relations of scales a through h in the figure relative to the reference scale?</li>
@@ -393,7 +393,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="scale-relations">Scale relations<a class="anchor" aria-label="anchor" href="#scale-relations"></a></h3>
@@ -476,12 +476,12 @@
 <div class="section level3">
 <h3 id="same-time-domains-and-temporal-scale-separation">Same time domains and temporal scale separation<a class="anchor" aria-label="anchor" href="#same-time-domains-and-temporal-scale-separation"></a></h3>
 <p>A third interesting case is when two processes happen at the same time, but one process is much faster than the other, so that it runs to completion in (much) less time than it takes the other to do a timestep. In that case, the fast model needs to do an entire run for every timestep of the slow model.</p>
-<div id="challenge4" class="callout challenge">
+<div id="challenge-4-coupling-submodel-execution-loops" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-4-coupling-submodel-execution-loops" class="callout-inner">
-<h3 class="callout-title">Challenge 4: Coupling Submodel Execution Loops<a class="anchor" aria-label="anchor" href="#challenge4"></a>
+<h3 class="callout-title">Challenge 4: Coupling Submodel Execution Loops<a class="anchor" aria-label="anchor" href="#challenge-4-coupling-submodel-execution-loops"></a>
 </h3>
 <div class="callout-content">
 <p>We can represent each of the two models in the scenarios above as a Submodel Execution Loop. To connect the models, we then have to send information between the operators of the models. For each of the three cases, figure out how to connect the Submodel Execution Loops of the two models so that the correct communication pattern is implemented.</p>
@@ -495,7 +495,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>If the time domains are adjacent or separated, then the final output of the first model is used to initialise the subsequent model. We can implement this by sending information from the first model’s <span class="math inline">\(O_f\)</span> to the second model’s <span class="math inline">\(f_{init}\)</span>.</p>
 <p>If the temporal scales are the same, then the models exchange information every time they have a new state. This can be done by connecting each model’s <span class="math inline">\(O_i\)</span> to the other model’s <span class="math inline">\(S\)</span>, thus sending information at each step.</p>
@@ -551,12 +551,12 @@
 <div class="section level3">
 <h3 id="adjacent-spatial-domains-same-or-overlapping-spatial-scales">Adjacent spatial domains, same or overlapping spatial scales<a class="anchor" aria-label="anchor" href="#adjacent-spatial-domains-same-or-overlapping-spatial-scales"></a></h3>
 <p>If two processes are of similar size and resolution, but occur on adjacent domains, then they will each have their own state, and exchange boundary conditions. If there’s a temporal scale separation between them, then the call-and-release coupling template is used and the called (fast) model keeps its state in between calls.</p>
-<div id="challenge5" class="callout challenge">
+<div id="challenge-5-spatial-relations" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-5-spatial-relations" class="callout-inner">
-<h3 class="callout-title">Challenge 5: Spatial relations<a class="anchor" aria-label="anchor" href="#challenge5"></a>
+<h3 class="callout-title">Challenge 5: Spatial relations<a class="anchor" aria-label="anchor" href="#challenge-5-spatial-relations"></a>
 </h3>
 <div class="callout-content">
 <p>Think of an example for each of the above spatial domain and scale relations. Can you think of examples that don’t fit any of them?</p>
@@ -570,7 +570,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <ul><li>Reaction-diffusion models have the two processes acting on the same domain and spatial scale, but may be temporally scale-separated depending on parameter values.</li>
 <li>A crack propagation model coupling a continuum representation of a material sample to molecular mechanics models at specific points. Stresses and strains are exchanged in this case.</li>
@@ -583,12 +583,12 @@
 </section><section id="mmsl-diagrams"><h2 class="section-heading">MMSL Diagrams<a class="anchor" aria-label="anchor" href="#mmsl-diagrams"></a>
 </h2>
 <hr class="half-width"><p>For larger coupled simulations consisting of several submodels and other components, drawing the complete submodel execution loop as we did above gets too complicated. Fortunately, a simplified notation is available in the form of the Multiscale Modelling and Simulation Language (MMSL). This language describes a coupled simulation as a set of components and the connections between them. Its YAML-based form, yMMSL, is used as the configuration language for MUSCLE3 (more on which in the next episodes). Its graphical form, gMMSL, provides a compact visual representation of a coupled model:</p>
-<figure><img src="fig/ep02-coupling-templates-mmsl.png" alt="Three diagrams of the coupling templates, this time in gMMSL. Each diagram shows two boxes. The top diagram is labelled dispatch and has the boxes labeled First and Second. A line connects a filled diamond on the box labelled first to an open diamond on the box labelled second. The bottom left diagram is labelled interact and has the boxes labeled A and B. A line connects a filled circle on box A to an open circle on box B, and another line connects a closed circle on box B to an open circle on box A. The bottom right diagram is labelled Call and Release. Its boxes are labelled Macro and Micro. A line connects a closed circle on Macro to an open diamond on Micro, and another line connects a filled diamond on Micro to an open circle on Macro. The box labeled Micro additionally has the number 10 written in its top right corner." class="figure mx-auto d-block"><figcaption>Coupling Templates in gMMSL</figcaption></figure><div id="challenge6" class="callout challenge">
+<figure><img src="fig/ep02-coupling-templates-mmsl.png" alt="Three diagrams of the coupling templates, this time in gMMSL. Each diagram shows two boxes. The top diagram is labelled dispatch and has the boxes labeled First and Second. A line connects a filled diamond on the box labelled first to an open diamond on the box labelled second. The bottom left diagram is labelled interact and has the boxes labeled A and B. A line connects a filled circle on box A to an open circle on box B, and another line connects a closed circle on box B to an open circle on box A. The bottom right diagram is labelled Call and Release. Its boxes are labelled Macro and Micro. A line connects a closed circle on Macro to an open diamond on Micro, and another line connects a filled diamond on Micro to an open circle on Macro. The box labeled Micro additionally has the number 10 written in its top right corner." class="figure mx-auto d-block"><figcaption>Coupling Templates in gMMSL</figcaption></figure><div id="challenge-6-deciphering-gmmsl" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="challenge-6-deciphering-gmmsl" class="callout-inner">
-<h3 class="callout-title">Challenge 6: Deciphering gMMSL<a class="anchor" aria-label="anchor" href="#challenge6"></a>
+<h3 class="callout-title">Challenge 6: Deciphering gMMSL<a class="anchor" aria-label="anchor" href="#challenge-6-deciphering-gmmsl"></a>
 </h3>
 <div class="callout-content">
 <p>Explain the above figure.</p>
@@ -602,7 +602,7 @@
   Example solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Each box represents a submodel. The lines show where information is sent from one model to another. The diamonds and circles designate the SEL operators that information is sent from and to. A number in the top right corner of a box is optional, but when it’s there it shows how many instances of that submodel exist. In this case, the model at the bottom right has temporal and spatial scale separation, so it uses the call-and-release coupling template and has multiple instances of the micromodel.</p>
 </div>
@@ -673,7 +673,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.11.16" class="external-link">sandpaper (0.11.16)</a>,
+        <p>Built with <a href="https://github.com/carpentries/sandpaper/tree/0.12.0" class="external-link">sandpaper (0.12.0)</a>,
         <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.5.3)</a>,
       and <a href="https://github.com/carpentries/varnish/tree/0.2.16" class="external-link">varnish (0.2.16)</a>.</p>
 			</div>
@@ -697,7 +697,7 @@ any links that you are not going to use.
   "identifier": "https://esciencecenter-digital-skills.github.io/lesson-model-coupling/02-theory.html",
   "dateCreated": "2022-08-16",
   "dateModified": "2022-10-31",
-  "datePublished": "2023-05-16"
+  "datePublished": "2023-05-23"
 }
 
   </script><script>
